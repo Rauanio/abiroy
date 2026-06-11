@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abiroy — Продукция</title>
+    <!-- Шрифты: Manrope + SF Pro Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
+  </head>
+  <body class="flex min-h-screen flex-col bg-white text-gray-900">
+    {{> header }}
+
+    <main class="flex-1">
+      <!-- Хлебные крошки + заголовок -->
+      <section class="container-page px-6 pt-12 pb-6 sm:px-10 lg:px-[60px] lg:pt-16 lg:pb-10">
+        <nav class="flex items-center gap-1.5 text-[14px] lg:text-[20px]" aria-label="Хлебные крошки">
+          <a href="/index.html" class="text-[#999999] transition-colors hover:text-[#0160b1]">Главная</a>
+          <svg class="h-4 w-4 text-[#999999]" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path
+              d="M6 4l4 4-4 4"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span class="text-black">Продукция</span>
+        </nav>
+        <h1
+          class="mt-10 font-sf text-[44px] font-bold leading-none text-[#0160b1] sm:text-[64px] lg:mt-12 lg:text-[100px]"
+        >
+          Продукция
+        </h1>
+      </section>
+
+      <!-- Каталог продукции -->
+      <section class="bg-white">
+        <div class="container-page px-6 py-12 sm:px-10 lg:px-[60px] lg:py-[60px]">
+          <!-- Сетка карточек -->
+          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {{#each productCatalog}}
+            <a
+              href="/goods.html"
+              class="group relative flex h-[420px] flex-col overflow-hidden rounded-[8px] bg-[#f4f4f4] p-[30px] transition-shadow hover:shadow-md sm:h-[500px] lg:h-[568px]"
+            >
+              <!-- Заголовок + стрелка -->
+              <div class="relative z-10 flex items-start justify-between gap-4">
+                <h3 class="max-w-[323px] font-sf text-[20px] font-medium leading-snug text-[#64b6ff] lg:text-[22px]">
+                  {{ this.title }}
+                </h3>
+                <span class="shrink-0 text-[#0160b1] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                  <svg class="h-4 w-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M4 12 12 4M6 4h6v6" />
+                  </svg>
+                </span>
+              </div>
+              <span class="relative z-10 mt-[18px] block h-px w-full bg-[#dcdcdc]"></span>
+
+              <!-- Изображение продукта -->
+              <div class="relative flex-1">
+                <img
+                  src="{{ this.img }}"
+                  alt="{{ this.title }}"
+                  class="absolute left-1/2 top-1/2 w-[300px] max-w-full -translate-x-1/2 -translate-y-1/2 object-contain lg:w-[328px]"
+                />
+                <!-- Затухание к низу карточки -->
+                <div class="pointer-events-none absolute inset-x-0 bottom-[-30px] h-[200px] bg-gradient-to-b from-transparent to-[#f4f4f4]"></div>
+              </div>
+            </a>
+            {{/each}}
+          </div>
+
+          <!-- Пагинация -->
+          <nav class="mt-12 flex items-center justify-center gap-3 lg:mt-[60px]" aria-label="Пагинация">
+            <button
+              type="button"
+              aria-label="Назад"
+              class="flex size-12 items-center justify-center rounded-full bg-white text-[#999999] shadow-sm transition-colors hover:bg-gray-50 disabled:opacity-40"
+              disabled
+            >
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M15 5l-7 7 7 7" />
+              </svg>
+            </button>
+
+            <div class="flex items-center gap-2">
+              <button type="button" aria-current="page" class="flex size-12 items-center justify-center rounded-full bg-[#0160b1] font-sf text-[20px] font-semibold text-white">1</button>
+              <button type="button" class="flex size-12 items-center justify-center rounded-full bg-white font-sf text-[20px] font-semibold text-[#333333] transition-colors hover:bg-gray-50">2</button>
+              <button type="button" class="flex size-12 items-center justify-center rounded-full bg-white font-sf text-[20px] font-semibold text-[#333333] transition-colors hover:bg-gray-50">3</button>
+              <button type="button" class="hidden size-12 items-center justify-center rounded-full bg-white font-sf text-[20px] font-semibold text-[#333333] transition-colors hover:bg-gray-50 sm:flex">4</button>
+              <button type="button" class="hidden size-12 items-center justify-center rounded-full bg-white font-sf text-[20px] font-semibold text-[#333333] transition-colors hover:bg-gray-50 sm:flex">5</button>
+              <button type="button" class="hidden size-12 items-center justify-center rounded-full bg-white font-sf text-[20px] font-semibold text-[#333333] transition-colors hover:bg-gray-50 lg:flex">6</button>
+              <button type="button" class="hidden size-12 items-center justify-center rounded-full bg-white font-sf text-[20px] font-semibold text-[#333333] transition-colors hover:bg-gray-50 lg:flex">7</button>
+              <span class="flex size-12 items-center justify-center font-sf text-[20px] font-semibold text-[#999999]">...</span>
+            </div>
+
+            <button
+              type="button"
+              aria-label="Вперёд"
+              class="flex size-12 items-center justify-center rounded-full bg-white text-[#333333] shadow-sm transition-colors hover:bg-gray-50"
+            >
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </nav>
+        </div>
+      </section>
+    </main>
+
+    {{> footer }}
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

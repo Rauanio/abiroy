@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abiroy — Кейсы и клиенты</title>
+    <!-- Шрифты: Manrope + SF Pro Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
+  </head>
+  <body class="flex min-h-screen flex-col bg-white text-gray-900">
+    {{> header }}
+
+    <main class="flex-1">
+      <section class="container-page px-6 pt-12 pb-6 sm:px-10 lg:px-[40px] lg:pt-16 lg:pb-10">
+        <nav class="flex items-center gap-1.5 text-[14px] lg:text-[20px]" aria-label="Хлебные крошки">
+          <a href="/index.html" class="text-[#999999] transition-colors hover:text-[#0160b1]">Главная</a>
+          <svg class="h-4 w-4 text-[#999999]" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path
+              d="M6 4l4 4-4 4"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span class="text-black">Кейсы и клиенты</span>
+        </nav>
+        <h1
+          class="mt-10 font-sf text-[56px] font-bold leading-none text-[#0160b1] sm:text-[80px] lg:mt-12 lg:text-[100px]"
+        >
+          Кейсы и клиенты
+        </h1>
+      </section>
+
+      <p class="container-page px-6 sm:px-10 mb-10 font-sf">
+        Решение было интегрировано в существующую инфраструктуру без остановки работы логистического комплекса. Система
+        предусматривает удаленный мониторинг, автоматическую промывку фильтров и возможность масштабирования при
+        увеличении нагрузки на объект.
+      </p>
+
+      <!-- Кейсы: фильтры + слайдер -->
+      <section class="bg-[#f3f3f3]">
+        <div class="container-page px-6 py-12 sm:px-10 lg:px-[50px] lg:py-[70px]" data-cases>
+          <!-- Панель управления -->
+          <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <!-- Фильтры (выпадающие списки) -->
+            <div class="flex flex-wrap gap-3 lg:gap-5">
+              <!-- По отраслям -->
+              <div class="relative w-full sm:w-[263px]" data-filter-dropdown data-filter-key="industry">
+                <button
+                  type="button"
+                  data-filter-toggle
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  class="flex w-full items-center justify-between gap-2 rounded-[20px] border-[3px] border-white bg-white p-[13px] pl-5 "
+                >
+                  <span
+                    data-filter-label
+                    class="font-sf text-[18px] font-medium leading-tight text-black lg:text-[20px]"
+                    >По отраслям</span
+                  >
+                  <span class="flex size-9 shrink-0 items-center justify-center">
+                    <svg
+                      data-filter-arrow
+                      class="h-[8px] w-[12px] text-black transition-transform duration-200"
+                      viewBox="0 0 12 8"
+                      fill="none"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M1 1.5 6 6.5l5-5"
+                        stroke="currentColor"
+                        stroke-width="1.6"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </button>
+                <ul
+                  data-filter-menu
+                  class="absolute left-0 top-full z-30 mt-2 hidden w-full overflow-hidden rounded-[16px] border border-gray-100 bg-white py-1 shadow-xl"
+                  role="menu"
+                >
+                  <li>
+                    <button
+                      type="button"
+                      data-filter-option=""
+                      class="flex w-full items-center px-5 py-2.5 text-left font-sf text-[16px] text-black transition-colors hover:bg-gray-50"
+                      role="menuitem"
+                    >
+                      Все отрасли
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      data-filter-option="Энергетика"
+                      class="flex w-full items-center px-5 py-2.5 text-left font-sf text-[16px] text-black transition-colors hover:bg-gray-50"
+                      role="menuitem"
+                    >
+                      Энергетика
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      data-filter-option="Промышленность"
+                      class="flex w-full items-center px-5 py-2.5 text-left font-sf text-[16px] text-black transition-colors hover:bg-gray-50"
+                      role="menuitem"
+                    >
+                      Промышленность
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      data-filter-option="Строительство"
+                      class="flex w-full items-center px-5 py-2.5 text-left font-sf text-[16px] text-black transition-colors hover:bg-gray-50"
+                      role="menuitem"
+                    >
+                      Строительство
+                    </button>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- По технологиям -->
+              <div class="relative w-full sm:w-[263px]" data-filter-dropdown data-filter-key="technology">
+                <button
+                  type="button"
+                  data-filter-toggle
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  class="flex w-full items-center justify-between gap-2 rounded-[20px] border-[3px] border-white bg-white p-[13px] pl-5"
+                >
+                  <span
+                    data-filter-label
+                    class="font-sf text-[18px] font-medium leading-tight text-black lg:text-[20px]"
+                    >По технологиям</span
+                  >
+                  <span class="flex size-9 shrink-0 items-center justify-center rounded-full">
+                    <svg
+                      data-filter-arrow
+                      class="h-[8px] w-[12px] text-black transition-transform duration-200"
+                      viewBox="0 0 12 8"
+                      fill="none"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M1 1.5 6 6.5l5-5"
+                        stroke="currentColor"
+                        stroke-width="1.6"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </button>
+                <ul
+                  data-filter-menu
+                  class="absolute left-0 top-full z-30 mt-2 hidden w-full overflow-hidden rounded-[16px] border border-gray-100 bg-white py-1 shadow-xl"
+                  role="menu"
+                >
+                  <li>
+                    <button
+                      type="button"
+                      data-filter-option=""
+                      class="flex w-full items-center px-5 py-2.5 text-left font-sf text-[16px] text-black transition-colors hover:bg-gray-50"
+                      role="menuitem"
+                    >
+                      Все технологии
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      data-filter-option="Обратный осмос"
+                      class="flex w-full items-center px-5 py-2.5 text-left font-sf text-[16px] text-black transition-colors hover:bg-gray-50"
+                      role="menuitem"
+                    >
+                      Обратный осмос
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      data-filter-option="Ультрафильтрация"
+                      class="flex w-full items-center px-5 py-2.5 text-left font-sf text-[16px] text-black transition-colors hover:bg-gray-50"
+                      role="menuitem"
+                    >
+                      Ультрафильтрация
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      data-filter-option="EDI"
+                      class="flex w-full items-center px-5 py-2.5 text-left font-sf text-[16px] text-black transition-colors hover:bg-gray-50"
+                      role="menuitem"
+                    >
+                      EDI
+                    </button>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- По типу решений -->
+              <div class="relative w-full sm:w-[263px]" data-filter-dropdown data-filter-key="solution">
+                <button
+                  type="button"
+                  data-filter-toggle
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  class="flex w-full items-center justify-between gap-2 rounded-[20px] border-[3px] border-white bg-white p-[13px] pl-5"
+                >
+                  <span
+                    data-filter-label
+                    class="font-sf text-[18px] font-medium leading-tight text-black lg:text-[20px]"
+                    >По типу решений</span
+                  >
+                  <span class="flex size-9 shrink-0 items-center justify-center rounded-full">
+                    <svg
+                      data-filter-arrow
+                      class="h-[8px] w-[12px] text-black transition-transform duration-200"
+                      viewBox="0 0 12 8"
+                      fill="none"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M1 1.5 6 6.5l5-5"
+                        stroke="currentColor"
+                        stroke-width="1.6"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </button>
+                <ul
+                  data-filter-menu
+                  class="absolute left-0 top-full z-30 mt-2 hidden w-full overflow-hidden rounded-[16px] border border-gray-100 bg-white py-1 shadow-xl"
+                  role="menu"
+                >
+                  <li>
+                    <button
+                      type="button"
+                      data-filter-option=""
+                      class="flex w-full items-center px-5 py-2.5 text-left font-sf text-[16px] text-black transition-colors hover:bg-gray-50"
+                      role="menuitem"
+                    >
+                      Все решения
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      data-filter-option="Промышленные системы"
+                      class="flex w-full items-center px-5 py-2.5 text-left font-sf text-[16px] text-black transition-colors hover:bg-gray-50"
+                      role="menuitem"
+                    >
+                      Промышленные системы
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      data-filter-option="Контейнерные станции"
+                      class="flex w-full items-center px-5 py-2.5 text-left font-sf text-[16px] text-black transition-colors hover:bg-gray-50"
+                      role="menuitem"
+                    >
+                      Контейнерные станции
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      data-filter-option="Модульные системы"
+                      class="flex w-full items-center px-5 py-2.5 text-left font-sf text-[16px] text-black transition-colors hover:bg-gray-50"
+                      role="menuitem"
+                    >
+                      Модульные системы
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Навигация -->
+            <div class="flex items-center gap-3">
+              <button
+                type="button"
+                data-cases-prev
+                aria-label="Предыдущий"
+                class="flex size-12 items-center justify-center rounded-full border border-[#e0e0e0] text-black transition-colors hover:bg-[#f3f3f3] disabled:opacity-40"
+              >
+                <svg
+                  class="h-5 w-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M15 5l-7 7 7 7" />
+                </svg>
+              </button>
+              <button
+                type="button"
+                data-cases-next
+                aria-label="Следующий"
+                class="flex size-12 items-center justify-center rounded-full bg-[#0160B1] text-white transition-colors hover:bg-[#f3f3f3] disabled:opacity-40"
+              >
+                <svg
+                  class="h-5 w-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Слайдер кейсов -->
+          <div class="relative mt-8 lg:mt-10">
+            <div data-cases-track class="no-scrollbar flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth">
+              {{#each cases}}
+              <a
+                href="/case-details.html"
+                data-case
+                data-industry="{{ this.industry }}"
+                data-technology="{{ this.technology }}"
+                data-solution="{{ this.solution }}"
+                class="relative block aspect-[740/587] w-[88%] shrink-0 snap-start overflow-hidden rounded-[16px] sm:w-[70%] lg:w-[calc(50%-10px)]"
+              >
+                <img src="{{ this.img }}" alt="{{ this.title }}" class="absolute inset-0 h-full w-full object-cover" />
+                <span
+                  class="absolute left-2 top-2 lg:left-5 lg:top-5 inline-flex items-center rounded-[12px] bg-black/40 px-8 py-3 font-sf text-[15px] font-semibold text-white backdrop-blur-sm sm:px-12 sm:py-[21px]"
+                  >{{ this.company }}</span
+                >
+                <div
+                  class="absolute inset-x-2 lg:inset-x-5 bottom-2 lg:bottom-5 rounded-[12px] bg-black/40 p-4 text-white backdrop-blur-md lg:px-[30px] lg:py-[37px]"
+                >
+                  <h3 class="font-sf text-[18px] font-medium leading-none lg:text-[30px]">{{ this.title }}</h3>
+                  <p class="mt-2 font-sf text-[14px] leading-snug lg:mt-6 lg:text-[18px]">{{ ../caseDesc }}</p>
+                </div>
+              </a>
+              {{/each}}
+            </div>
+
+            <!-- Заглушка, если ничего не найдено -->
+            <p data-cases-empty class="hidden py-20 text-center font-sf text-[18px] text-[#999999]">
+              По выбранным фильтрам кейсов не найдено.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    {{> footer }}
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

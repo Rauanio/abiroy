@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abiroy — Ошибка 404</title>
+    <!-- Шрифты: Manrope + SF Pro Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
+  </head>
+  <body class="flex min-h-screen flex-col bg-white text-gray-900">
+    {{> header }}
+
+    <main class="flex flex-1 items-center justify-center px-6 py-16 sm:px-10">
+      <div class="flex flex-col items-center text-center">
+        <!-- Графика 404 (фото внутри цифр) -->
+        <img
+          src="/404.png"
+          alt="404"
+          class="w-full max-w-[330px] sm:max-w-[440px] lg:max-w-[548px]"
+        />
+
+        <p class="mt-8 font-sf text-[20px] font-medium leading-none text-black sm:text-[22px]">Ошибка 404</p>
+
+        <a
+          href="/index.html"
+          class="mt-8 inline-flex h-12 items-center justify-center rounded-[12px] bg-[#0160b1] px-[30px] font-sf text-[16px] font-semibold text-white transition-colors hover:bg-[#014e90]"
+        >На главную</a>
+      </div>
+    </main>
+
+    {{> footer }}
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

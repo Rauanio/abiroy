@@ -1,0 +1,828 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abiroy — Решение</title>
+    <!-- Шрифты: Manrope + SF Pro Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
+  </head>
+  <body class="flex min-h-screen flex-col bg-white text-gray-900">
+    {{> header }}
+
+    <main class="flex-1">
+      <!-- Хлебные крошки -->
+      <section class="container-page px-6 pt-12 pb-6 sm:px-10 lg:px-[60px] lg:pt-16 lg:pb-10">
+        <nav class="flex items-center gap-1.5 text-[14px] lg:text-[20px]" aria-label="Хлебные крошки">
+          <a href="/index.html" class="text-[#999999] transition-colors hover:text-[#0160b1]">Главная</a>
+          <svg class="h-4 w-4 text-[#999999]" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path
+              d="M6 4l4 4-4 4"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <a href="/solution.html" class="text-[#999999] transition-colors hover:text-[#0160b1]">Решения</a>
+          <svg class="h-4 w-4 text-[#999999]" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path
+              d="M6 4l4 4-4 4"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span class="text-black">Название решения</span>
+        </nav>
+        <h1
+          class="mt-10 font-sf text-[44px] font-bold leading-none text-[#0160b1] sm:text-[64px] lg:mt-12 lg:text-[100px]"
+        >
+          Решения
+        </h1>
+      </section>
+
+      <p class="container-page px-6 sm:px-10 mb-10 font-sf text-[16px] leading-snug text-[#666666] lg:text-[18px]">
+        ABIROY GROUP проектирует и внедряет инженерные решения водоподготовки под задачи конкретной отрасли — от
+        энергетики и пищевых производств до муниципального водоснабжения. Подбираем технологию под состав исходной воды,
+        требуемую производительность и режим эксплуатации объекта.
+      </p>
+
+      <!-- Проблемы и задачи отрасли -->
+      <section class="bg-[#f3f3f3]">
+        <div
+          class="container-page flex flex-col items-center gap-8 px-6 py-12 sm:px-10 lg:gap-[50px] lg:px-[70px] lg:py-[70px]"
+        >
+          <h2 class="text-center font-sf text-[32px] font-normal leading-none text-black sm:text-[40px] lg:text-[48px]">
+            Проблемы и задачи отрасли
+          </h2>
+          <p class="max-w-[1096px] text-center font-sf text-[16px] leading-snug text-[#666666] lg:text-[18px]">
+            В энергетике качество воды напрямую влияет на ресурс оборудования, стабильность процессов и эксплуатационные
+            затраты. Задача водоподготовки — предотвратить накипь, коррозию и сбои в работе систем.
+          </p>
+
+          <!-- Сетка карточек -->
+          <div class="grid w-full gap-[14px] sm:grid-cols-2 lg:grid-cols-3">
+            <!-- Высокие требования к качеству воды (активная) -->
+            <div class="group flex flex-col gap-8 rounded-[22px] bg-white/70 p-[30px] lg:gap-[46px]">
+              <span class="text-[#c8c8c8] transition-colors duration-300 group-hover:text-[#0160b1]">
+                <svg class="h-[38px] w-[38px]" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10.5" stroke="currentColor" stroke-width="1.6" />
+                  <circle cx="12" cy="12" r="5" fill="currentColor" />
+                </svg>
+              </span>
+              <div class="flex flex-col gap-4 lg:gap-6">
+                <h3 class="font-sf text-[22px] font-medium leading-tight text-black lg:text-[24px]">
+                  Высокие требования к качеству воды
+                </h3>
+                <p class="font-sf text-[14px] leading-snug text-[#999999]">
+                  Для котлов, теплообменников и технологических контуров нужна стабильная вода с контролем солей,
+                  жесткости и примесей.
+                </p>
+              </div>
+            </div>
+
+            <!-- Высокие эксплуатационные расходы -->
+            <div class="group flex flex-col gap-8 rounded-[22px] bg-white/70 p-[30px] lg:gap-[46px]">
+              <span class="text-[#c8c8c8] transition-colors duration-300 group-hover:text-[#0160b1]">
+                <svg class="h-[38px] w-[38px]" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10.5" stroke="currentColor" stroke-width="1.6" />
+                  <circle cx="12" cy="12" r="5" fill="currentColor" />
+                </svg>
+              </span>
+              <div class="flex flex-col gap-4 lg:gap-6">
+                <h3 class="font-sf text-[22px] font-medium leading-tight text-black lg:text-[24px]">
+                  Высокие эксплуатационные расходы
+                </h3>
+                <p class="font-sf text-[14px] leading-snug text-[#999999]">
+                  Неправильная схема водоподготовки увеличивает расход реагентов, энергии, воды и сервисных ресурсов.
+                </p>
+              </div>
+            </div>
+
+            <!-- Коррозия оборудования -->
+            <div class="group flex flex-col gap-8 rounded-[22px] bg-white/70 p-[30px] lg:gap-[46px]">
+              <span class="text-[#c8c8c8] transition-colors duration-300 group-hover:text-[#0160b1]">
+                <svg class="h-[38px] w-[38px]" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10.5" stroke="currentColor" stroke-width="1.6" />
+                  <circle cx="12" cy="12" r="5" fill="currentColor" />
+                </svg>
+              </span>
+              <div class="flex flex-col gap-4 lg:gap-6">
+                <h3 class="font-sf text-[22px] font-medium leading-tight text-black lg:text-[24px]">
+                  Коррозия оборудования
+                </h3>
+                <p class="font-sf text-[14px] leading-snug text-[#999999]">
+                  Агрессивные примеси и растворенный кислород ускоряют износ трубопроводов, насосов и котельного
+                  оборудования.
+                </p>
+              </div>
+            </div>
+
+            <!-- Нестабильный состав воды -->
+            <div class="group flex flex-col gap-8 rounded-[22px] bg-white/70 p-[30px] lg:gap-[46px]">
+              <span class="text-[#c8c8c8] transition-colors duration-300 group-hover:text-[#0160b1]">
+                <svg class="h-[38px] w-[38px]" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10.5" stroke="currentColor" stroke-width="1.6" />
+                  <circle cx="12" cy="12" r="5" fill="currentColor" />
+                </svg>
+              </span>
+              <div class="flex flex-col gap-4 lg:gap-6">
+                <h3 class="font-sf text-[22px] font-medium leading-tight text-black lg:text-[24px]">
+                  Нестабильный состав воды
+                </h3>
+                <p class="font-sf text-[14px] leading-snug text-[#999999]">
+                  Параметры исходной воды могут меняться по сезону, источнику и нагрузке на объект.
+                </p>
+              </div>
+            </div>
+
+            <!-- Образование накипи -->
+            <div class="group flex flex-col gap-8 rounded-[22px] bg-white/70 p-[30px] lg:gap-[46px]">
+              <span class="text-[#c8c8c8] transition-colors duration-300 group-hover:text-[#0160b1]">
+                <svg class="h-[38px] w-[38px]" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10.5" stroke="currentColor" stroke-width="1.6" />
+                  <circle cx="12" cy="12" r="5" fill="currentColor" />
+                </svg>
+              </span>
+              <div class="flex flex-col gap-4 lg:gap-6">
+                <h3 class="font-sf text-[22px] font-medium leading-tight text-black lg:text-[24px]">
+                  Образование накипи
+                </h3>
+                <p class="font-sf text-[14px] leading-snug text-[#999999]">
+                  Жесткая вода снижает теплообмен, увеличивает энергозатраты и повышает риск остановки оборудования.
+                </p>
+              </div>
+            </div>
+
+            <!-- Бесперебойная работа -->
+            <div class="group flex flex-col gap-8 rounded-[22px] bg-white/70 p-[30px] lg:gap-[46px]">
+              <span class="text-[#c8c8c8] transition-colors duration-300 group-hover:text-[#0160b1]">
+                <svg class="h-[38px] w-[38px]" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10.5" stroke="currentColor" stroke-width="1.6" />
+                  <circle cx="12" cy="12" r="5" fill="currentColor" />
+                </svg>
+              </span>
+              <div class="flex flex-col gap-4 lg:gap-6">
+                <h3 class="font-sf text-[22px] font-medium leading-tight text-black lg:text-[24px]">
+                  Бесперебойная работа
+                </h3>
+                <p class="font-sf text-[14px] leading-snug text-[#999999]">
+                  Для энергетики критична надежность: система должна стабильно работать под постоянной нагрузкой.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="overflow-hidden bg-white">
+        <div class="container-page p-6 sm:px-10 lg:p-[70px]">
+          <h2 class="font-sf text-[32px] font-medium leading-none text-black sm:text-[40px] lg:text-[48px]">
+            Рекомендованные технологий
+          </h2>
+
+          <div class="drag-swiper swiper mt-10 !overflow-visible lg:mt-[50px]">
+            <div class="swiper-wrapper">
+              {{#each techCatalog}}
+              <a
+                href="/techno-details.html"
+                class="tech-card swiper-slide group relative block cursor-pointer !h-[520px] !w-[300px] overflow-hidden bg-[#f4f4f4] sm:!w-[360px] lg:!h-[568px] lg:!w-[424px]{{#if this.active}} is-active{{/if}}"
+              >
+                <!-- Фон при наведении -->
+                <img
+                  src="{{ this.img }}"
+                  alt=""
+                  aria-hidden="true"
+                  class="tech-card__img absolute inset-0 h-full w-full object-cover"
+                />
+                <div
+                  class="tech-card__overlay absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-black/40"
+                ></div>
+
+                <!-- Контент -->
+                <div class="relative z-10 flex h-full flex-col p-[30px]">
+                  <!-- Верх: метрика + тег -->
+                  <div class="flex items-start justify-between gap-4">
+                    <div class="flex flex-col gap-[14px]">
+                      <span class="font-sf text-[20px] font-medium leading-none text-[#64b6ff]">{{ this.metric }}</span>
+                      <span class="tech-card__sub font-sf text-[14px] leading-none">{{ this.metricSub }}</span>
+                    </div>
+                    <span class="font-sf text-right text-[14px] leading-none text-[#999999]">{{ this.tag }}</span>
+                  </div>
+
+                  <!-- Разделитель -->
+                  <span class="tech-card__divider mt-[21px] block h-px w-full"></span>
+
+                  <!-- Низ: название + стрелка -->
+                  <div class="mt-auto flex items-end justify-between gap-4">
+                    <h3
+                      class="tech-card__title max-w-[256px] font-sf text-[24px] font-semibold leading-tight lg:text-[28px]"
+                    >
+                      {{ this.title }}
+                    </h3>
+                    <span class="tech-card__arrow shrink-0">
+                      <svg
+                        class="h-[15px] w-[15px]"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="M4 12 12 4M6 4h6v6" />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </a>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Системы водоподготовки (аккордеон + превью) -->
+      <section class="bg-[#f4f4f4]" data-solution-systems>
+        <div class="container-page px-6 py-12 sm:px-10 lg:px-[70px] lg:py-[70px]">
+          <div class="flex flex-col gap-10 lg:flex-row lg:gap-[60px]">
+            <!-- Левая колонка: заголовок + список систем -->
+            <div class="flex flex-1 flex-col">
+              <h2
+                class="max-w-[723px] font-sf text-[26px] font-normal leading-tight text-black sm:text-[32px] lg:text-[36px]"
+              >
+                Системы водоподготовки для котельных, ТЭЦ и тепловых пунктов — под состав воды, нагрузку и режим
+                объекта.
+              </h2>
+
+              <div class="mt-8 flex flex-col gap-3 lg:mt-10">
+                <!-- Категория 1 (открыта по умолчанию) -->
+                <div data-system-item class="rounded-[20px]">
+                  <button
+                    type="button"
+                    data-system-toggle
+                    class="flex w-full items-center justify-between gap-4 px-5 py-5 text-left"
+                  >
+                    <span class="font-sf text-[20px] font-medium leading-tight text-black lg:text-[24px]"
+                      >Системы умягчения воды</span
+                    >
+                    <span class="flex size-9 shrink-0 items-center justify-center rounded-full bg-white text-[#0160b1]">
+                      <svg
+                        data-system-chevron
+                        class="h-3 w-3 rotate-180 transition-transform"
+                        viewBox="0 0 12 8"
+                        fill="none"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M1 1.5 6 6.5l5-5"
+                          stroke="currentColor"
+                          stroke-width="1.6"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                  <div
+                    data-system-body
+                    class="grid grid-rows-[1fr] transition-[grid-template-rows] duration-300 ease-out"
+                  >
+                    <div class="overflow-hidden">
+                      <div class="flex flex-col gap-3 pb-1">
+                        <a
+                          href="/solution-details.html"
+                          class="flex items-center justify-between gap-4 rounded-[12px] bg-white px-5 py-5 shadow-sm transition-colors hover:bg-gray-50"
+                        >
+                          <span class="font-sf text-[20px] font-medium leading-tight text-black lg:text-[24px]"
+                            >Установки обратного осмоса RO</span
+                          >
+                          <span
+                            class="flex size-9 shrink-0 items-center justify-center rounded-full bg-[#f4f4f4] text-[#0160b1]"
+                          >
+                            <svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                              <path
+                                d="M5 3l5 5-5 5"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Категория 2 -->
+                <div data-system-item class="rounded-[20px]">
+                  <button
+                    type="button"
+                    data-system-toggle
+                    class="flex w-full items-center justify-between gap-4 px-5 py-5 text-left"
+                  >
+                    <span class="font-sf text-[20px] font-medium leading-tight text-black lg:text-[24px]"
+                      >Механическая фильтрация</span
+                    >
+                    <span class="flex size-9 shrink-0 items-center justify-center rounded-full bg-white text-[#0160b1]">
+                      <svg
+                        data-system-chevron
+                        class="h-3 w-3 transition-transform"
+                        viewBox="0 0 12 8"
+                        fill="none"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M1 1.5 6 6.5l5-5"
+                          stroke="currentColor"
+                          stroke-width="1.6"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                  <div
+                    data-system-body
+                    class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out"
+                  >
+                    <div class="overflow-hidden">
+                      <div class="flex flex-col gap-3 pb-1">
+                        <a
+                          href="/solution-details.html"
+                          class="flex items-center justify-between gap-4 rounded-[12px] bg-white px-5 py-5 shadow-sm transition-colors hover:bg-gray-50"
+                        >
+                          <span class="font-sf text-[20px] font-medium leading-tight text-black lg:text-[24px]"
+                            >Дисковые и сетчатые фильтры</span
+                          >
+                          <span
+                            class="flex size-9 shrink-0 items-center justify-center rounded-full bg-[#f4f4f4] text-[#0160b1]"
+                          >
+                            <svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                              <path
+                                d="M5 3l5 5-5 5"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Категория 3 -->
+                <div data-system-item class="rounded-[20px]">
+                  <button
+                    type="button"
+                    data-system-toggle
+                    class="flex w-full items-center justify-between gap-4 px-5 py-5 text-left"
+                  >
+                    <span class="font-sf text-[20px] font-medium leading-tight text-black lg:text-[24px]"
+                      >Системы дозирования реагентов</span
+                    >
+                    <span class="flex size-9 shrink-0 items-center justify-center rounded-full bg-white text-[#0160b1]">
+                      <svg
+                        data-system-chevron
+                        class="h-3 w-3 transition-transform"
+                        viewBox="0 0 12 8"
+                        fill="none"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M1 1.5 6 6.5l5-5"
+                          stroke="currentColor"
+                          stroke-width="1.6"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                  <div
+                    data-system-body
+                    class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out"
+                  >
+                    <div class="overflow-hidden">
+                      <div class="flex flex-col gap-3 pb-1">
+                        <a
+                          href="/solution-details.html"
+                          class="flex items-center justify-between gap-4 rounded-[12px] bg-white px-5 py-5 shadow-sm transition-colors hover:bg-gray-50"
+                        >
+                          <span class="font-sf text-[20px] font-medium leading-tight text-black lg:text-[24px]"
+                            >Дозирование антискаланта и реагентов</span
+                          >
+                          <span
+                            class="flex size-9 shrink-0 items-center justify-center rounded-full bg-[#f4f4f4] text-[#0160b1]"
+                          >
+                            <svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                              <path
+                                d="M5 3l5 5-5 5"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Категория 4 -->
+                <div data-system-item class="rounded-[20px]">
+                  <button
+                    type="button"
+                    data-system-toggle
+                    class="flex w-full items-center justify-between gap-4 px-5 py-5 text-left"
+                  >
+                    <span class="font-sf text-[20px] font-medium leading-tight text-black lg:text-[24px]"
+                      >Блочно-модульные станции водоподготовки</span
+                    >
+                    <span class="flex size-9 shrink-0 items-center justify-center rounded-full bg-white text-[#0160b1]">
+                      <svg
+                        data-system-chevron
+                        class="h-3 w-3 transition-transform"
+                        viewBox="0 0 12 8"
+                        fill="none"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M1 1.5 6 6.5l5-5"
+                          stroke="currentColor"
+                          stroke-width="1.6"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                  <div
+                    data-system-body
+                    class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out"
+                  >
+                    <div class="overflow-hidden">
+                      <div class="flex flex-col gap-3 pb-1">
+                        <a
+                          href="/solution-details.html"
+                          class="flex items-center justify-between gap-4 rounded-[12px] bg-white px-5 py-5 shadow-sm transition-colors hover:bg-gray-50"
+                        >
+                          <span class="font-sf text-[20px] font-medium leading-tight text-black lg:text-[24px]"
+                            >Контейнерные станции «под ключ»</span
+                          >
+                          <span
+                            class="flex size-9 shrink-0 items-center justify-center rounded-full bg-[#f4f4f4] text-[#0160b1]"
+                          >
+                            <svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                              <path
+                                d="M5 3l5 5-5 5"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Категория 5 -->
+                <div data-system-item class="rounded-[20px]">
+                  <button
+                    type="button"
+                    data-system-toggle
+                    class="flex w-full items-center justify-between gap-4 px-5 py-5 text-left"
+                  >
+                    <span class="font-sf text-[20px] font-medium leading-tight text-black lg:text-[24px]"
+                      >Комплексные системы водоподготовки</span
+                    >
+                    <span class="flex size-9 shrink-0 items-center justify-center rounded-full bg-white text-[#0160b1]">
+                      <svg
+                        data-system-chevron
+                        class="h-3 w-3 transition-transform"
+                        viewBox="0 0 12 8"
+                        fill="none"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M1 1.5 6 6.5l5-5"
+                          stroke="currentColor"
+                          stroke-width="1.6"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                  <div
+                    data-system-body
+                    class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out"
+                  >
+                    <div class="overflow-hidden">
+                      <div class="flex flex-col gap-3 pb-1">
+                        <a
+                          href="/solution-details.html"
+                          class="flex items-center justify-between gap-4 rounded-[12px] bg-white px-5 py-5 shadow-sm transition-colors hover:bg-gray-50"
+                        >
+                          <span class="font-sf text-[20px] font-medium leading-tight text-black lg:text-[24px]"
+                            >Комплексные решения с автоматизацией</span
+                          >
+                          <span
+                            class="flex size-9 shrink-0 items-center justify-center rounded-full bg-[#f4f4f4] text-[#0160b1]"
+                          >
+                            <svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                              <path
+                                d="M5 3l5 5-5 5"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Правая колонка: кнопка + превью -->
+            <div class="flex flex-col gap-6 lg:w-[577px] lg:shrink-0">
+              <a
+                href="/contact.html"
+                class="inline-flex h-[64px] items-center justify-center rounded-[12px] bg-[#0160b1] px-[30px] text-[18px] font-semibold text-white transition-colors hover:bg-[#014e90] lg:self-end lg:py-[24px]"
+                >Получить расчет</a
+              >
+
+              <div class="relative h-[400px] overflow-hidden rounded-[16px] sm:h-[480px] lg:h-[556px]">
+                <img
+                  data-system-image
+                  src="/hero.png"
+                  alt="Превью системы"
+                  class="absolute inset-0 h-full w-full object-cover"
+                />
+                <span
+                  data-system-badge
+                  class="absolute left-5 top-5 inline-flex items-center rounded-[12px] bg-black/40 px-8 py-4 font-sf text-[15px] font-semibold text-white backdrop-blur-sm"
+                  >Установки обратного осмоса RO</span
+                >
+                <p
+                  data-system-desc
+                  class="absolute inset-x-0 bottom-0 bg-black/40 px-[30px] py-9 font-sf text-[16px] leading-snug text-white backdrop-blur-md lg:text-[18px]"
+                >
+                  Полный технологический комплекс: механическая очистка, умягчение, RO, дозирование и автоматизация.
+                  Подходят для объектов с высокими требованиями к надежности и непрерывной работе.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Отраслевые кейсы -->
+      <section class="bg-white" data-cases>
+        <div class="container-page px-6 py-12 sm:px-10 lg:px-[60px] lg:py-[70px]">
+          <div class="flex items-center justify-between gap-4">
+            <h2 class="font-sf text-[32px] font-medium leading-none text-black sm:text-[40px] lg:text-[48px]">
+              Отраслевые кейсы
+            </h2>
+            <div class="flex items-center gap-3">
+              <button
+                type="button"
+                data-cases-prev
+                aria-label="Предыдущий"
+                class="flex size-12 items-center justify-center rounded-full bg-[#f4f4f4] text-black transition-colors hover:bg-[#e8e8e8] disabled:opacity-40"
+              >
+                <svg
+                  class="h-5 w-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M15 5l-7 7 7 7" />
+                </svg>
+              </button>
+              <button
+                type="button"
+                data-cases-next
+                aria-label="Следующий"
+                class="flex size-12 items-center justify-center rounded-full bg-[#0160b1] text-white transition-colors hover:bg-[#014e90] disabled:opacity-40"
+              >
+                <svg
+                  class="h-5 w-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="relative mt-8 lg:mt-10">
+            <div data-cases-track class="no-scrollbar flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth">
+              {{#each cases}}
+              <a
+                href="/case-details.html"
+                data-case
+                class="relative block aspect-[740/587] w-[88%] shrink-0 snap-start overflow-hidden rounded-[16px] sm:w-[70%] lg:w-[calc(50%-10px)]"
+              >
+                <img src="{{ this.img }}" alt="{{ this.title }}" class="absolute inset-0 h-full w-full object-cover" />
+                <span
+                  class="absolute left-5 top-5 inline-flex items-center rounded-[12px] bg-black/40 px-8 py-3 font-sf text-[15px] font-semibold text-white backdrop-blur-sm sm:px-12 sm:py-[21px]"
+                  >{{ this.company }}</span
+                >
+                <div
+                  class="absolute inset-x-5 bottom-5 rounded-[12px] bg-black/40 p-4 text-white backdrop-blur-md lg:px-[30px] lg:py-[37px]"
+                >
+                  <h3 class="font-sf text-[18px] font-medium leading-none lg:text-[30px]">{{ this.title }}</h3>
+                  <p class="mt-2 font-sf text-[14px] leading-snug lg:mt-6 lg:text-[18px]">{{ ../caseDesc }}</p>
+                </div>
+              </a>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA: получить решение под объект -->
+      <section class="bg-white">
+        <div class="container-page px-6 pb-12 sm:px-10 lg:px-[48px] lg:pb-[70px]">
+          <div
+            class="relative overflow-hidden rounded-[24px] bg-[#02101f] bg-[radial-gradient(135%_130%_at_18%_30%,#1565a8_0%,#0b3f72_32%,#06243f_55%,#031320_78%,#01080f_100%)] p-8 sm:p-12 lg:rounded-[32px] lg:p-[60px]"
+          >
+            <!-- Декоративные блики -->
+            <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+              <div
+                class="absolute -left-20 top-0 h-[420px] w-[420px] rounded-full bg-[#2a8fe0] opacity-30 blur-[140px]"
+              ></div>
+              <div
+                class="absolute left-1/4 bottom-[-120px] h-[360px] w-[360px] rounded-full bg-[#0b73cf] opacity-25 blur-[130px]"
+              ></div>
+            </div>
+
+            <div class="relative flex flex-col gap-10 lg:flex-row lg:items-stretch lg:gap-[40px]">
+              <!-- Левая колонка: текст + контакты -->
+              <div class="flex flex-1 flex-col">
+                <h2 class="font-sf text-[26px] font-semibold leading-tight text-white sm:text-[30px] lg:text-[32px]">
+                  Получите решение под ваш объект
+                </h2>
+                <p class="mt-4 max-w-[633px] font-sf text-[16px] leading-snug text-white lg:text-[18px]">
+                  Подберем систему водоподготовки для котельной, ТЭЦ или промышленного объекта — с учетом состава воды,
+                  нагрузки и требований к эксплуатации.
+                </p>
+                <p class="mt-8 max-w-[390px] font-sf text-[14px] leading-relaxed text-white/70 lg:mt-auto">
+                  Надежная водоподготовка без лишних рисков. Оставьте заявку — специалисты ABIROY GROUP помогут
+                  определить оптимальную схему и оборудование.
+                </p>
+
+                <!-- Контакты -->
+                <div class="mt-8 flex flex-wrap gap-3 lg:mt-6">
+                  <span
+                    class="inline-flex items-center gap-3 rounded-full bg-white/10 px-6 py-4 font-sf text-[15px] font-semibold text-white"
+                  >
+                    <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path
+                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"
+                      />
+                    </svg>
+                    г. Караганда, ул. Попова 64/1
+                  </span>
+                  <a
+                    href="tel:+77212922304"
+                    class="inline-flex items-center gap-3 rounded-full bg-white/10 px-6 py-4 font-sf text-[15px] font-semibold text-white transition-colors hover:bg-white/20"
+                  >
+                    <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path
+                        d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                      />
+                    </svg>
+                    +7 (7212) 92 23 04 <span class="text-white/50">|</span> +7 (7212) 92 23 03
+                  </a>
+                  <a
+                    href="mailto:rvsa@rvsa.kz"
+                    class="inline-flex items-center gap-3 rounded-full bg-white/10 px-6 py-4 font-sf text-[15px] font-semibold text-white transition-colors hover:bg-white/20"
+                  >
+                    <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path
+                        d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                      />
+                    </svg>
+                    rvsa@rvsa.kz
+                  </a>
+                </div>
+              </div>
+
+              <!-- Правая колонка: форма -->
+              <form class="flex w-full flex-col gap-[22px] rounded-[20px] bg-white p-6 lg:w-[569px] lg:shrink-0">
+                <div class="flex flex-col gap-3">
+                  <label for="cta-name" class="font-sf text-[15px] font-medium tracking-[0.15px] text-[#333333]"
+                    >Имя</label
+                  >
+                  <input
+                    id="cta-name"
+                    name="name"
+                    type="text"
+                    placeholder="Ваше имя"
+                    class="h-[52px] rounded-[7.5px] bg-[#f4f4f4] px-[15px] font-sf text-[15px] font-medium tracking-[0.15px] text-black placeholder:text-[#999999] focus:outline-none focus:ring-2 focus:ring-[#64b6ff]"
+                  />
+                </div>
+
+                <div class="flex flex-col gap-3">
+                  <label for="cta-phone" class="font-sf text-[15px] font-medium tracking-[0.15px] text-[#333333]"
+                    >Телефон</label
+                  >
+                  <div
+                    class="flex h-[52px] items-center gap-[7.5px] rounded-[7.5px] bg-[#f4f4f4] px-[15px] focus-within:ring-2 focus-within:ring-[#64b6ff]"
+                  >
+                    <span class="font-sf text-[15px] font-medium text-black">+7</span>
+                    <input
+                      id="cta-phone"
+                      name="phone"
+                      type="tel"
+                      placeholder="000 000 0000"
+                      class="h-full flex-1 bg-transparent font-sf text-[15px] font-medium tracking-[0.15px] text-black placeholder:text-[#999999] focus:outline-none"
+                    />
+                  </div>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                  <label for="cta-comment" class="font-sf text-[15px] font-medium tracking-[0.15px] text-[#333333]"
+                    >Комментарии</label
+                  >
+                  <textarea
+                    id="cta-comment"
+                    name="comment"
+                    rows="3"
+                    placeholder="Укажите источник воды, требуемую производительность и назначение очищенной воды - мы предложим подходящее инженерное решение."
+                    class="resize-none rounded-[7.5px] bg-[#f4f4f4] p-[15px] font-sf text-[15px] font-medium tracking-[0.15px] text-black placeholder:text-[#999999] focus:outline-none focus:ring-2 focus:ring-[#64b6ff]"
+                  ></textarea>
+                </div>
+
+                <label class="flex cursor-pointer items-center gap-[10.5px]">
+                  <input
+                    type="checkbox"
+                    name="agree"
+                    checked
+                    class="size-6 shrink-0 rounded-[7.5px] accent-[#647dd7]"
+                  />
+                  <span class="font-sf text-[13.5px] font-medium tracking-[0.15px] text-[#999999]"
+                    >Я согласен с Политикой Конфиденциальности</span
+                  >
+                </label>
+
+                <div class="flex flex-col gap-[23px] sm:flex-row">
+                  <button
+                    type="submit"
+                    class="flex flex-1 h-[68px] items-center justify-center rounded-[12px] bg-[#0160b1] p-[22px] font-sf text-[18px] font-semibold text-white transition-colors hover:bg-[#014e90]"
+                  >
+                    Получить консультацию
+                  </button>
+                  <button
+                    type="button"
+                    class="flex flex-1 h-[68px] items-center justify-center rounded-[12px] border border-[#d6d6d6] p-[22px] font-sf text-[18px] font-semibold text-black transition-colors hover:bg-gray-50"
+                  >
+                    Подобрать технологию
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    {{> footer }}
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

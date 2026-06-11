@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abiroy — Решения</title>
+    <!-- Шрифты: Manrope + SF Pro Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
+  </head>
+  <body class="flex min-h-screen flex-col bg-white text-gray-900">
+    {{> header }}
+
+    <main class="flex-1">
+      <!-- Хлебные крошки + заголовок -->
+      <section class="container-page px-6 pt-12 pb-6 sm:px-10 lg:px-[60px] lg:pt-16 lg:pb-10">
+        <nav class="flex items-center gap-1.5 text-[14px] lg:text-[20px]" aria-label="Хлебные крошки">
+          <a href="/index.html" class="text-[#999999] transition-colors hover:text-[#0160b1]">Главная</a>
+          <svg class="h-4 w-4 text-[#999999]" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path
+              d="M6 4l4 4-4 4"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span class="text-black">Решения</span>
+        </nav>
+        <h1
+          class="mt-10 font-sf text-[44px] font-bold leading-none text-[#0160b1] sm:text-[64px] lg:mt-12 lg:text-[100px]"
+        >
+          Решения
+        </h1>
+      </section>
+
+      <p class="container-page px-6 sm:px-10 mb-10 font-sf text-[16px] leading-snug text-[#666666] lg:text-[18px]">
+        ABIROY GROUP проектирует и внедряет инженерные решения водоподготовки под задачи конкретной отрасли — от
+        энергетики и пищевых производств до муниципального водоснабжения. Подбираем технологию под состав исходной воды,
+        требуемую производительность и режим эксплуатации объекта.
+      </p>
+
+      <!-- Решения: статистика + фильтры + слайдер -->
+      <section class="bg-[#f4f4f4]" data-solutions>
+        <div class="container-page px-6 py-12 sm:px-10 lg:px-[60px] lg:py-[60px]">
+          <!-- Шапка: статистика + заголовок -->
+          <div class="flex flex-col gap-10 lg:flex-row lg:gap-[60px]">
+            <!-- Левая колонка: статистика -->
+            <div class="lg:w-[405px] lg:shrink-0 lg:border-r lg:border-[#d6d6d6] lg:pr-[60px]">
+              <span class="font-sf text-[18px] leading-none text-[#0062b7]">О компании</span>
+              <p class="mt-5 font-sf text-[64px] font-semibold leading-none text-black sm:text-[80px]">100+</p>
+              <p class="mt-5 max-w-[405px] font-sf text-[16px] leading-snug text-[#999999] lg:text-[18px]">
+                Реализованных инженерных решений и проектов водоподготовки для предприятий различных отраслей.
+              </p>
+            </div>
+
+            <!-- Правая колонка: заголовок + кнопка -->
+            <div class="flex flex-1 flex-col justify-between gap-8 lg:gap-10">
+              <h2
+                class="max-w-[757px] font-sf text-[30px] font-medium leading-tight text-[#333333] sm:text-[38px] lg:text-[42px]"
+              >
+                Формируем будущее водофильтрации для профессионалов
+              </h2>
+              <a
+                href="/contact.html"
+                class="inline-flex h-[64px] w-full max-w-[300px] items-center justify-center rounded-[12px] bg-[#0160b1] px-[30px] text-[18px] font-semibold text-white transition-colors hover:bg-[#014e90]"
+                >Получить расчет</a
+              >
+            </div>
+          </div>
+
+          <!-- Фильтры -->
+          <div class="mt-10 flex flex-wrap gap-4 lg:mt-[40px]" role="tablist">
+            <button
+              type="button"
+              data-solutions-filter="industry"
+              class="rounded-full bg-[#0160b1] px-6 py-4 font-sf text-[16px] font-semibold text-white transition-colors lg:text-[18px]"
+            >
+              По отраслям
+            </button>
+            <button
+              type="button"
+              data-solutions-filter="task"
+              class="rounded-full bg-white px-6 py-4 font-sf text-[16px] text-[#999999] transition-colors lg:text-[18px]"
+            >
+              По типам задач
+            </button>
+          </div>
+
+          <!-- Слайдер: по отраслям -->
+          <div class="solutions-swiper swiper mt-8 lg:mt-10" data-group="industry">
+            <div class="swiper-wrapper">
+              <!-- Энергетика -->
+              <a class="swiper-slide bg-white max-w-[420px]" href="/solution-details.html">
+                <div class="flex items-center justify-between gap-4 py-[30px] mx-[30px] border-[#DCDCDC] border-b">
+                  <h3 class="font-sf text-[20px] font-medium leading-snug text-[#64b6ff] lg:text-[22px]">Энергетика</h3>
+                  <span class="shrink-0 text-[#0160b1]">
+                    <svg
+                      class="h-4 w-4"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M4 12 12 4M6 4h6v6" />
+                    </svg>
+                  </span>
+                </div>
+                <img src="/solution-energy.png" alt="" />
+                <p class="text-[#999] pb-[30px] px-[30px]">
+                  Подготовка воды для котельных, ТЭЦ и энергетических объектов.
+                </p>
+              </a>
+              <a class="swiper-slide bg-white max-w-[420px]" href="/solution-details.html">
+                <div class="flex items-center justify-between gap-4 py-[30px] mx-[30px] border-[#DCDCDC] border-b">
+                  <h3 class="font-sf text-[20px] font-medium leading-snug text-[#64b6ff] lg:text-[22px]">Энергетика</h3>
+                  <span class="shrink-0 text-[#0160b1]">
+                    <svg
+                      class="h-4 w-4"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M4 12 12 4M6 4h6v6" />
+                    </svg>
+                  </span>
+                </div>
+                <img src="/solution-energy.png" alt="" />
+                <p class="text-[#999] pb-[30px] px-[30px]">
+                  Подготовка воды для котельных, ТЭЦ и энергетических объектов.
+                </p>
+              </a>
+              <a class="swiper-slide bg-white max-w-[420px]" href="/solution-details.html">
+                <div class="flex items-center justify-between gap-4 py-[30px] mx-[30px] border-[#DCDCDC] border-b">
+                  <h3 class="font-sf text-[20px] font-medium leading-snug text-[#64b6ff] lg:text-[22px]">Энергетика</h3>
+                  <span class="shrink-0 text-[#0160b1]">
+                    <svg
+                      class="h-4 w-4"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M4 12 12 4M6 4h6v6" />
+                    </svg>
+                  </span>
+                </div>
+                <img src="/solution-energy.png" alt="" />
+                <p class="text-[#999] pb-[30px] px-[30px]">
+                  Подготовка воды для котельных, ТЭЦ и энергетических объектов.
+                </p>
+              </a>
+              <a class="swiper-slide bg-white max-w-[420px]" href="/solution-details.html">
+                <div class="flex items-center justify-between gap-4 py-[30px] mx-[30px] border-[#DCDCDC] border-b">
+                  <h3 class="font-sf text-[20px] font-medium leading-snug text-[#64b6ff] lg:text-[22px]">Энергетика</h3>
+                  <span class="shrink-0 text-[#0160b1]">
+                    <svg
+                      class="h-4 w-4"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M4 12 12 4M6 4h6v6" />
+                    </svg>
+                  </span>
+                </div>
+                <img src="/solution-energy.png" alt="" />
+                <p class="text-[#999] pb-[30px] px-[30px]">
+                  Подготовка воды для котельных, ТЭЦ и энергетических объектов.
+                </p>
+              </a>
+              <a class="swiper-slide bg-white max-w-[420px]" href="/solution-details.html">
+                <div class="flex items-center justify-between gap-4 py-[30px] mx-[30px] border-[#DCDCDC] border-b">
+                  <h3 class="font-sf text-[20px] font-medium leading-snug text-[#64b6ff] lg:text-[22px]">Энергетика</h3>
+                  <span class="shrink-0 text-[#0160b1]">
+                    <svg
+                      class="h-4 w-4"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M4 12 12 4M6 4h6v6" />
+                    </svg>
+                  </span>
+                </div>
+                <img src="/solution-food.png" alt="" />
+                <p class="text-[#999] pb-[30px] px-[30px]">
+                  Подготовка воды для котельных, ТЭЦ и энергетических объектов.
+                </p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    {{> footer }}
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

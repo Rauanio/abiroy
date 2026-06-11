@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abiroy — Контакты</title>
+    <!-- Шрифты: Manrope + SF Pro Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
+  </head>
+  <body class="flex min-h-screen flex-col bg-[#F3F3F3] text-gray-900">
+    {{> header }}
+
+    <main class="flex-1">
+      <section class="container-page px-6 pt-12 pb-6 sm:px-10 lg:px-[40px] lg:pt-16 lg:pb-10">
+        <nav class="flex items-center gap-1.5 text-[14px] lg:text-[20px]" aria-label="Хлебные крошки">
+          <a href="/index.html" class="text-[#999999] transition-colors hover:text-[#0160b1]">Главная</a>
+          <svg class="h-4 w-4 text-[#999999]" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path
+              d="M6 4l4 4-4 4"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span class="text-black">Контакты</span>
+        </nav>
+        <h1
+          class="mt-10 font-sf text-[56px] font-bold leading-none text-[#0160b1] sm:text-[80px] lg:mt-12 lg:text-[100px]"
+        >
+          Контакты
+        </h1>
+      </section>
+
+      <section class="bg-white">
+        <div class="container-page p-6 lg:p-[60px] flex flex-col items-center gap-8 lg:gap-[46px]">
+          <h2 class="text-center font-sf text-[32px] font-normal leading-none text-black sm:text-[40px] lg:text-[48px]">
+            Способы доставки заказа
+          </h2>
+          <div class="grid w-full gap-[14px] sm:grid-cols-2 lg:grid-cols-3">
+            <!-- Самовывоз -->
+            <div
+              class="flex flex-col items-center justify-start gap-8 rounded-[22.5px] bg-[#f4f4f4]/70 p-[30px] text-center lg:gap-[46px]"
+            >
+              <span class="flex shrink-0 items-center justify-center rounded-full bg-[#0160b1] p-[18px] text-white">
+                <svg class="size-[42px]" viewBox="0 0 42 42" fill="none" aria-hidden="true">
+                  <path
+                    d="M10.5945 6.531L27.9484 13.9676L21 16.9444L3.74588 9.54975C4.13438 9.15338 4.6095 8.83313 5.15025 8.62575L10.5945 6.531ZM14.1068 5.18175L18.1755 3.61725C19.9945 2.91797 22.0081 2.91797 23.8271 3.61725L36.8524 8.62575C37.3905 8.83575 37.8656 9.15075 38.2541 9.54975L31.2821 12.537L14.1068 5.18175ZM39.3593 11.9333L22.3125 19.2386V38.7949C22.8288 38.7074 23.3336 38.5691 23.8271 38.3801L36.8524 33.369C37.5949 33.0831 38.2335 32.5789 38.6838 31.9228C39.1341 31.2668 39.3751 30.4897 39.375 29.694V12.3007C39.375 12.1782 39.3689 12.0558 39.3566 11.9333M19.6875 38.7949V19.2386L2.64337 11.9333C2.63296 12.0555 2.62683 12.1781 2.625 12.3007V29.694C2.62511 30.49 2.86648 31.2673 3.31729 31.9234C3.76811 32.5795 4.40719 33.0835 5.15025 33.369L18.1729 38.3801C18.6664 38.5691 19.1712 38.7074 19.6875 38.7949Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              <div class="flex flex-col items-center gap-4 lg:gap-6">
+                <h3 class="font-sf text-[22px] font-medium leading-tight text-black lg:text-[28px]">Самовывоз</h3>
+                <p class="font-sf text-[16px] leading-snug text-[#999999] lg:text-[18px]">
+                  Вы можете забрать свой заказ самостоятельно из нашего склада в Астане по адресу Сырымбет 44
+                </p>
+              </div>
+            </div>
+
+            <!-- Транспортной компанией -->
+            <div
+              class="flex flex-col items-center justify-start gap-8 rounded-[22.5px] bg-[#f4f4f4]/70 p-[30px] text-center lg:gap-[46px]"
+            >
+              <span class="flex shrink-0 items-center justify-center rounded-full bg-[#0160b1] p-[18px] text-white">
+                <svg class="size-[42px]" viewBox="0 0 42 42" fill="none" aria-hidden="true">
+                  <path
+                    d="M3.0625 23.3188C2.56667 23.3188 2.15133 23.1513 1.8165 22.8165C1.48167 22.4817 1.31367 22.0657 1.3125 21.5687C1.31133 21.0717 1.47933 20.6564 1.8165 20.3228C2.15367 19.9891 2.569 19.8211 3.0625 19.8187H9.1875C9.68333 19.8187 10.0992 19.9868 10.4352 20.3228C10.7712 20.6588 10.9387 21.0741 10.9375 21.5687C10.9363 22.0634 10.7683 22.4793 10.4335 22.8165C10.0987 23.1537 9.68333 23.3211 9.1875 23.3188H3.0625ZM8.53125 33.4688C7.51042 32.4479 7 31.2083 7 29.75H4.8125C4.22917 29.75 3.7625 29.5312 3.4125 29.0938C3.0625 28.6562 2.96042 28.1604 3.10625 27.6062L3.5 25.9438H8.96875C10.1937 25.9438 11.2292 25.5208 12.075 24.675C12.9208 23.8292 13.3437 22.7937 13.3437 21.5687C13.3437 21.1896 13.3 20.8396 13.2125 20.5188C13.125 20.1979 13.0083 19.8771 12.8625 19.5563H14.525C15.75 19.5563 16.7854 19.1333 17.6313 18.2875C18.4771 17.4417 18.9 16.4063 18.9 15.1813C18.9 13.9563 18.4771 12.9208 17.6313 12.075C16.7854 11.2292 15.75 10.8063 14.525 10.8063H7.875L8.1375 9.75625C8.3125 8.93958 8.71383 8.27633 9.3415 7.7665C9.96917 7.25667 10.7053 7.00117 11.55 7H29.3125C29.8958 7 30.3625 7.21875 30.7125 7.65625C31.0625 8.09375 31.1646 8.58958 31.0188 9.14375L29.8813 14H33.25C33.8042 14 34.3292 14.1243 34.825 14.3728C35.3208 14.6213 35.7292 14.9637 36.05 15.4L39.3313 19.7312C39.6521 20.1396 39.8563 20.5847 39.9438 21.0665C40.0313 21.5483 40.0313 22.0366 39.9438 22.5312L38.7625 28.35C38.675 28.7583 38.4708 29.0937 38.15 29.3562C37.8292 29.6187 37.4646 29.75 37.0562 29.75H35C35 31.2083 34.4896 32.4479 33.4688 33.4688C32.4479 34.4896 31.2083 35 29.75 35C28.2917 35 27.0521 34.4896 26.0312 33.4688C25.0104 32.4479 24.5 31.2083 24.5 29.75H17.5C17.5 31.2083 16.9896 32.4479 15.9688 33.4688C14.9479 34.4896 13.7083 35 12.25 35C10.7917 35 9.55208 34.4896 8.53125 33.4688ZM6.5625 16.9313C6.06667 16.9313 5.65133 16.7632 5.3165 16.4272C4.98167 16.0912 4.81367 15.6759 4.8125 15.1813C4.81133 14.6866 4.97933 14.2712 5.3165 13.9352C5.65367 13.5992 6.069 13.4313 6.5625 13.4313H14.4375C14.9333 13.4313 15.3493 13.5992 15.6853 13.9352C16.0213 14.2712 16.1887 14.6866 16.1875 15.1813C16.1863 15.6759 16.0183 16.0918 15.6835 16.429C15.3487 16.7662 14.9333 16.9336 14.4375 16.9313H6.5625ZM12.25 31.5C12.7458 31.5 13.1617 31.332 13.4977 30.996C13.8337 30.66 14.0012 30.2447 14 29.75C13.9988 29.2553 13.8308 28.84 13.496 28.504C13.1612 28.168 12.7458 28 12.25 28C11.7542 28 11.3388 28.168 11.004 28.504C10.6692 28.84 10.5012 29.2553 10.5 29.75C10.4988 30.2447 10.6668 30.6606 11.004 30.9977C11.3412 31.3349 11.7565 31.5023 12.25 31.5ZM29.75 31.5C30.2458 31.5 30.6617 31.332 30.9977 30.996C31.3337 30.66 31.5012 30.2447 31.5 29.75C31.4988 29.2553 31.3308 28.84 30.996 28.504C30.6612 28.168 30.2458 28 29.75 28C29.2542 28 28.8388 28.168 28.504 28.504C28.1692 28.84 28.0012 29.2553 28 29.75C27.9988 30.2447 28.1668 30.6606 28.504 30.9977C28.8412 31.3349 29.2565 31.5023 29.75 31.5ZM27.8688 22.75H36.3125L36.4875 21.8313L33.25 17.5H29.0937L27.8688 22.75Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              <div class="flex flex-col items-center gap-4 lg:gap-6">
+                <h3 class="font-sf text-[22px] font-medium leading-tight text-black lg:text-[28px]">
+                  Транспортной компанией
+                </h3>
+                <p class="font-sf text-[16px] leading-snug text-[#999999] lg:text-[18px]">
+                  Отправляем промышленные фильтры обратного осмоса транспортной компанией во все регионы Казахстана и
+                  СНГ
+                </p>
+              </div>
+            </div>
+
+            <!-- Доставка курьером -->
+            <div
+              class="flex flex-col items-center justify-start gap-8 rounded-[22.5px] bg-[#f4f4f4]/70 p-[30px] text-center sm:col-span-2 lg:col-span-1 lg:gap-[46px]"
+            >
+              <span class="flex shrink-0 items-center justify-center rounded-full bg-[#0160b1] p-[18px] text-white">
+                <svg class="size-[42px]" viewBox="0 0 42 42" fill="none" aria-hidden="true">
+                  <path
+                    d="M35.455 27.0725C35.455 27.0725 35.3325 27.0025 35.28 26.985C34.58 26.6 33.81 26.425 33.0225 26.3375L31.1325 14H33.2675C34.23 14 35.0175 13.2125 35.0175 12.25V8.75C35.0175 7.7875 34.23 7 33.2675 7H29.96C29.2425 4.9175 27.2825 3.5 25.0075 3.5H21.0175V7H25.0075C25.4265 6.99945 25.8319 7.14928 26.1498 7.42225C26.4677 7.69522 26.6771 8.0732 26.74 8.4875L29.575 26.9325C28.77 27.3525 28.0525 27.93 27.4925 28.6825C27.2475 29.015 27.055 29.365 26.8625 29.7325H22.75V12.25C22.75 11.2875 21.9625 10.5 21 10.5H5.25C4.2875 10.5 3.5 11.2875 3.5 12.25V19.25C3.5 20.2125 4.2875 21 5.25 21H5.3025C4.2 22.47 3.5 24.2725 3.5 26.25V31.5C3.5 32.4625 4.2875 33.25 5.25 33.25H7.0875C7.525 36.2075 10.045 38.5 13.125 38.5C16.205 38.5 18.725 36.2075 19.1625 33.25H26.3375C26.775 36.2075 29.295 38.5 32.375 38.5C35.7525 38.5 38.5 35.7525 38.5 32.375C38.5 30.205 37.3275 28.175 35.455 27.0725ZM7 14H19.25V17.5H7V14ZM13.125 35C12.7373 35.0002 12.3544 34.9144 12.0038 34.7488C11.6533 34.5831 11.3439 34.3418 11.0978 34.0422C10.8518 33.7426 10.6752 33.3922 10.5809 33.0161C10.4866 32.64 10.4769 32.2478 10.5525 31.8675C10.64 31.465 10.7975 31.08 11.025 30.8C11.2175 30.5375 11.4625 30.345 11.725 30.17H11.7425C12.2675 29.855 12.88 29.7325 13.475 29.8025H13.58C13.86 29.855 14.1575 29.9425 14.4025 30.0825C14.4375 30.1 14.4725 30.1175 14.525 30.135C15.1375 30.5375 15.5575 31.1325 15.6975 31.815C15.7325 31.99 15.75 32.1825 15.75 32.3575C15.75 33.81 14.5775 34.9825 13.125 34.9825V35ZM32.375 35C31.887 35.0013 31.4083 34.8664 30.9928 34.6103C30.5773 34.3543 30.2415 33.9874 30.0232 33.5509C29.805 33.1144 29.7129 32.6256 29.7574 32.1396C29.8019 31.6536 29.9811 31.1896 30.275 30.8C30.6581 30.2896 31.2134 29.9356 31.8378 29.8037C32.4621 29.6717 33.1132 29.7708 33.67 30.0825C34.0748 30.3142 34.4121 30.6475 34.6485 31.0496C34.8848 31.4517 35.012 31.9086 35.0175 32.375C35.0175 33.8275 33.845 35 32.3925 35H32.375Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              <div class="flex flex-col items-center gap-4 lg:gap-6">
+                <h3 class="font-sf text-[22px] font-medium leading-tight text-black lg:text-[28px]">
+                  Доставка курьером
+                </h3>
+                <p class="font-sf text-[16px] leading-snug text-[#999999] lg:text-[18px]">
+                  Выполняем курьерскую доставку заказа по согласованному адресу
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Способы и условия оплаты -->
+      <section class="container-page flex flex-col items-center gap-8 bg-[#f4f4f4] p-6 lg:gap-[46px] lg:p-[60px]">
+        <h2 class="text-center font-sf text-[32px] font-normal leading-none text-black sm:text-[40px] lg:text-[48px]">
+          Способы и условия оплаты
+        </h2>
+        <div class="grid w-full gap-[14px] sm:grid-cols-2">
+          <!-- Наличными -->
+          <div
+            class="flex flex-col items-center justify-start gap-8 rounded-[22.5px] bg-white p-[30px] text-center lg:gap-[46px]"
+          >
+            <span class="flex shrink-0 items-center justify-center rounded-full bg-[#0160b1] p-[18px] text-white">
+              <svg class="size-[42px]" viewBox="0 0 42 42" fill="none" aria-hidden="true">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M7 11.9V14L10.5 18.5C9.66457 18.5 11.0907 22.4093 10.5 23C9.90926 23.5907 4 22.6646 4 23.5L5.5 25.5C5.5 26.3354 12.4093 26.0093 13 26.6C13.5907 27.1907 4.06457 35 4.9 35H33.6C34.0137 35 34.6178 34.2833 35 34.125C35.3822 33.9667 33.8325 33.5425 34.125 33.25C34.4175 32.9575 35.7167 32.7572 35.875 32.375C36.0333 31.9928 36.75 31.9137 36.75 31.5V29.75H38.85C40.586 29.75 42 28.336 42 26.6V11.9C42 10.164 40.586 8.75 38.85 8.75H10.15C8.414 8.75 7 10.164 7 11.9ZM10.5 12.25V14H33.6C34.0137 14 29.1178 17.3417 29.5 17.5C29.8822 17.6583 13.2075 18.2075 13.5 18.5C13.7925 18.7925 13.5 32.5 17 31C9 34 30.5 31.9613 30.5 32.375L36.75 26.25H38.5V12.25H10.5Z"
+                  fill="currentColor"
+                />
+                <path
+                  d="M5.03125 14C3.21973 14 1.75 15.7637 1.75 17.9375V31.0625C1.75 33.2363 3.21973 35 5.03125 35H33.4688C35.2803 35 36.75 33.2363 36.75 31.0625V17.9375C36.75 15.7637 35.2803 14 33.4688 14H5.03125ZM8.26465 18.5938C8.03223 20.2426 6.95215 21.5469 5.57129 21.8258C5.27051 21.8832 5.02441 21.5879 5.02441 21.227V18.602C5.02441 18.241 5.27051 17.9457 5.57129 17.9457H7.75879C8.05957 17.9457 8.3125 18.241 8.25781 18.602L8.26465 18.5938ZM8.26465 30.4145C8.3125 30.7754 8.06641 31.0707 7.76562 31.0707H5.57812C5.27734 31.0707 5.03125 30.7754 5.03125 30.4145V27.7895C5.03125 27.4285 5.27734 27.125 5.57812 27.1906C6.95215 27.4695 8.03906 28.7656 8.27148 30.4227L8.26465 30.4145ZM32.9219 27.1824C33.2227 27.125 33.4688 27.4203 33.4688 27.7812V30.4062C33.4688 30.7672 33.2227 31.0625 32.9219 31.0625H30.7344C30.4336 31.0625 30.1807 30.7672 30.2354 30.4062C30.4678 28.7574 31.5478 27.4531 32.9287 27.1742L32.9219 27.1824ZM30.2354 18.5938C30.1875 18.2328 30.4336 17.9375 30.7344 17.9375H32.9219C33.2227 17.9375 33.4688 18.2328 33.4688 18.5938V21.2188C33.4688 21.5797 33.2227 21.8832 32.9219 21.8176C31.5479 21.5387 30.4609 20.2426 30.2285 18.5855L30.2354 18.5938ZM14.875 24.5C14.875 21.6043 16.8369 19.25 19.25 19.25C21.6631 19.25 23.625 21.6043 23.625 24.5C23.625 27.3957 21.6631 29.75 19.25 29.75C16.8369 29.75 14.875 27.3957 14.875 24.5Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <div class="flex flex-col items-center gap-4 lg:gap-6">
+              <h3 class="font-sf text-[22px] font-medium leading-tight text-black lg:text-[28px]">Наличными</h3>
+              <p class="font-sf text-[16px] leading-snug text-[#999999] lg:text-[18px]">
+                Оплачивайте стоимость заказа наличными в офисе по адресу Алматы, Сырымбет 44
+              </p>
+            </div>
+          </div>
+
+          <!-- Безналичный перевод -->
+          <div
+            class="flex flex-col items-center justify-start gap-8 rounded-[22.5px] bg-white p-[30px] text-center lg:gap-[46px]"
+          >
+            <span class="flex shrink-0 items-center justify-center rounded-full bg-[#0160b1] p-[18px] text-white">
+              <svg class="size-[42px]" viewBox="0 0 42 42" fill="none" aria-hidden="true">
+                <path
+                  d="M2.625 30.8438C2.625 32.0621 3.10898 33.2305 3.97048 34.092C4.83197 34.9535 6.00041 35.4375 7.21875 35.4375H34.7812C35.9996 35.4375 37.168 34.9535 38.0295 34.092C38.891 33.2305 39.375 32.0621 39.375 30.8438V18.2109H2.625V30.8438ZM8.03906 24.6094C8.03906 23.9567 8.29834 23.3307 8.75985 22.8692C9.22137 22.4077 9.84732 22.1484 10.5 22.1484H14.4375C15.0902 22.1484 15.7161 22.4077 16.1776 22.8692C16.6392 23.3307 16.8984 23.9567 16.8984 24.6094V26.25C16.8984 26.9027 16.6392 27.5286 16.1776 27.9901C15.7161 28.4517 15.0902 28.7109 14.4375 28.7109H10.5C9.84732 28.7109 9.22137 28.4517 8.75985 27.9901C8.29834 27.5286 8.03906 26.9027 8.03906 26.25V24.6094ZM34.7812 6.5625H7.21875C6.00041 6.5625 4.83197 7.04648 3.97048 7.90798C3.10898 8.76947 2.625 9.93791 2.625 11.1562V13.2891H39.375V11.1562C39.375 9.93791 38.891 8.76947 38.0295 7.90798C37.168 7.04648 35.9996 6.5625 34.7812 6.5625Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <div class="flex flex-col items-center gap-4 lg:gap-6">
+              <h3 class="font-sf text-[22px] font-medium leading-tight text-black lg:text-[28px]">
+                Безналичный перевод
+              </h3>
+              <p class="font-sf text-[16px] leading-snug text-[#999999] lg:text-[18px]">
+                Вносите оплату за оформленный заказ безналичным переводом по банковским реквизитам, которые вам
+                предоставит менеджер.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Контакты: чипы + карта + форма -->
+      <section class="bg-white">
+        <div class="container-pag p-6 sm:px-10 lg:p-10">
+          <!-- Чипы с контактами -->
+          <div class="grid gap-5 lg:grid-cols-[auto_1fr_1fr]">
+            <!-- Адрес -->
+            <div class="flex items-center gap-3 rounded-[12px] bg-[#f4f4f4] py-[10px] pl-[10px] pr-5">
+              <span class="flex size-14 shrink-0 items-center justify-center rounded-[10px] bg-white text-[#0160b1]">
+                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"
+                  />
+                </svg>
+              </span>
+              <span class="flex flex-col gap-2">
+                <span class="font-sf text-[12px] leading-none text-[#6a7284]">Адрес:</span>
+                <span class="font-sf text-[16px] font-semibold leading-tight text-[#252525] lg:text-[20px]"
+                  >Республика Казахстан, г.Астана, Переулок КОСАЛКА, 30Б.</span
+                >
+              </span>
+            </div>
+
+            <!-- E-mail -->
+            <a
+              href="mailto:info@abiroygroup.kz"
+              class="flex items-center gap-3 rounded-[12px] bg-[#f4f4f4] p-[10px] transition-colors hover:bg-[#ededed]"
+            >
+              <span class="flex size-14 shrink-0 items-center justify-center rounded-[10px] bg-white text-[#0160b1]">
+                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path
+                    d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                  />
+                </svg>
+              </span>
+              <span class="flex flex-col gap-2">
+                <span class="font-sf text-[12px] leading-none text-[#6a7284]">E-mail:</span>
+                <span class="font-sf text-[16px] font-semibold leading-tight text-[#252525] lg:text-[20px]"
+                  >info@abiroygroup.kz</span
+                >
+              </span>
+            </a>
+
+            <!-- Телефон -->
+            <a
+              href="tel:+77470959582"
+              class="flex items-center gap-3 rounded-[12px] bg-[#f4f4f4] p-[10px] transition-colors hover:bg-[#ededed]"
+            >
+              <span class="flex size-14 shrink-0 items-center justify-center rounded-[10px] bg-white text-[#0160b1]">
+                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path
+                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                  />
+                </svg>
+              </span>
+              <span class="flex flex-col gap-2">
+                <span class="font-sf text-[12px] leading-none text-[#6a7284]">Телефон:</span>
+                <span class="font-sf text-[16px] font-semibold leading-tight text-[#252525] lg:text-[20px]"
+                  >+7 (747) 095-95-82</span
+                >
+              </span>
+            </a>
+          </div>
+
+          <!-- Способы доставки заказа -->
+
+          <!-- Карта (Yandex Maps) -->
+          <div class="mt-12 overflow-hidden rounded-[20px] lg:mt-16">
+            <iframe
+              title="Карта — ABIROY GROUP, г. Астана"
+              src="https://yandex.com/map-widget/v1/?ll=71.470356%2C51.160522&z=14&pt=71.470356,51.160522,pm2rdm"
+              class="block h-[360px] w-full border-0 sm:h-[480px] lg:h-[600px]"
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+
+          <!-- Форма заявки -->
+          <div class="mt-5 rounded-[20px] bg-[#f4f4f4] p-6 sm:p-9">
+            <form class="flex flex-col gap-5">
+              <!-- Заголовок + соцсети -->
+              <div class="flex flex-wrap items-center justify-between gap-4">
+                <h2 class="font-sf text-[22px] font-semibold leading-none text-black sm:text-[26px]">
+                  Хотите узнать больше?
+                </h2>
+                <div class="flex items-center gap-[18px] lg:gap-[30px]">
+                  <a href="#" aria-label="VK" class="opacity-40 transition hover:opacity-70"
+                    ><img src="/soc-vk.svg" alt="" class="h-[22px] w-[22px] brightness-0"
+                  /></a>
+                  <a href="#" aria-label="Instagram" class="opacity-40 transition hover:opacity-70"
+                    ><img src="/soc-instagram.svg" alt="" class="h-7 w-7 brightness-0"
+                  /></a>
+                  <a href="#" aria-label="Facebook" class="opacity-40 transition hover:opacity-70"
+                    ><img src="/soc-facebook.svg" alt="" class="h-7 w-7 brightness-0"
+                  /></a>
+                  <a href="#" aria-label="Telegram" class="opacity-40 transition hover:opacity-70"
+                    ><img src="/soc-telegram.svg" alt="" class="h-7 w-7 brightness-0"
+                  /></a>
+                  <a href="#" aria-label="TikTok" class="opacity-40 transition hover:opacity-70"
+                    ><img src="/soc-tiktok.svg" alt="" class="h-7 w-7 brightness-0"
+                  /></a>
+                  <a href="#" aria-label="YouTube" class="opacity-40 transition hover:opacity-70"
+                    ><img src="/soc-youtube.svg" alt="" class="h-7 w-7 brightness-0"
+                  /></a>
+                </div>
+              </div>
+
+              <p class="font-sf text-[16px] leading-none text-[#999999] lg:text-[18px]">
+                Заполните форму, и мы расскажем всё, что вас интересует.
+              </p>
+
+              <!-- Поля -->
+              <div class="flex flex-col gap-[15px] lg:flex-row lg:items-stretch">
+                <!-- Левая колонка -->
+                <div class="flex flex-1 flex-col gap-[15px]">
+                  <input
+                    name="name"
+                    type="text"
+                    placeholder="Ваше имя"
+                    class="h-[54px] rounded-[10px] bg-white px-6 font-sf text-[18px] tracking-[0.125px] text-[#111111] placeholder:text-[#999999] focus:outline-none focus:ring-2 focus:ring-[#64b6ff]"
+                  />
+                  <div
+                    class="flex h-[54px] items-center gap-2 rounded-[10px] bg-white px-6 focus-within:ring-2 focus-within:ring-[#64b6ff]"
+                  >
+                    <span class="font-sf text-[18px] tracking-[0.125px] text-[#111111]">+7</span>
+                    <input
+                      name="phone"
+                      type="tel"
+                      placeholder="000 000 0000"
+                      class="h-full flex-1 bg-transparent font-sf text-[18px] tracking-[0.125px] text-[#111111] placeholder:text-[#999999] focus:outline-none"
+                    />
+                  </div>
+                  <input
+                    name="email"
+                    type="email"
+                    placeholder="example@gmail.com"
+                    class="h-[54px] rounded-[10px] bg-white px-6 font-sf text-[18px] tracking-[0.125px] text-[#111111] placeholder:text-[#999999] focus:outline-none focus:ring-2 focus:ring-[#64b6ff]"
+                  />
+                </div>
+
+                <!-- Правая колонка: комментарий -->
+                <div class="flex flex-1">
+                  <textarea
+                    name="comment"
+                    placeholder="Ваш комментарий"
+                    class="min-h-[140px] w-full flex-1 resize-none rounded-[10px] bg-white px-6 py-4 font-sf text-[18px] tracking-[0.125px] text-[#111111] placeholder:text-[#999999] focus:outline-none focus:ring-2 focus:ring-[#64b6ff] lg:min-h-0"
+                  ></textarea>
+                </div>
+              </div>
+
+              <!-- Кнопка -->
+              <button
+                type="submit"
+                class="flex h-[64px] w-full items-center justify-center rounded-[12px] bg-[#0160b1] px-[30px] text-[18px] font-semibold text-white transition-colors hover:bg-[#014e90]"
+              >
+                Получить расчет
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    {{> footer }}
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

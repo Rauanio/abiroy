@@ -1,0 +1,171 @@
+@import "tailwindcss";
+
+/* Шрифты из дизайна: Manrope (основной текст) и SF Pro Display (заголовки).
+   Сами файлы шрифтов подключаются через <link> в <head> каждой страницы. */
+@theme {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-manrope: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-sf: "SF Pro Display", "Manrope", ui-sans-serif, system-ui, sans-serif;
+}
+
+.body {
+  background: #F4F4F4;
+}
+
+/* Свои стили и компоненты можно добавлять здесь */
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-lg bg-indigo-600 px-5 py-2.5
+           font-medium text-white transition hover:bg-indigo-500 focus:outline-none
+           focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2;
+  }
+  .container-page {
+    @apply mx-auto w-full max-w-[1440px] ;
+  }
+}
+
+.card-overlay {
+  background: linear-gradient(180deg, rgba(245, 245, 245, 0.00) 0%, #F5F5F5 50.48%);
+}
+
+.card-overlay-white {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #fff 50.48%);
+}
+
+/* Слайдер кейсов: блюр и уменьшение боковых слайдов */
+.cases-swiper .case-inner {
+  transition: filter 0.4s ease, transform 0.4s ease, opacity 0.4s ease;
+  filter: blur(4px);
+  transform: scale(0.72);
+  transform-origin: center center;
+  opacity: 0.85;
+}
+
+.cases-swiper .swiper-slide-active .case-inner {
+  filter: none;
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Пагинация кейсов */
+.cases-swiper .swiper-pagination {
+  position: static;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin-top: 40px;
+}
+
+.cases-swiper .swiper-pagination-bullet {
+  width: 9px;
+  height: 9px;
+  margin: 0 !important;
+  background: #e6e6e6;
+  opacity: 1;
+  border-radius: 9999px;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
+.cases-swiper .swiper-pagination-bullet-active {
+  width: 60px;
+  background: #0160b1;
+}
+
+/* Горизонтальный трек без видимого скроллбара (слайдер кейсов) */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Карточка каталога технологий: белая по умолчанию, фото-фон при наведении.
+   Класс .is-active форсит «ховер»-состояние (демонстрация в макете). */
+.tech-card__img,
+.tech-card__overlay {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.tech-card:hover .tech-card__img,
+.tech-card:hover .tech-card__overlay,
+.tech-card.is-active .tech-card__img,
+.tech-card.is-active .tech-card__overlay {
+  opacity: 1;
+}
+
+.tech-card__sub,
+.tech-card__title {
+  color: #000;
+  transition: color 0.3s ease;
+}
+.tech-card:hover .tech-card__sub,
+.tech-card:hover .tech-card__title,
+.tech-card.is-active .tech-card__sub,
+.tech-card.is-active .tech-card__title {
+  color: #fff;
+}
+
+.tech-card__divider {
+  background-color: #e6e6e6;
+  transition: background-color 0.3s ease;
+}
+.tech-card:hover .tech-card__divider,
+.tech-card.is-active .tech-card__divider {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.tech-card__arrow {
+  color: #111111;
+  transition: color 0.3s ease;
+}
+.tech-card:hover .tech-card__arrow,
+.tech-card.is-active .tech-card__arrow {
+  color: #ffffff;
+}
+
+/* Бегущая лента логотипов (бесконечный marquee) */
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+}
+
+.marquee__track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  animation: marquee-scroll 30s linear infinite;
+}
+
+.marquee:hover .marquee__track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track {
+    animation: none;
+  }
+}

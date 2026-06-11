@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abiroy — Услуги</title>
+    <!-- Шрифты: Manrope + SF Pro Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
+  </head>
+  <body class="flex min-h-screen flex-col bg-white text-gray-900">
+    {{> header }}
+
+    <main class="flex-1">
+      <!-- Хлебные крошки + заголовок -->
+      <section class="container-page px-6 pt-12 pb-6 sm:px-10 lg:px-[60px] lg:pt-16 lg:pb-10">
+        <nav class="flex items-center gap-1.5 text-[14px] lg:text-[20px]" aria-label="Хлебные крошки">
+          <a href="/index.html" class="text-[#999999] transition-colors hover:text-[#0160b1]">Главная</a>
+          <svg class="h-4 w-4 text-[#999999]" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path
+              d="M6 4l4 4-4 4"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span class="text-black">Услуги</span>
+        </nav>
+        <h1
+          class="mt-10 font-sf text-[44px] font-bold leading-none text-[#0160b1] sm:text-[64px] lg:mt-12 lg:text-[100px]"
+        >
+          Услуги
+        </h1>
+      </section>
+
+      <section class="overflow-hidden bg-[#f3f3f3]">
+        <div class="container-page px-6 py-12 sm:px-10 lg:px-[70px] lg:py-[70px]">
+          <div class="drag-swiper swiper mt-10 !overflow-visible lg:mt-[50px]">
+            <div class="swiper-wrapper">
+              {{#each services}}
+              <article
+                class="swiper-slide relative !h-[520px] !w-[280px] overflow-hidden bg-white sm:!w-[360px] lg:!h-[568px] lg:!w-[424px]"
+              >
+                <!-- Изображение (крупное, уходит за текст) -->
+                <div class="absolute inset-0 flex items-center justify-center p-[30px]">
+                  <img
+                    src="{{ this.img }}"
+                    alt="{{ this.title }}"
+                    class="max-h-[300px] w-auto max-w-full object-contain"
+                  />
+                </div>
+
+                <!-- Затухание низа в белый (как в продукции) -->
+                <div class="pointer-events-none absolute inset-x-0 bottom-0 h-[70%] card-overlay-white"></div>
+
+                <!-- Описание (сверху, обрезается) -->
+                <p class="absolute inset-x-[30px] top-[30px] z-10 line-clamp-3 text-[14px] leading-snug text-[#999999]">
+                  {{ this.desc }}
+                </p>
+
+                <!-- Заголовок + бренд (прижаты к низу) -->
+                <div class="absolute inset-x-[30px] bottom-[30px] z-10">
+                  <h3 class="line-clamp-2 text-[20px] font-semibold leading-tight text-black">{{ this.title }}</h3>
+                  <p class="mt-3 text-[16px] font-semibold text-[#999999]">{{ this.brand }}</p>
+                </div>
+              </article>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    {{> footer }}
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

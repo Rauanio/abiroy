@@ -1,0 +1,113 @@
+<header class="lg:mt-10 {{#if transparent}} mt-10 absolute inset-x-0 top-0 z-30{{/if}}">
+  <div class="container-page px-6 md:px-10 flex h-[72px] items-center justify-between">
+    <!-- Левая часть: логотип + навигация -->
+    <div class="flex items-center gap-10">
+      <a href="/index.html" class="shrink-0" aria-label="{{ siteName }} group">
+        <img src="{{#if transparent}}/logo-white.svg{{else}}/logo.svg{{/if}}" alt="{{ siteName }} group" class="h-[30px] w-[131px]" />
+      </a>
+
+      <nav data-nav class="hidden items-center gap-5 xl:flex" aria-label="Основная навигация">
+        {{#each nav}}
+          <a
+            href="{{ this.href }}"
+            class="whitespace-nowrap text-[16px] leading-none transition-colors hover:text-[#64b6ff] {{#if ../transparent}}text-white{{else}}text-[#666666]{{/if}}"
+          >{{ this.label }}</a>
+        {{/each}}
+      </nav>
+    </div>
+
+    <!-- Правая часть: язык + кнопка -->
+    <div class="flex items-center gap-[9px]">
+      <div class="relative" data-lang-dropdown>
+        <button
+          data-lang-toggle
+          class="flex h-10 lg:h-12 items-center justify-center gap-[7.5px] rounded-[9px] px-[16.5px] py-[18px] transition-colors {{#if transparent}}bg-white hover:bg-gray-100{{else}}hover:bg-gray-50{{/if}}"
+          aria-label="Сменить язык"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <span data-lang-current class="text-[16.5px] font-semibold uppercase leading-none text-black">ru</span>
+          <img data-lang-arrow src="/arrow.svg" alt="" class="h-[21px] w-[10.5px] rotate-90 transition-transform duration-200" aria-hidden="true" />
+        </button>
+
+        <ul
+          data-lang-menu
+          class="absolute right-0 top-full z-50 mt-2 hidden min-w-[110px] overflow-hidden rounded-[12px] border border-gray-100 bg-white py-1 shadow-xl"
+          role="menu"
+        >
+          <li>
+            <button data-lang-option="ru" class="flex w-full items-center px-4 py-2.5 text-[15px] font-semibold uppercase text-black transition-colors hover:bg-gray-50" role="menuitem">ru</button>
+          </li>
+          <li>
+            <button data-lang-option="kz" class="flex w-full items-center px-4 py-2.5 text-[15px] font-semibold uppercase text-black transition-colors hover:bg-gray-50" role="menuitem">kz</button>
+          </li>
+          <li>
+            <button data-lang-option="en" class="flex w-full items-center px-4 py-2.5 text-[15px] font-semibold uppercase text-black transition-colors hover:bg-gray-50" role="menuitem">en</button>
+          </li>
+        </ul>
+      </div>
+
+      <a
+        href="/contact.html"
+        class="hidden items-center h-12 justify-center rounded-[12px] bg-[#0160b1] px-[30px] py-[18px] text-[16.5px] font-semibold leading-none text-white transition-colors hover:bg-[#014e90] lg:flex"
+      >Получить расчет</a>
+
+      <!-- Бургер для мобильных -->
+      <button
+        data-burger
+        class="rounded-lg p-2 transition-colors xl:hidden {{#if transparent}}text-white hover:bg-white/10{{else}}text-gray-700 hover:bg-gray-100{{/if}}"
+        aria-label="Открыть меню"
+      >
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Затемнение фона -->
+  <div
+    data-menu-backdrop
+    class="fixed inset-0 z-40 hidden bg-black/50 backdrop-blur-sm xl:hidden"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Мобильное меню (панель) -->
+  <nav
+    data-menu
+    class="fixed inset-x-3 top-4 z-50 hidden overflow-hidden rounded-[20px] bg-white shadow-2xl xl:hidden"
+    aria-label="Мобильная навигация"
+  >
+    <!-- Шапка панели -->
+    <div class="flex items-center justify-between border-b border-gray-100 px-5 py-4">
+      <img src="/logo.svg" alt="{{ siteName }} group" class="h-[30px] w-[131px]" />
+      <button
+        data-menu-close
+        class="rounded-lg p-2 text-gray-500 transition-colors hover:bg-gray-100 hover:text-black"
+        aria-label="Закрыть меню"
+      >
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Ссылки -->
+    <div data-nav class="flex flex-col p-2">
+      {{#each nav}}
+        <a
+          href="{{ this.href }}"
+          class="rounded-xl px-4 py-3 text-[16px] text-[#333333] transition-colors hover:bg-gray-50 hover:text-[#0160b1]"
+        >{{ this.label }}</a>
+      {{/each}}
+    </div>
+
+    <!-- Футер панели -->
+    <div class="flex items-center gap-3 border-t border-gray-100 p-4">
+      <a
+        href="/contact.html"
+        class="flex flex-1 items-center justify-center rounded-[12px] bg-[#0160b1] px-[30px] py-3 text-center text-[16px] font-semibold text-white transition-colors hover:bg-[#014e90]"
+      >Получить расчет</a>
+    </div>
+  </nav>
+</header>

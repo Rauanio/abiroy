@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abiroy — Технологии</title>
+    <!-- Шрифты: Manrope + SF Pro Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
+  </head>
+  <body class="flex min-h-screen flex-col bg-white text-gray-900">
+    {{> header }}
+
+    <main class="flex-1">
+      <section class="container-page px-6 pt-12 pb-6 sm:px-10 lg:px-[40px] lg:pt-16 lg:pb-10">
+        <nav class="flex items-center gap-1.5 text-[14px] lg:text-[20px]" aria-label="Хлебные крошки">
+          <a href="/index.html" class="text-[#999999] transition-colors hover:text-[#0160b1]">Главная</a>
+          <svg class="h-4 w-4 text-[#999999]" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path
+              d="M6 4l4 4-4 4"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span class="text-black">Технологии</span>
+        </nav>
+        <h1
+          class="mt-10 font-sf text-[56px] font-bold leading-none text-[#0160b1] sm:text-[80px] lg:mt-12 lg:text-[100px]"
+        >
+          Технологии
+        </h1>
+      </section>
+
+      <p class="container-page px-6 sm:px-10 mb-10 font-sf">
+        Промышленные системы очистки воды используются на производстве, в жилых комплексах и отелях, лабораториях,
+        ресторанах и линиях по очистке воды на разлив. Главной особенностью промышленной очистки является высокая
+        производительность фильтров, которая обеспечивает большие объемы очищенной воды. Промышленные фильтры для
+        очистки воды применяют в аграрном бизнесе, фармакологии, пищевой промышленности, ювелирном деле и
+        микроэлектронике.
+      </p>
+
+      <!-- Каталог технологий -->
+      <section class="overflow-hidden bg-[#f3f3f3]">
+        <div class="container-page p-6 sm:px-10 lg:p-[70px]">
+          <h2 class="font-sf text-[32px] font-medium leading-none text-black sm:text-[40px] lg:text-[48px]">
+            Каталог технологий
+          </h2>
+
+          <div class="drag-swiper swiper mt-10 !overflow-visible lg:mt-[50px]">
+            <div class="swiper-wrapper">
+              {{#each techCatalog}}
+                <a
+                  href="/techno-details.html"
+                  class="tech-card swiper-slide group relative block cursor-pointer !h-[520px] !w-[300px] overflow-hidden bg-white sm:!w-[360px] lg:!h-[568px] lg:!w-[424px]{{#if this.active}} is-active{{/if}}"
+                >
+                  <!-- Фон при наведении -->
+                  <img src="{{ this.img }}" alt="" aria-hidden="true" class="tech-card__img absolute inset-0 h-full w-full object-cover" />
+                  <div class="tech-card__overlay absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-black/40"></div>
+
+                  <!-- Контент -->
+                  <div class="relative z-10 flex h-full flex-col p-[30px]">
+                    <!-- Верх: метрика + тег -->
+                    <div class="flex items-start justify-between gap-4">
+                      <div class="flex flex-col gap-[14px]">
+                        <span class="font-sf text-[20px] font-medium leading-none text-[#64b6ff]">{{ this.metric }}</span>
+                        <span class="tech-card__sub font-sf text-[14px] leading-none">{{ this.metricSub }}</span>
+                      </div>
+                      <span class="font-sf text-right text-[14px] leading-none text-[#999999]">{{ this.tag }}</span>
+                    </div>
+
+                    <!-- Разделитель -->
+                    <span class="tech-card__divider mt-[21px] block h-px w-full"></span>
+
+                    <!-- Низ: название + стрелка -->
+                    <div class="mt-auto flex items-end justify-between gap-4">
+                      <h3 class="tech-card__title max-w-[256px] font-sf text-[24px] font-semibold leading-tight lg:text-[28px]">{{ this.title }}</h3>
+                      <span class="tech-card__arrow shrink-0">
+                        <svg class="h-[15px] w-[15px]" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <path d="M4 12 12 4M6 4h6v6" />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </a>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    {{> footer }}
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
