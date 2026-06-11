@@ -132,7 +132,7 @@
           <div class="drag-swiper swiper mt-10 !overflow-visible lg:mt-[50px]">
             <div class="swiper-wrapper">
               {{#each services}}
-                <article class="swiper-slide relative !h-[520px] !w-[280px] overflow-hidden bg-white sm:!w-[360px] lg:!h-[568px] lg:!w-[424px]">
+                <a href="/service-detail.html" class="swiper-slide relative !h-[520px] !w-[280px] overflow-hidden bg-white sm:!w-[360px] lg:!h-[568px] lg:!w-[424px]">
                   <!-- Изображение (крупное, уходит за текст) -->
                   <div class="absolute inset-0 flex items-center justify-center p-[30px]">
                     <img src="{{ this.img }}" alt="{{ this.title }}" class="max-h-[300px] w-auto max-w-full object-contain" />
@@ -149,7 +149,7 @@
                     <h3 class="line-clamp-2 text-[20px] font-semibold leading-tight text-black">{{ this.title }}</h3>
                     <p class="mt-3 text-[16px] font-semibold text-[#999999]">{{ this.brand }}</p>
                   </div>
-                </article>
+                </a>
               {{/each}}
             </div>
           </div>
@@ -213,7 +213,7 @@
         <div class="cases-swiper swiper mt-10 lg:mt-[50px]">
           <div class="swiper-wrapper">
             {{#each cases}}
-              <div class="swiper-slide !w-[750px] !max-w-[90vw]">
+              <a href="/case-details.html" class="swiper-slide !w-[750px] !max-w-[90vw]">
                 <div class="case-inner">
                   <!-- Картинка кейса -->
                   <div class="relative h-[300px] overflow-hidden rounded-[30px] sm:h-[400px] lg:h-[480px]">
@@ -226,7 +226,7 @@
                     <p class="mt-5 text-[15px] leading-snug lg:mt-6 lg:text-[18px]">{{ ../caseDesc }}</p>
                   </div>
                 </div>
-              </div>
+              </a>
             {{/each}}
           </div>
           <div class="swiper-pagination"></div>
