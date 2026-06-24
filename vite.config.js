@@ -83,9 +83,29 @@ function organizeDist(outDir) {
         )
         // ссылки между страницами лежат в той же папке
         html = html.replace(/(src|href)="\/([a-z0-9-]+\.html)"/gi, '$1="$2"')
+        // фоновые картинки в инлайн-стилях: url('/x.png') -> url('images/x.png')
+        html = html.replace(
+          /url\((['"]?)\/([^"')]+\.(?:png|svg|jpe?g|webp|gif|ico|avif))\1\)/gi,
+          'url($1images/$2$1)'
+        )
 
         writeFileSync(src, html)
       }
+
+      // 3. В CSS (напр. tailwind bg-[url(...)]) пути к public-картинкам:
+      //    url(/x.png) -> url(../images/x.png) (css лежит в dist/css/)
+      const cssDir = join(dist, 'css')
+      try {
+        for (const f of readdirSync(cssDir)) {
+          if (!f.endsWith('.css')) continue
+          const p = join(cssDir, f)
+          const css = readFileSync(p, 'utf8').replace(
+            /url\((['"]?)\/([^"')]+\.(?:png|svg|jpe?g|webp|gif|ico|avif))\1\)/gi,
+            'url($1../images/$2$1)'
+          )
+          writeFileSync(p, css)
+        }
+      } catch {}
     },
   }
 }

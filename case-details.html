@@ -521,7 +521,7 @@
       </section>
 
       <!-- Другие кейсы и клиенты -->
-      <section class="bg-[#f4f4f4]">
+      <section class="overflow-hidden bg-[#f4f4f4]">
         <div class="container-page px-6 py-12 sm:px-10 lg:px-[60px] lg:py-[70px]" data-cases>
           <div class="flex items-center justify-between gap-4">
             <h2 class="font-sf text-[32px] font-medium leading-none text-black sm:text-[40px] lg:text-[48px]">
@@ -532,7 +532,7 @@
                 type="button"
                 data-cases-prev
                 aria-label="Предыдущий"
-                class="flex size-12 items-center justify-center rounded-full bg-[#f4f4f4] text-[#333333] transition-colors hover:bg-[#0160b1] hover:text-white disabled:opacity-40"
+                class="flex size-12 items-center justify-center rounded-full bg-[#fff] text-[#333333] transition-colors hover:bg-[#0160b1] hover:text-white [&.swiper-button-disabled]:opacity-40 [&.swiper-button-disabled]:hover:bg-[#fff] [&.swiper-button-disabled]:hover:text-[#333333]"
               >
                 <svg
                   class="h-5 w-5"
@@ -551,7 +551,7 @@
                 type="button"
                 data-cases-next
                 aria-label="Следующий"
-                class="flex size-12 items-center justify-center rounded-full bg-[#f4f4f4] text-[#333333] transition-colors hover:bg-[#0160b1] hover:text-white disabled:opacity-40"
+                class="flex size-12 items-center justify-center rounded-full bg-[#fff] text-[#333333] transition-colors hover:bg-[#0160b1] hover:text-white [&.swiper-button-disabled]:opacity-40 [&.swiper-button-disabled]:hover:bg-[#fff] [&.swiper-button-disabled]:hover:text-[#333333]"
               >
                 <svg
                   class="h-5 w-5"
@@ -570,29 +570,35 @@
           </div>
 
           <div class="relative mt-8 lg:mt-10">
-            <div data-cases-track class="no-scrollbar flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth">
-              {{#each cases}}
-              <a
-                href="/case-details.html"
-                data-case
-                data-industry="{{ this.industry }}"
-                data-technology="{{ this.technology }}"
-                data-solution="{{ this.solution }}"
-                class="relative block aspect-[740/587] w-[88%] shrink-0 snap-start overflow-hidden rounded-[16px] sm:w-[70%] lg:w-[calc(50%-10px)]"
-              >
-                <img src="{{ this.img }}" alt="{{ this.title }}" class="absolute inset-0 h-full w-full object-cover" />
-                <span
-                  class="absolute left-5 top-5 inline-flex items-center rounded-[12px] bg-black/40 px-8 py-3 font-sf text-[15px] font-semibold text-white backdrop-blur-sm sm:px-12 sm:py-[21px]"
-                  >{{ this.company }}</span
+            <div data-cases-track class="cases-slider swiper !overflow-visible">
+              <div class="swiper-wrapper">
+                {{#each cases}}
+                <a
+                  href="/case-details.html"
+                  data-case
+                  data-industry="{{ this.industry }}"
+                  data-technology="{{ this.technology }}"
+                  data-solution="{{ this.solution }}"
+                  class="swiper-slide relative block aspect-[740/587] !w-[88%] shrink-0 overflow-hidden rounded-[16px] sm:!w-[60%] lg:!w-[660px]"
                 >
-                <div
-                  class="absolute inset-x-5 bottom-5 rounded-[12px] bg-black/40 p-4 text-white backdrop-blur-md lg:px-[30px] lg:py-[37px]"
-                >
-                  <h3 class="font-sf text-[18px] font-medium leading-none lg:text-[30px]">{{ this.title }}</h3>
-                  <div class="mt-2 font-sf text-[14px] leading-snug lg:mt-6 lg:text-[18px]">{{ ../caseDesc }}</div>
-                </div>
-              </a>
-              {{/each}}
+                  <img
+                    src="{{ this.img }}"
+                    alt="{{ this.title }}"
+                    class="absolute inset-0 h-full w-full object-cover"
+                  />
+                  <span
+                    class="absolute left-2 top-2 lg:left-5 lg:top-5 inline-flex items-center rounded-[12px] bg-black/40 px-8 py-3 font-sf text-[15px] font-semibold text-white backdrop-blur-sm sm:px-12 sm:py-[21px]"
+                    >{{ this.company }}</span
+                  >
+                  <div
+                    class="absolute inset-x-2 lg:inset-x-5 bottom-2 lg:bottom-5 rounded-[12px] bg-black/40 p-4 text-white backdrop-blur-md lg:px-[30px] lg:py-[37px]"
+                  >
+                    <h3 class="font-sf text-[18px] font-medium leading-none lg:text-[30px]">{{ this.title }}</h3>
+                    <div class="mt-2 font-sf text-[14px] leading-snug lg:mt-6 lg:text-[18px]">{{ ../caseDesc }}</div>
+                  </div>
+                </a>
+                {{/each}}
+              </div>
             </div>
 
             <div data-cases-empty class="hidden py-20 text-center font-sf text-[18px] text-[#999999]">

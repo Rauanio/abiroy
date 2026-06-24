@@ -183,8 +183,9 @@ table tr td:last-child {
   inset: 0 0 auto 0;
   height: 180px;
   z-index: 5;
+  /* Не дублируем -webkit-вручную: минификатор (lightningcss) при наличии обоих
+     оставлял только -webkit-, ломая blur в Firefox. Автопрефиксер добавит сам. */
   backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0));
   -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent);
   mask-image: linear-gradient(to bottom, #000 55%, transparent);

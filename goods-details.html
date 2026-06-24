@@ -65,13 +65,25 @@
               <div class="gallery-swiper swiper overflow-hidden rounded-[20px]">
                 <div class="swiper-wrapper">
                   <div class="swiper-slide">
-                    <img src="/goods-ro.png" alt="Обратный осмос RO-750" class="h-[380px] w-full object-cover sm:h-[500px] lg:h-[612px]" />
+                    <img
+                      src="/goods-ro.png"
+                      alt="Обратный осмос RO-750"
+                      class="h-[380px] w-full object-cover sm:h-[500px] lg:h-[612px]"
+                    />
                   </div>
                   <div class="swiper-slide">
-                    <img src="/goods-ro.png" alt="Обратный осмос RO-750" class="h-[380px] w-full object-cover sm:h-[500px] lg:h-[612px]" />
+                    <img
+                      src="/goods-ro.png"
+                      alt="Обратный осмос RO-750"
+                      class="h-[380px] w-full object-cover sm:h-[500px] lg:h-[612px]"
+                    />
                   </div>
                   <div class="swiper-slide">
-                    <img src="/goods-ro.png" alt="Обратный осмос RO-750" class="h-[380px] w-full object-cover sm:h-[500px] lg:h-[612px]" />
+                    <img
+                      src="/goods-ro.png"
+                      alt="Обратный осмос RO-750"
+                      class="h-[380px] w-full object-cover sm:h-[500px] lg:h-[612px]"
+                    />
                   </div>
                 </div>
               </div>
@@ -117,7 +129,9 @@
 
             <!-- Информация -->
             <div class="flex flex-1 flex-col gap-5 lg:gap-6">
-              <div class="font-sf text-[22px] font-semibold leading-none text-[#222222] lg:text-[24px]">907 500 KZT</div>
+              <div class="font-sf text-[22px] font-semibold leading-none text-[#222222] lg:text-[24px]">
+                907 500 KZT
+              </div>
               <h2 class="font-sf text-[28px] font-semibold leading-tight text-black sm:text-[32px] lg:text-[36px]">
                 Обратный осмос RO-750.
               </h2>
@@ -129,13 +143,13 @@
               <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
                 <a
                   href="/contact.html"
-                  class="inline-flex items-center justify-center  rounded-[12px] text-center bg-[#0160b1] px-[30px] py-[18px] leading-3.5 font-sf text-[18px] font-medium text-white transition-colors hover:bg-[#014e90] lg:text-[20px]"
+                  class="inline-flex items-center justify-center rounded-[12px] text-center bg-[#0160b1] px-[30px] py-[18px] leading-3.5 font-sf text-[18px] font-medium text-white transition-colors hover:bg-[#014e90] lg:text-[20px]"
                   >Получить расчет</a
                 >
                 <button
                   type="button"
                   data-delivery-open
-                  class="inline-flex items-center justify-center gap-4  rounded-[12px] bg-[#f1f1f1] px-[30px] leading-3.5 py-[18px] font-sf text-[18px] font-medium text-[#333333] transition-colors hover:bg-[#e8e8e8] lg:text-[20px]"
+                  class="inline-flex items-center justify-center gap-4 rounded-[12px] bg-[#f1f1f1] px-[30px] leading-3.5 py-[18px] font-sf text-[18px] font-medium text-[#333333] transition-colors hover:bg-[#e8e8e8] lg:text-[20px]"
                 >
                   Условия оплаты и доставки
                   <svg
@@ -168,7 +182,7 @@
                   гарантированно чистой воде.
                 </div>
                 <div>Основными потребителями очищенной воды методом обратного осмоса на сегодняшний день являются:</div>
-                <ul class="flex flex-col gap-1 pl-1">
+                <ul>
                   <li>• частные лица — для питья и приготовления пищи,</li>
                   <li>• бизнес-центры и офисы — для снабжения питьевой водой сотрудников,</li>
                   <li>• кафе и рестораны — для питья и приготовления пищи,</li>
@@ -189,7 +203,7 @@
                   дешевле и безопаснее бутилированной воды.
                 </div>
                 <div>Типовая краткая схема водоподготовки для производства бутилированной воды выглядит так:</div>
-                <ul class="flex flex-col gap-1 pl-1">
+                <ul>
                   <li>• Предварительная подготовка воды (в случае необходимости).</li>
                   <li>• Установка обратного осмоса нужной производительности.</li>
                   <li>• Накопительная емкость.</li>
@@ -237,10 +251,17 @@
           <!-- Сетка карточек -->
           <div class="mt-10 grid grid-cols-1 gap-[14px] sm:grid-cols-2 lg:mt-[46px] lg:grid-cols-3">
             {{#each products}}
-            <a href="/goods-details.html" class="group relative block h-[500px] overflow-hidden bg-white sm:h-[540px] lg:h-[568px]">
+            <a
+              href="/goods-details.html"
+              class="group relative block h-[500px] overflow-hidden bg-white sm:h-[540px] lg:h-[568px]"
+            >
               <!-- Изображение -->
               <div class="absolute inset-0 flex items-start justify-center pt-[70px]">
-                <img src="{{ this.img }}" alt="{{ this.name }}" class="max-h-[330px] w-auto max-w-[80%] object-contain" />
+                <img
+                  src="{{ this.img }}"
+                  alt="{{ this.name }}"
+                  class="max-h-[330px] w-auto max-w-[80%] object-contain"
+                />
               </div>
 
               <!-- Затухание низа в белый фон карточки -->
@@ -249,7 +270,9 @@
               <!-- Бейдж + артикул -->
               <div class="absolute inset-x-[30px] top-[30px] z-10 flex items-start justify-between gap-2">
                 {{#if this.popular}}
-                <span class="bg-[#ffcc00] h-[34px] px-3 py-3 text-[14px] font-semibold leading-none text-black">Популярное</span>
+                <span class="bg-[#ffcc00] h-[34px] px-3 py-3 text-[14px] font-semibold leading-none text-black"
+                  >Популярное</span
+                >
                 {{else}}
                 <span></span>
                 {{/if}}
@@ -260,7 +283,10 @@
               <div class="absolute inset-x-[30px] bottom-[30px] z-10 flex flex-col gap-5">
                 <h3 class="text-[20px] font-semibold leading-tight text-black">{{ this.name }}</h3>
                 <div class="flex items-center gap-4">
-                  <span class="bg-[#64b6ff] h-[28px] px-2.5 flex items-center justify-center text-[12px] font-semibold leading-none text-black">{{ this.flow }}</span>
+                  <span
+                    class="bg-[#64b6ff] h-[28px] px-2.5 flex items-center justify-center text-[12px] font-semibold leading-none text-black"
+                    >{{ this.flow }}</span
+                  >
                   <span class="text-[16px] text-[#999999]">{{ this.people }}</span>
                 </div>
                 <div class="text-[24px] font-semibold leading-none text-black">{{ this.price }}</div>
@@ -276,40 +302,76 @@
           <!-- Пагинация -->
           <nav class="mt-12 lg:mt-[60px]" aria-label="Пагинация">
             <ul class="flex items-center justify-center gap-2">
-              <li class="pointer-events-none flex size-12 items-center justify-center rounded-full bg-white text-[#999999] opacity-40 shadow-sm transition-colors hover:bg-gray-50">
+              <li
+                class="pointer-events-none flex size-12 items-center justify-center rounded-full bg-white text-[#999999] opacity-40 shadow-sm transition-colors hover:bg-gray-50"
+              >
                 <a href="#" aria-label="Назад" aria-disabled="true">
-                  <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <svg
+                    class="h-5 w-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
                     <path d="M15 5l-7 7 7 7" />
                   </svg>
                 </a>
               </li>
-              <li class="flex size-12 items-center justify-center rounded-full bg-[#0160b1] font-sf text-[20px] font-semibold text-white">
+              <li
+                class="flex size-12 items-center justify-center rounded-full bg-[#0160b1] font-sf text-[20px] font-semibold text-white"
+              >
                 <a href="#" aria-current="page">1</a>
               </li>
-              <li class="flex size-12 items-center justify-center rounded-full bg-white font-sf text-[20px] font-semibold text-[#333333] transition-colors hover:bg-gray-50">
+              <li
+                class="flex size-12 items-center justify-center rounded-full bg-white font-sf text-[20px] font-semibold text-[#333333] transition-colors hover:bg-gray-50"
+              >
                 <a href="#">2</a>
               </li>
-              <li class="flex size-12 items-center justify-center rounded-full bg-white font-sf text-[20px] font-semibold text-[#333333] transition-colors hover:bg-gray-50">
+              <li
+                class="flex size-12 items-center justify-center rounded-full bg-white font-sf text-[20px] font-semibold text-[#333333] transition-colors hover:bg-gray-50"
+              >
                 <a href="#">3</a>
               </li>
-              <li class="hidden size-12 items-center justify-center rounded-full bg-white font-sf text-[20px] font-semibold text-[#333333] transition-colors hover:bg-gray-50 sm:flex">
+              <li
+                class="hidden size-12 items-center justify-center rounded-full bg-white font-sf text-[20px] font-semibold text-[#333333] transition-colors hover:bg-gray-50 sm:flex"
+              >
                 <a href="#">4</a>
               </li>
-              <li class="hidden size-12 items-center justify-center rounded-full bg-white font-sf text-[20px] font-semibold text-[#333333] transition-colors hover:bg-gray-50 sm:flex">
+              <li
+                class="hidden size-12 items-center justify-center rounded-full bg-white font-sf text-[20px] font-semibold text-[#333333] transition-colors hover:bg-gray-50 sm:flex"
+              >
                 <a href="#">5</a>
               </li>
-              <li class="hidden size-12 items-center justify-center rounded-full bg-white font-sf text-[20px] font-semibold text-[#333333] transition-colors hover:bg-gray-50 lg:flex">
+              <li
+                class="hidden size-12 items-center justify-center rounded-full bg-white font-sf text-[20px] font-semibold text-[#333333] transition-colors hover:bg-gray-50 lg:flex"
+              >
                 <a href="#">6</a>
               </li>
-              <li class="hidden size-12 items-center justify-center rounded-full bg-white font-sf text-[20px] font-semibold text-[#333333] transition-colors hover:bg-gray-50 lg:flex">
+              <li
+                class="hidden size-12 items-center justify-center rounded-full bg-white font-sf text-[20px] font-semibold text-[#333333] transition-colors hover:bg-gray-50 lg:flex"
+              >
                 <a href="#">7</a>
               </li>
               <li class="flex size-12 items-center justify-center font-sf text-[20px] font-semibold text-[#999999]">
                 <span>...</span>
               </li>
-              <li class="flex size-12 items-center justify-center rounded-full bg-white text-[#333333] shadow-sm transition-colors hover:bg-gray-50">
+              <li
+                class="flex size-12 items-center justify-center rounded-full bg-white text-[#333333] shadow-sm transition-colors hover:bg-gray-50"
+              >
                 <a href="#" aria-label="Вперёд">
-                  <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <svg
+                    class="h-5 w-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
                     <path d="M9 5l7 7-7 7" />
                   </svg>
                 </a>
@@ -343,11 +405,22 @@
             aria-label="Закрыть"
             class="flex size-11 shrink-0 items-center justify-center rounded-full border-2 border-[#f5f5f5] text-black transition-colors hover:bg-[#f5f5f5]"
           >
-            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <svg
+              class="h-5 w-5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
               <path d="M6 6l12 12M18 6L6 18" />
             </svg>
           </button>
-          <div class="font-sf text-[22px] font-medium leading-tight text-black lg:text-[24px]">Условия оплаты и доставки</div>
+          <div class="font-sf text-[22px] font-medium leading-tight text-black lg:text-[24px]">
+            Условия оплаты и доставки
+          </div>
         </div>
 
         <span class="block h-px w-full bg-[#e0e0e0]"></span>
@@ -357,16 +430,26 @@
           <div class="flex flex-col gap-3">
             <div class="font-sf text-[16px] font-medium text-[#333333]">Способ оплаты</div>
             <div class="flex flex-wrap gap-3">
-              <span class="rounded-[8px] bg-[#f1f1f1] px-4 py-3.5 font-sf text-[14px] font-medium text-black">Наличными</span>
-              <span class="rounded-[8px] bg-[#f1f1f1] px-4 py-3.5 font-sf text-[14px] font-medium text-black">Безналичный расчет</span>
+              <span class="rounded-[8px] bg-[#f1f1f1] px-4 py-3.5 font-sf text-[14px] font-medium text-black"
+                >Наличными</span
+              >
+              <span class="rounded-[8px] bg-[#f1f1f1] px-4 py-3.5 font-sf text-[14px] font-medium text-black"
+                >Безналичный расчет</span
+              >
             </div>
           </div>
           <div class="flex flex-col gap-3">
             <div class="font-sf text-[16px] font-medium text-[#333333]">Способы доставки</div>
             <div class="flex flex-wrap gap-3">
-              <span class="rounded-[8px] bg-[#f1f1f1] px-4 py-3.5 font-sf text-[14px] font-medium text-black">Самовывоз</span>
-              <span class="rounded-[8px] bg-[#f1f1f1] px-4 py-3.5 font-sf text-[14px] font-medium text-black">Доставка курьером</span>
-              <span class="rounded-[8px] bg-[#f1f1f1] px-4 py-3.5 font-sf text-[14px] font-medium text-black">Транспортная компания</span>
+              <span class="rounded-[8px] bg-[#f1f1f1] px-4 py-3.5 font-sf text-[14px] font-medium text-black"
+                >Самовывоз</span
+              >
+              <span class="rounded-[8px] bg-[#f1f1f1] px-4 py-3.5 font-sf text-[14px] font-medium text-black"
+                >Доставка курьером</span
+              >
+              <span class="rounded-[8px] bg-[#f1f1f1] px-4 py-3.5 font-sf text-[14px] font-medium text-black"
+                >Транспортная компания</span
+              >
             </div>
           </div>
         </div>

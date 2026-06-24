@@ -36,8 +36,8 @@
       </section>
 
       <!-- Интро о компании -->
-      <section class="bg-white">
-        <div class="px-6 py-12 sm:px-10 lg:py-0 lg:pl-[70px] lg:pr-0">
+      <section class="overflow-hidden bg-white">
+        <div class="container-page px-6 py-12 sm:px-10 lg:py-0 lg:pl-[70px] lg:pr-0">
           <div class="grid gap-10 lg:min-h-[840px] lg:grid-cols-[1fr_1fr] lg:items-stretch lg:gap-[60px]">
             <!-- Левая колонка: текст -->
             <div class="order-2 flex flex-col lg:order-1 lg:py-[60px]">
@@ -81,9 +81,9 @@
               >
             </div>
 
-            <!-- Правая колонка: изображение (во всю высоту, прижато к краю) -->
+            <!-- Правая колонка: изображение (во всю высоту, выходит за контейнер вправо) -->
             <div
-              class="relative w-full order-1 h-[360px] rounded-[20px] sm:h-[480px] lg:order-2 lg:h-auto lg:self-stretch lg:rounded-none"
+              class="relative w-full order-1 h-[360px] rounded-[20px] sm:h-[480px] lg:order-2 lg:h-auto lg:w-auto lg:self-stretch lg:rounded-none lg:mr-[calc(50%-50vw)]"
             >
               <img
                 src="/about-hero.png"
