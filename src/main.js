@@ -1,8 +1,37 @@
+// Собственные стили: Tailwind, глобальные, компонентные (раздельные файлы)
+import "./tailwind.css";
+import "./global.css";
 import "./style.css";
+
+// Плагины — стили вынесены в отдельные бандлы (swiper.css / fancybox.css)
 import Swiper from "swiper";
 import { FreeMode, Mousewheel, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import { Fancybox } from "@fancyapps/ui";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
+
+// Просмотр документов/сертификатов в увеличенном формате
+Fancybox.bind('[data-fancybox]', {});
+
+// Маска телефона: поле хранит 10 цифр после префикса +7 (например +7 705 707 78 60).
+// Если вставили код страны (7 или 8) — отбрасываем его.
+document.querySelectorAll('input[type="tel"]').forEach((input) => {
+  const format = (value) => {
+    let digits = value.replace(/\D/g, "");
+    if (digits.length > 10 && (digits[0] === "7" || digits[0] === "8")) {
+      digits = digits.slice(1);
+    }
+    digits = digits.slice(0, 10);
+    return [digits.slice(0, 3), digits.slice(3, 6), digits.slice(6, 8), digits.slice(8, 10)]
+      .filter(Boolean)
+      .join(" ");
+  };
+
+  input.addEventListener("input", () => {
+    input.value = format(input.value);
+  });
+});
 
 // Слайдеры (услуги, сертификаты) — свайп мышью / тачем
 document.querySelectorAll(".drag-swiper").forEach((el) => {
@@ -37,32 +66,54 @@ if (casesEl) {
     loop: true,
     spaceBetween: 24,
     grabCursor: true,
+    slideToClickedSlide: true,
     pagination: {
       el: casesEl.querySelector(".swiper-pagination"),
       clickable: true,
     },
   });
+
+  // Клик по боковому слайду — переключаем слайдер, а не переходим по ссылке.
+  // Переход по ссылке работает только для активного (центрального) слайда.
+  casesEl.addEventListener("click", (e) => {
+    const slide = e.target.closest(".swiper-slide");
+    if (!slide) return;
+    if (!slide.classList.contains("swiper-slide-active")) {
+      e.preventDefault();
+    }
+  });
 }
 
-// Решения: фильтры (по отраслям / по типам задач) + слайдеры
+// Решения: один слайдер, контент которого меняется при переключении вкладок
 const solutionsSection = document.querySelector("[data-solutions]");
 if (solutionsSection) {
-  const sliders = {};
-  solutionsSection.querySelectorAll(".solutions-swiper").forEach((el) => {
-    sliders[el.dataset.group] = new Swiper(el, {
-      modules: [FreeMode, Mousewheel],
-      slidesPerView: "auto",
-      spaceBetween: 24,
-      grabCursor: true,
-      mousewheel: { forceToAxis: true },
-    });
+  const wrapper = solutionsSection.querySelector("[data-solutions-wrapper]");
+  const slider = solutionsSection.querySelector(".solutions-swiper");
+  const buttons = solutionsSection.querySelectorAll("[data-solutions-filter]");
+
+  // Наборы слайдов из <template> по группам
+  const groups = {};
+  solutionsSection.querySelectorAll("template[data-solutions-group]").forEach((tpl) => {
+    groups[tpl.dataset.solutionsGroup] = tpl.innerHTML;
   });
 
-  const buttons = solutionsSection.querySelectorAll("[data-solutions-filter]");
+  const swiper = new Swiper(slider, {
+    modules: [FreeMode, Mousewheel],
+    slidesPerView: "auto",
+    spaceBetween: 24,
+    grabCursor: true,
+    mousewheel: { forceToAxis: true },
+  });
+
+  const render = (group) => {
+    if (!wrapper || !(group in groups)) return;
+    wrapper.innerHTML = groups[group];
+    swiper.update();
+    swiper.slideTo(0, 0);
+  };
+
   buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
-      const group = btn.dataset.solutionsFilter;
-
       // Подсветка активной кнопки
       buttons.forEach((b) => {
         const active = b === btn;
@@ -73,38 +124,37 @@ if (solutionsSection) {
         b.classList.toggle("text-[#999999]", !active);
       });
 
-      // Переключение слайдеров
-      solutionsSection.querySelectorAll(".solutions-swiper").forEach((track) => {
-        const show = track.dataset.group === group;
-        track.classList.toggle("hidden", !show);
-        if (show) sliders[group]?.update();
-      });
+      render(btn.dataset.solutionsFilter);
     });
   });
+
+  // Стартовый набор — первая вкладка (или «industry»)
+  render(buttons[0]?.dataset.solutionsFilter || "industry");
 }
 
-// Системы водоподготовки: аккордеон (страница solution-details)
-// Превью справа статичное и не меняется при переключении пунктов.
+// Системы водоподготовки (страница solution-details):
+// выбор пункта слева меняет превью справа (фото, бейдж, описание).
 const systemsSection = document.querySelector("[data-solution-systems]");
 if (systemsSection) {
   const items = systemsSection.querySelectorAll("[data-system-item]");
+  const image = systemsSection.querySelector("[data-system-image]");
+  const badge = systemsSection.querySelector("[data-system-badge]");
+  const desc = systemsSection.querySelector("[data-system-desc]");
 
-  const setOpen = (item, open) => {
-    const body = item.querySelector("[data-system-body]");
-    body?.classList.toggle("grid-rows-[1fr]", open);
-    body?.classList.toggle("grid-rows-[0fr]", !open);
-    item.querySelector("[data-system-chevron]")?.classList.toggle("rotate-180", open);
+  const select = (item) => {
+    items.forEach((it) => it.classList.toggle("is-active", it === item));
+    if (image) image.src = item.dataset.img;
+    if (badge) badge.textContent = item.dataset.title;
+    if (desc) desc.textContent = item.dataset.desc;
   };
 
-  items.forEach((it) => {
-    it.querySelector("[data-system-toggle]")?.addEventListener("click", () => {
-      const body = it.querySelector("[data-system-body]");
-      const isOpen = body?.classList.contains("grid-rows-[1fr]");
-      // Закрыть все, затем открыть выбранный (если он был закрыт) — открыт только один
-      items.forEach((other) => setOpen(other, false));
-      if (!isOpen) setOpen(it, true);
-    });
+  items.forEach((item) => {
+    item.addEventListener("click", () => select(item));
   });
+
+  // Инициализируем превью из активного пункта (или первого)
+  const initial = systemsSection.querySelector("[data-system-item].is-active") || items[0];
+  if (initial) select(initial);
 }
 
 // Товары: выпадающий фильтр категорий (страница goods)
@@ -114,6 +164,8 @@ if (goodsFilter) {
   const menu = goodsFilter.querySelector("[data-goods-menu]");
   const arrow = goodsFilter.querySelector("[data-goods-arrow]");
   const label = goodsFilter.querySelector("[data-goods-label]");
+  const form = goodsFilter.closest("[data-goods-form]") || goodsFilter;
+  const valueInput = form.querySelector("[data-goods-value]");
 
   const setOpen = (open) => {
     menu?.classList.toggle("hidden", !open);
@@ -128,8 +180,13 @@ if (goodsFilter) {
 
   goodsFilter.querySelectorAll("[data-goods-option]").forEach((opt) => {
     opt.addEventListener("click", () => {
-      if (label) label.textContent = opt.textContent.trim();
+      const value = opt.textContent.trim();
+      if (label) label.textContent = value;
+      if (valueInput) valueInput.value = value;
       setOpen(false);
+      // Выбор опции отправляет форму
+      if (typeof form.requestSubmit === "function") form.requestSubmit();
+      else form.submit();
     });
   });
 
@@ -252,8 +309,22 @@ if (casesSection) {
   const emptyState = casesSection.querySelector("[data-cases-empty]");
   const prevBtn = casesSection.querySelector("[data-cases-prev]");
   const nextBtn = casesSection.querySelector("[data-cases-next]");
+  const form = casesSection.querySelector("[data-cases-form]");
 
   const activeFilters = { industry: "", technology: "", solution: "" };
+
+  // Слайдер кейсов — как в solution: slidesPerView auto + free drag + колесо,
+  // слайды выходят за пределы контейнера (swiper !overflow-visible).
+  const swiper = track
+    ? new Swiper(track, {
+        modules: [FreeMode, Mousewheel, Navigation],
+        slidesPerView: "auto",
+        spaceBetween: 20,
+        grabCursor: true,
+        mousewheel: { forceToAxis: true },
+        navigation: { prevEl: prevBtn, nextEl: nextBtn },
+      })
+    : null;
 
   const applyFilters = () => {
     let visible = 0;
@@ -265,7 +336,8 @@ if (casesSection) {
       if (match) visible++;
     });
     emptyState?.classList.toggle("hidden", visible > 0);
-    if (track) track.scrollLeft = 0;
+    swiper?.update();
+    swiper?.slideTo(0, 0);
   };
 
   // Выпадающие списки
@@ -283,6 +355,20 @@ if (casesSection) {
       arrow?.classList.toggle("rotate-180", open);
     };
 
+    // Отметить выбранный пункт (синяя радиокнопка) и сбросить остальные
+    const markSelected = (value) => {
+      dd.querySelectorAll("[data-filter-option]").forEach((o) =>
+        o.setAttribute("aria-checked", String(o.dataset.filterOption === value))
+      );
+    };
+
+    // Восстановить состояние из параметров URL после отправки формы
+    const initial = new URLSearchParams(window.location.search).get(key) || "";
+    activeFilters[key] = initial;
+    if (label) label.textContent = initial || defaultLabel;
+    toggle?.classList.toggle("!border-[#0160b1]", Boolean(initial));
+    markSelected(initial);
+
     toggle?.addEventListener("click", (e) => {
       e.stopPropagation();
       const willOpen = menu?.classList.contains("hidden");
@@ -299,8 +385,18 @@ if (casesSection) {
         activeFilters[key] = value;
         if (label) label.textContent = value || defaultLabel;
         toggle?.classList.toggle("!border-[#0160b1]", Boolean(value));
+        markSelected(value);
         setOpen(false);
-        applyFilters();
+
+        // Выбор пункта записывается в скрытое поле и отправляет форму
+        if (form) {
+          const field = form.querySelector(`[name="${key}"]`);
+          if (field) field.value = value;
+          if (typeof form.requestSubmit === "function") form.requestSubmit();
+          else form.submit();
+        } else {
+          applyFilters();
+        }
       });
     });
 
@@ -309,15 +405,8 @@ if (casesSection) {
     });
   });
 
-  // Навигация стрелками
-  const scrollByCard = (dir) => {
-    if (!track) return;
-    const card = cards.find((c) => !c.classList.contains("hidden"));
-    const step = card ? card.offsetWidth + 20 : track.clientWidth;
-    track.scrollBy({ left: dir * step, behavior: "smooth" });
-  };
-  prevBtn?.addEventListener("click", () => scrollByCard(-1));
-  nextBtn?.addEventListener("click", () => scrollByCard(1));
+  // Применить восстановленные из URL фильтры к карточкам
+  applyFilters();
 }
 
 // Модалка «Получить расчёт» — открывается по кнопкам «Получить расчет»

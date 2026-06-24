@@ -1,59 +1,87 @@
 <footer class="mt-auto rounded-t-[15px] bg-[#111111]">
   <div class="mx-auto w-full max-w-[1440px] px-6 py-10 sm:px-10 lg:p-[70px]">
     <div class="flex flex-col gap-10 lg:gap-[60px]">
-
-        <!-- Логотип + соцсети -->
-        <div class="flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
+      <!-- Логотип + соцсети -->
+      <div class="flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
+        <a href="/index.html">
           <img src="/logo-white.svg" alt="{{ siteName }} group" class="h-12 w-[200px]" />
-          <div class="flex flex-wrap items-center gap-6 sm:gap-[30px]">
-            <a href="#" aria-label="VK" class="opacity-90 transition hover:opacity-100"><img src="/soc-vk.svg" alt="" class="h-[22px] w-[22px]" /></a>
-            <a href="#" aria-label="Instagram" class="opacity-90 transition hover:opacity-100"><img src="/soc-instagram.svg" alt="" class="h-7 w-7" /></a>
-            <a href="#" aria-label="Facebook" class="opacity-90 transition hover:opacity-100"><img src="/soc-facebook.svg" alt="" class="h-7 w-7" /></a>
-            <a href="#" aria-label="Telegram" class="opacity-90 transition hover:opacity-100"><img src="/soc-telegram.svg" alt="" class="h-7 w-7" /></a>
-            <a href="#" aria-label="TikTok" class="opacity-90 transition hover:opacity-100"><img src="/soc-tiktok.svg" alt="" class="h-7 w-7" /></a>
-            <a href="#" aria-label="YouTube" class="opacity-90 transition hover:opacity-100"><img src="/soc-youtube.svg" alt="" class="h-7 w-7" /></a>
+        </a>
+        <div class="flex flex-wrap items-center gap-6 sm:gap-[30px]">
+          <a href="#" target="_blank" aria-label="VK" class="opacity-90 transition hover:opacity-100"
+            ><img src="/soc-vk.svg" alt="" class="h-[22px] w-[22px]"
+          /></a>
+          <a href="#" target="_blank" aria-label="Instagram" class="opacity-90 transition hover:opacity-100"
+            ><img src="/soc-instagram.svg" alt="" class="h-7 w-7"
+          /></a>
+          <a href="#" target="_blank" aria-label="Facebook" class="opacity-90 transition hover:opacity-100"
+            ><img src="/soc-facebook.svg" alt="" class="h-7 w-7"
+          /></a>
+          <a href="#" target="_blank" aria-label="Telegram" class="opacity-90 transition hover:opacity-100"
+            ><img src="/soc-telegram.svg" alt="" class="h-7 w-7"
+          /></a>
+          <a href="#" target="_blank" aria-label="TikTok" class="opacity-90 transition hover:opacity-100"
+            ><img src="/soc-tiktok.svg" alt="" class="h-7 w-7"
+          /></a>
+          <a href="#" target="_blank" aria-label="YouTube" class="opacity-90 transition hover:opacity-100"
+            ><img src="/soc-youtube.svg" alt="" class="h-7 w-7"
+          /></a>
+        </div>
+      </div>
+
+      <!-- Навигация -->
+      <nav data-footer-nav class="flex flex-wrap gap-x-8 gap-y-3 lg:justify-between" aria-label="Меню в подвале">
+        {{#each nav}}
+        <a
+          href="{{ this.href }}"
+          class="text-[15px] font-medium leading-none text-[#666666] transition-colors hover:text-white"
+          >{{ this.label }}</a
+        >
+        {{/each}}
+        <a
+          href="/privacy.html"
+          class="text-[15px] font-medium leading-none text-[#666666] transition-colors hover:text-white"
+          >Политику конфиденциальности</a
+        >
+      </nav>
+
+      <!-- Контакты -->
+      <div class="flex flex-col gap-8 sm:grid sm:grid-cols-2 sm:gap-x-10 lg:flex lg:flex-row lg:gap-[60px]">
+        <div class="flex flex-col gap-[15px]">
+          <div class="text-[15px] font-bold leading-[18px] text-white">Телефон контакт-центра</div>
+          <div class="text-[15px] leading-[18px] text-[#666666]">
+            <a href="tel:77212922304" class="transition-colors hover:text-white">+7 (7212) 92 23 04</a> <span class="text-[#444444]">|</span>
+            <a href="tel:77212922303" class="transition-colors hover:text-white">+7 (7212) 92 23 03</a>
           </div>
         </div>
-
-        <!-- Навигация -->
-        <nav data-footer-nav class="flex flex-wrap gap-x-8 gap-y-3 lg:justify-between" aria-label="Меню в подвале">
-          {{#each nav}}
-            <a
-              href="{{ this.href }}"
-              class="text-[15px] font-medium leading-none text-[#666666] transition-colors hover:text-white"
-            >{{ this.label }}</a>
-          {{/each}}
-          <a href="/privacy.html" class="text-[15px] font-medium leading-none text-[#666666] transition-colors hover:text-white">Политику конфиденциальности</a>
-        </nav>
-
-        <!-- Контакты -->
-        <div class="flex flex-col gap-8 sm:grid sm:grid-cols-2 sm:gap-x-10 lg:flex lg:flex-row lg:gap-[60px]">
-          <div class="flex flex-col gap-[15px]">
-            <p class="text-[15px] font-bold leading-[18px] text-white">Телефон контакт-центра</p>
-            <p class="text-[15px] leading-[18px] text-[#666666]">+7 (7212) 92 23 04 <span class="text-[#444444]">|</span> +7 (7212) 92 23 03</p>
-          </div>
-          <div class="flex flex-col gap-[15px]">
-            <p class="text-[15px] font-bold leading-[18px] text-white">Адрес</p>
-            <p class="text-[15px] leading-[18px] text-[#666666]">г. Караганда, ул. Попова 64/1</p>
-          </div>
-          <div class="flex flex-col gap-[15px]">
-            <p class="text-[15px] font-bold leading-[18px] text-white">Корпоративная почта</p>
-            <a href="mailto:rvsa@rvsa.kz" class="text-[15px] leading-[18px] text-[#666666] transition-colors hover:text-white">rvsa@rvsa.kz</a>
-          </div>
-          <div class="flex flex-col gap-[15px]">
-            <p class="text-[15px] font-bold leading-[18px] text-white">График работы</p>
-            <p class="text-[15px] leading-[18px] text-[#666666]">Пн-Пт: с 08.00 до 17.00 | СБ-Вс: выходной</p>
-          </div>
-
-          <!-- Копирайт -->
-          <div class="flex flex-col gap-2 text-[#666666] sm:col-span-2 lg:ml-auto lg:items-end lg:justify-between lg:self-stretch lg:text-right">
-            <p class="text-[10.5px] leading-normal">Создание сайтов - Astana Creative</p>
-            <p class="text-[12px] leading-[18px] tracking-[-0.075px]">© {{ year }} ТОО “ABYROI GROUP”</p>
-          </div>
+        <div class="flex flex-col gap-[15px]">
+          <div class="text-[15px] font-bold leading-[18px] text-white">Адрес</div>
+          <div class="text-[15px] leading-[18px] text-[#666666]">г. Караганда, ул. Попова 64/1</div>
+        </div>
+        <div class="flex flex-col gap-[15px]">
+          <div class="text-[15px] font-bold leading-[18px] text-white">Корпоративная почта</div>
+          <a
+            href="mailto:rvsa@rvsa.kz"
+            class="text-[15px] leading-[18px] text-[#666666] transition-colors hover:text-white"
+            >rvsa@rvsa.kz</a
+          >
+        </div>
+        <div class="flex flex-col gap-[15px]">
+          <div class="text-[15px] font-bold leading-[18px] text-white">График работы</div>
+          <div class="text-[15px] leading-[18px] text-[#666666]">Пн-Пт: с 08.00 до 17.00 | СБ-Вс: выходной</div>
         </div>
 
+        <!-- Копирайт -->
+        <div
+          class="flex flex-col gap-2 text-[#666666] sm:col-span-2 lg:ml-auto lg:items-end lg:justify-between lg:self-stretch lg:text-right"
+        >
+          <div class="text-[10.5px] leading-normal">
+            Создание сайтов - <a class="transition-colors hover:text-white" href="https://astanacreative.kz/">Astana Creative</a>
+          </div>
+          <div class="text-[12px] leading-[18px] tracking-[-0.075px]">© {{ year }} ТОО “ABYROI GROUP”</div>
+        </div>
       </div>
     </div>
+  </div>
 </footer>
 
 {{> request-modal }}

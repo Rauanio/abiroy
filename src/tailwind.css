@@ -1,0 +1,8 @@
+@import 'tailwindcss';
+
+/* Шрифт из дизайна: SF Pro Display.
+   Файл шрифта подключается через <link> в <head> каждой страницы. */
+@theme {
+  --font-sans: 'SF Pro Display', ui-sans-serif, system-ui, sans-serif;
+  --font-sf: 'SF Pro Display', ui-sans-serif, system-ui, sans-serif;
+}

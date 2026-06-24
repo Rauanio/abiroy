@@ -1,16 +1,7 @@
-@import "tailwindcss";
-
-/* Шрифты из дизайна: Manrope (основной текст) и SF Pro Display (заголовки).
-   Сами файлы шрифтов подключаются через <link> в <head> каждой страницы. */
-@theme {
-  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
-  --font-manrope: "Manrope", ui-sans-serif, system-ui, sans-serif;
-  --font-sf: "SF Pro Display", "Manrope", ui-sans-serif, system-ui, sans-serif;
-}
-
-.body {
-  background: #F4F4F4;
-}
+/* Компонентные и постраничные стили проекта.
+   @reference подключает тему Tailwind, чтобы работал @apply,
+   но не дублирует утилиты в выходной файл (они в tailwind.css). */
+@reference './tailwind.css';
 
 /* Свои стили и компоненты можно добавлять здесь */
 @layer components {
@@ -20,21 +11,24 @@
            focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2;
   }
   .container-page {
-    @apply mx-auto w-full max-w-[1440px] ;
+    @apply mx-auto w-full max-w-[1440px];
   }
 }
 
 .card-overlay {
-  background: linear-gradient(180deg, rgba(245, 245, 245, 0.00) 0%, #F5F5F5 50.48%);
+  background: linear-gradient(180deg, rgba(245, 245, 245, 0) 0%, #f5f5f5 50.48%);
 }
 
 .card-overlay-white {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #fff 50.48%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 50.48%);
 }
 
 /* Слайдер кейсов: блюр и уменьшение боковых слайдов */
 .cases-swiper .case-inner {
-  transition: filter 0.4s ease, transform 0.4s ease, opacity 0.4s ease;
+  transition:
+    filter 0.4s ease,
+    transform 0.4s ease,
+    opacity 0.4s ease;
   filter: blur(4px);
   transform: scale(0.72);
   transform-origin: center center;
@@ -64,12 +58,67 @@
   background: #e6e6e6;
   opacity: 1;
   border-radius: 9999px;
-  transition: width 0.3s ease, background 0.3s ease;
+  transition:
+    width 0.3s ease,
+    background 0.3s ease;
 }
 
 .cases-swiper .swiper-pagination-bullet-active {
   width: 60px;
   background: #0160b1;
+}
+
+/* Пагинация списков: стили заданы на <li>, ссылка лишь заполняет ячейку */
+nav[aria-label="Пагинация"] li > a,
+nav[aria-label="Пагинация"] li > span {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  border-radius: inherit;
+}
+
+/* Таблица характеристик */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-sf);
+  font-size: 14px;
+}
+
+table tr td {
+  border: 1px solid #ebebeb;
+  padding: 12px 16px;
+}
+
+table tr td:first-child {
+  width: 50%;
+  color: #999999;
+}
+
+table tr td:last-child {
+  font-weight: 500;
+  color: #333333;
+}
+
+/* Пункты фильтра кейсов: радиокнопка справа (как в дизайне).
+   Кружок рисуется через ::after, поэтому разметка остаётся чистой. */
+.filter-option::after {
+  content: "";
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 9999px;
+  border: 1.5px solid #c4c4c4;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+.filter-option[aria-checked="true"]::after {
+  border-color: #0160b1;
+  background: radial-gradient(circle at center, #0160b1 0 4px, transparent 4px);
 }
 
 /* Горизонтальный трек без видимого скроллбара (слайдер кейсов) */
@@ -125,47 +174,143 @@
   color: #ffffff;
 }
 
-/* Бегущая лента логотипов (бесконечный marquee) */
-@keyframes marquee-scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+/* Размытие верхней части карточки при наведении — улучшает читаемость метрики
+   и тега поверх фотографии. Полоса прижата к верху и плавно растворяется вниз
+   через mask, поэтому остальная часть фото остаётся резкой. */
+.tech-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 180px;
+  z-index: 5;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0));
+  -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent);
+  mask-image: linear-gradient(to bottom, #000 55%, transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+.tech-card:hover::before,
+.tech-card.is-active::before {
+  opacity: 1;
 }
 
-.marquee {
-  overflow: hidden;
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent,
-    #000 8%,
-    #000 92%,
-    transparent
-  );
-  mask-image: linear-gradient(
-    to right,
-    transparent,
-    #000 8%,
-    #000 92%,
-    transparent
-  );
-}
-
-.marquee__track {
+/* Список систем водоподготовки: выбранный пункт — белая карточка со стрелкой
+   вправо, остальные — прозрачные строки с шевроном вниз. */
+.system-item {
   display: flex;
-  width: max-content;
   align-items: center;
-  animation: marquee-scroll 30s linear infinite;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  padding: 20px 0;
+  border-radius: 12px;
+  text-align: left;
+  transition:
+    background-color 0.25s ease,
+    padding 0.25s ease;
+}
+.system-item.is-active {
+  padding: 20px;
+  background-color: #ffffff;
+}
+.system-item__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 9999px;
+  background-color: #ffffff;
+  color: #111111;
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease;
+}
+.system-item.is-active .system-item__icon {
+  background-color: #f4f4f4;
+  transform: rotate(-90deg);
 }
 
-.marquee:hover .marquee__track {
-  animation-play-state: paused;
+/* Страница «Политика конфиденциальности»: типографика текстового блока.
+   Элементы внутри .politics__text — чистая семантика без классов. */
+.politics__text {
+  color: #000;
+  font-family: var(--font-sf);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .marquee__track {
-    animation: none;
-  }
+.politics__text > * {
+  margin-top: 32px;
+}
+.politics__text > *:first-child {
+  margin-top: 0;
+}
+
+.politics__text h2 {
+  margin-top: 48px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+.politics__text h2:first-child {
+  margin-top: 0;
+}
+
+/* Вводный абзац сразу под заголовком раздела — крупнее и жирнее */
+.politics__text h2 + p {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.2px;
+}
+
+.politics__text h3 {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.politics__text p {
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: 0.2px;
+}
+
+.politics__text ul,
+.politics__text ol {
+  margin-top: 20px;
+  padding-inline-start: 20px;
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: 0.2px;
+}
+.politics__text ul {
+  list-style: disc;
+}
+.politics__text ol {
+  list-style: decimal;
+}
+.politics__text li + li {
+  margin-top: 4px;
+}
+
+/* Элемент сразу после подзаголовка прижимается ближе к нему */
+.politics__text h3 + p,
+.politics__text h3 + ul,
+.politics__text h3 + ol {
+  margin-top: 20px;
+}
+
+/* Выноска / цитата */
+.politics__text blockquote {
+  border-left: 4px solid #647dd7;
+  padding: 12px 0 12px 12px;
+  color: #647dd7;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.2px;
 }

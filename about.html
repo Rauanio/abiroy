@@ -4,10 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Abiroy — О компании</title>
-    <!-- Шрифты: Manrope + SF Pro Display -->
+    <!-- Шрифт: SF Pro Display -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
   </head>
   <body class="flex min-h-screen flex-col bg-[#F4F4F4] text-gray-900">
@@ -16,57 +15,76 @@
     <main class="flex-1">
       <!-- Хлебные крошки + заголовок -->
       <section class="container-page px-6 pt-12 pb-6 sm:px-10 lg:px-[40px] lg:pt-16 lg:pb-10">
-        <nav class="flex items-center gap-1.5 text-[14px] lg:text-[20px]" aria-label="Хлебные крошки">
+        <nav class="flex flex-wrap items-center gap-1.5 text-[14px] lg:text-[20px]" aria-label="Хлебные крошки">
           <a href="/index.html" class="text-[#999999] transition-colors hover:text-[#0160b1]">Главная</a>
           <svg class="h-4 w-4 text-[#999999]" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path
+              d="M6 4l4 4-4 4"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
           </svg>
           <span class="text-black">О компании</span>
         </nav>
-        <h1 class="mt-10 font-sf text-[56px] font-bold leading-none text-[#0160b1] sm:text-[80px] lg:mt-12 lg:text-[100px]">
+        <h1
+          class="mt-10 font-sf text-[56px] font-bold leading-none text-[#0160b1] sm:text-[80px] lg:mt-12 lg:text-[100px]"
+        >
           О Компании
         </h1>
       </section>
 
       <!-- Интро о компании -->
       <section class="bg-white">
-        <div class="container-page px-6 py-12 sm:px-10 lg:py-0 lg:pl-[70px] lg:pr-0">
-          <div class="grid gap-10 lg:min-h-[840px] lg:grid-cols-[minmax(0,596px)_1fr] lg:items-stretch lg:gap-[60px]">
+        <div class="px-6 py-12 sm:px-10 lg:py-0 lg:pl-[70px] lg:pr-0">
+          <div class="grid gap-10 lg:min-h-[840px] lg:grid-cols-[1fr_1fr] lg:items-stretch lg:gap-[60px]">
             <!-- Левая колонка: текст -->
             <div class="order-2 flex flex-col lg:order-1 lg:py-[60px]">
-              <span class="inline-flex w-fit items-center rounded-[8px] bg-[#f1f1f1] px-[30px] py-[18px] text-[16.5px] font-semibold leading-none text-black">Abyroi Group</span>
+              <span
+                class="inline-flex w-fit items-center rounded-[8px] bg-[#f1f1f1] px-[30px] py-[18px] text-[16.5px] font-semibold leading-none text-black"
+                >Abyroi Group</span
+              >
 
-              <h2 class="mt-10 font-sf text-[32px] font-medium leading-none text-black sm:text-[40px] lg:mt-[50px] lg:text-[48px]">
+              <h2
+                class="mt-10 font-sf text-[32px] font-medium leading-none text-black sm:text-[40px] lg:mt-[50px] lg:text-[48px]"
+              >
                 Казахстанская компания работающая в сфере промышленных систем водоподготовки.
               </h2>
 
-              <p class="mt-8 font-manrope text-[14px] leading-snug tracking-[0.2px] text-black lg:mt-[50px]">
-                Свою работу начала в 2011 году. Наша компания является официальным
-                представителем марки «Ecosoft» и «Dow Chemical Corporation». ABIROY GROUP
-                предлагает своим клиентам высококачественные инжиниринговые и химические
-                решения для очистки, подготовки и использования воды.
-              </p>
+              <div class="mt-8 font-sf text-[14px] leading-snug tracking-[0.2px] text-black lg:mt-[50px]">
+                Свою работу начала в 2011 году. Наша компания является официальным представителем марки «Ecosoft» и «Dow
+                Chemical Corporation». ABIROY GROUP предлагает своим клиентам высококачественные инжиниринговые и
+                химические решения для очистки, подготовки и использования воды.
+              </div>
 
               <!-- Статистика -->
               <div class="mt-10 flex flex-wrap gap-x-[50px] gap-y-8 lg:mt-auto">
                 <div class="flex flex-col gap-3">
-                  <p class="font-sf text-[40px] font-medium leading-none text-black lg:text-[48px]">17+</p>
-                  <p class="font-sf text-[16px] tracking-[0.2px] text-[#999999] lg:text-[18px]">лет опыта в водоочистке</p>
+                  <div class="font-sf text-[40px] font-medium leading-none text-black lg:text-[48px]">17+</div>
+                  <div class="font-sf text-[16px] tracking-[0.2px] text-[#999999] lg:text-[18px]">
+                    лет опыта в водоочистке
+                  </div>
                 </div>
                 <div class="flex flex-col gap-3">
-                  <p class="font-sf text-[40px] font-medium leading-none text-black lg:text-[48px]">100+</p>
-                  <p class="font-sf text-[16px] tracking-[0.2px] text-[#999999] lg:text-[18px]">Реализованных проектов</p>
+                  <div class="font-sf text-[40px] font-medium leading-none text-black lg:text-[48px]">100+</div>
+                  <div class="font-sf text-[16px] tracking-[0.2px] text-[#999999] lg:text-[18px]">
+                    Реализованных проектов
+                  </div>
                 </div>
               </div>
 
               <a
                 href="/contact.html"
                 class="mt-10 inline-flex h-[64px] w-full max-w-[300px] items-center justify-center rounded-[12px] bg-[#0160b1] px-[30px] text-[18px] font-semibold text-white transition-colors hover:bg-[#014e90]"
-              >Получить расчет</a>
+                >Получить расчет</a
+              >
             </div>
 
             <!-- Правая колонка: изображение (во всю высоту, прижато к краю) -->
-            <div class="relative order-1 h-[360px] rounded-[20px] sm:h-[480px] lg:order-2 lg:h-auto lg:self-stretch lg:rounded-none">
+            <div
+              class="relative w-full order-1 h-[360px] rounded-[20px] sm:h-[480px] lg:order-2 lg:h-auto lg:self-stretch lg:rounded-none"
+            >
               <img
                 src="/about-hero.png"
                 alt="Производство систем водоподготовки ABIROY GROUP"
@@ -81,14 +99,18 @@
               />
 
               <!-- Бейдж партнёрства -->
-              <div class="absolute inset-x-5 bottom-5 rounded-[14px] bg-[#0160b1]/40 p-6 backdrop-blur-md sm:p-[30px] lg:inset-x-auto lg:bottom-[140px] lg:left-[-120px] lg:w-[498px]">
+              <div
+                class="absolute inset-x-5 bottom-5 rounded-[14px] bg-[#0160b1]/40 p-6 backdrop-blur-md sm:p-[30px] lg:inset-x-auto lg:bottom-[140px] lg:left-[-120px] lg:w-[498px]"
+              >
                 <div class="flex items-center gap-4">
-                  <span class="shrink-0 font-manrope text-[22px] font-bold tracking-[0.2px] text-white lg:text-[24px]">ecosoft</span>
+                  <span class="shrink-0 font-sf text-[22px] font-bold tracking-[0.2px] text-white lg:text-[24px]"
+                    >ecosoft</span
+                  >
                   <span class="h-px flex-1 bg-white/50"></span>
                 </div>
-                <p class="mt-5 font-sf text-[14px] leading-snug tracking-[0.2px] text-white lg:mt-6 lg:text-[20px]">
+                <div class="mt-5 font-sf text-[14px] leading-snug tracking-[0.2px] text-white lg:mt-6 lg:text-[20px]">
                   Является официальным партнером ООО «НПО «ЭКОСОФТ» в Республике Казахстан»
-                </p>
+                </div>
               </div>
             </div>
           </div>
@@ -98,14 +120,20 @@
       <!-- Сертификаты -->
       <section class="overflow-hidden bg-[#f3f3f3]">
         <div class="container-page px-6 py-12 sm:px-10 lg:px-[70px] lg:py-[70px]">
-          <h2 class="font-sf text-[32px] font-medium leading-none text-black sm:text-[40px] lg:text-[48px]">Сертификаты</h2>
+          <h2 class="font-sf text-[32px] font-medium leading-none text-black sm:text-[40px] lg:text-[48px]">
+            Сертификаты
+          </h2>
 
           <div class="drag-swiper swiper mt-10 !overflow-visible lg:mt-[50px]">
             <div class="swiper-wrapper">
               {{#each certificates}}
-                <div class="swiper-slide !h-[480px] !w-[300px] overflow-hidden bg-white sm:!w-[360px] lg:!h-[568px] lg:!w-[424px]">
+              <div
+                class="swiper-slide !h-[480px] !w-[300px] overflow-hidden bg-white sm:!w-[360px] lg:!h-[568px] lg:!w-[424px]"
+              >
+                <a href="{{ this }}" data-fancybox="certificates" class="block h-full w-full cursor-zoom-in">
                   <img src="{{ this }}" alt="Сертификат" class="h-full w-full object-cover" />
-                </div>
+                </a>
+              </div>
               {{/each}}
             </div>
           </div>

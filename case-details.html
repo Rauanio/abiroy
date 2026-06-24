@@ -4,13 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Abiroy — Название кейса</title>
-    <!-- Шрифты: Manrope + SF Pro Display -->
+    <!-- Шрифт: SF Pro Display -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
     <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
   </head>
   <body class="flex min-h-screen flex-col bg-white text-gray-900">
@@ -39,17 +35,17 @@
         </h1>
       </section>
 
-      <p class="container-page px-6 sm:px-10 mb-10 font-sf">
+      <div class="container-page px-6 sm:px-10 mb-10 font-sf">
         Решение было интегрировано в существующую инфраструктуру без остановки работы логистического комплекса. Система
         предусматривает удаленный мониторинг, автоматическую промывку фильтров и возможность масштабирования при
         увеличении нагрузки на объект.
-      </p>
+      </div>
 
       <!-- Контекст проекта -->
-      <section class="bg-[#f4f4f4]">
+      <section class="overflow-hidden bg-[#f4f4f4]">
         <div class="container-page flex flex-col gap-10 px-6 py-12 sm:px-10 lg:flex-row lg:gap-[60px] lg:px-0 lg:py-0">
-          <!-- Левая колонка: изображение + плашка требований -->
-          <div class="relative rounded-[20px] lg:w-[700px] lg:shrink-0 lg:rounded-none">
+          <!-- Левая колонка: изображение + плашка требований (выходит за контейнер влево) -->
+          <div class="relative rounded-[20px] w-full lg:w-[50vw] lg:shrink-0 lg:rounded-none lg:ml-[calc(50%-50vw)]">
             <img
               src="/case-2.png"
               alt="Объект энергетической отрасли"
@@ -70,10 +66,10 @@
                 >
                 <span class="h-px flex-1 bg-white/50"></span>
               </div>
-              <p class="mt-5 font-sf text-[15px] font-light leading-snug tracking-[0.2px] text-white lg:text-[20px]">
+              <div class="mt-5 font-sf text-[15px] font-light leading-snug tracking-[0.2px] text-white lg:text-[20px]">
                 Система должна работать под постоянной нагрузкой, быть надежной в эксплуатации и адаптированной под
                 параметры объекта.
-              </p>
+              </div>
             </div>
           </div>
 
@@ -86,43 +82,43 @@
             <h2 class="mt-9 font-sf text-[32px] font-medium leading-none text-black sm:text-[40px] lg:text-[48px]">
               Контекст проекта
             </h2>
-            <p
-              class="mt-6 max-w-[596px] font-manrope text-[14px] leading-[1.4] tracking-[0.2px] text-black lg:text-[15px]"
+            <div
+              class="mt-6 max-w-[596px] font-sf text-[14px] leading-[1.4] tracking-[0.2px] text-black lg:text-[15px]"
             >
               Объект энергетической отрасли требовал стабильной системы водоподготовки для защиты оборудования и
               бесперебойной работы технологических процессов.
-            </p>
+            </div>
 
             <!-- Сетка параметров -->
             <div class="mt-9 grid gap-x-[50px] gap-y-9 sm:grid-cols-2 lg:mt-[50px]">
               <div class="flex flex-col gap-4">
                 <h3 class="font-sf text-[22px] font-medium leading-none text-black lg:text-[28px]">Отрасль</h3>
-                <p class="font-sf text-[15px] leading-[1.4] tracking-[0.2px] text-[#999999] lg:text-[16px]">
+                <div class="font-sf text-[15px] leading-[1.4] tracking-[0.2px] text-[#999999] lg:text-[16px]">
                   Энергетика: котельное и теплообменное оборудование, где качество воды напрямую влияет на ресурс
                   системы.
-                </p>
+                </div>
               </div>
               <div class="flex flex-col gap-4">
                 <h3 class="font-sf text-[22px] font-medium leading-none text-black lg:text-[28px]">Исходные условия</h3>
-                <p class="font-sf text-[15px] leading-[1.4] tracking-[0.2px] text-[#999999] lg:text-[16px]">
+                <div class="font-sf text-[15px] leading-[1.4] tracking-[0.2px] text-[#999999] lg:text-[16px]">
                   На объекте использовалась вода с повышенной жесткостью, солесодержанием и риском образования
                   отложений.
-                </p>
+                </div>
               </div>
               <div class="flex flex-col gap-4">
                 <h3 class="font-sf text-[22px] font-medium leading-none text-black lg:text-[28px]">Анализ воды</h3>
-                <p class="font-sf text-[15px] leading-[1.4] tracking-[0.2px] text-[#999999] lg:text-[16px]">
+                <div class="font-sf text-[15px] leading-[1.4] tracking-[0.2px] text-[#999999] lg:text-[16px]">
                   Параметры исходной воды требовали предварительной очистки, умягчения и контроля химического состава.
-                </p>
+                </div>
               </div>
               <div class="flex flex-col gap-4">
                 <h3 class="font-sf text-[22px] font-medium leading-none text-black lg:text-[28px]">
                   Инженерная задача
                 </h3>
-                <p class="font-sf text-[15px] leading-[1.4] tracking-[0.2px] text-[#999999] lg:text-[16px]">
+                <div class="font-sf text-[15px] leading-[1.4] tracking-[0.2px] text-[#999999] lg:text-[16px]">
                   Подобрать технологическую схему, обеспечивающую стабильное качество воды и долгий срок службы
                   оборудования.
-                </p>
+                </div>
               </div>
             </div>
 
@@ -142,76 +138,74 @@
             class="inline-flex items-center rounded-[12px] bg-[#f4f4f4] px-[30px] py-[18px] font-sf text-[16px] font-semibold text-black"
             >Инженерное решение</span
           >
-          <p class="mt-10 max-w-[1300px] font-sf text-[20px] leading-snug text-black sm:text-[26px] lg:text-[30px]">
+          <div class="mt-10 max-w-[1300px] font-sf text-[20px] leading-snug text-black sm:text-[26px] lg:text-[30px]">
             На основе анализа исходной воды ABIROY GROUP разработала технологическую схему водоподготовки для
             энергетического объекта. Решение включает предварительную фильтрацию, умягчение, мембранную очистку и
             дозирование реагентов для защиты оборудования от накипи, коррозии и нестабильной работы.
-          </p>
+          </div>
           <div class="mt-10 flex items-center gap-5">
-            <span class="flex size-11 shrink-0 items-center justify-center rounded-full bg-[#0160b1] text-white">
-              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path
-                  d="M12 2 4 5v6c0 5 3.4 9.3 8 10.5C16.6 20.3 20 16 20 11V5l-8-3zm-1 13.5-3.5-3.5 1.4-1.4L11 12.7l4.6-4.6 1.4 1.4-6 6z"
-                />
-              </svg>
+            <span class="flex size-11 shrink-0 items-center justify-center rounded-full bg-[#F4F4F4] text-white">
+              <img class="size-4" src="/public/shield.png" alt="" />
             </span>
-            <p class="font-sf text-[15px] leading-snug text-[#666666] lg:text-[18px]">
+            <div class="font-sf text-[15px] leading-snug text-[#666666] lg:text-[18px]">
               Система спроектирована под постоянную нагрузку, стабильное качество воды и долгий срок службы
               оборудования.
-            </p>
+            </div>
           </div>
         </div>
       </section>
 
       <!-- Результаты проекта -->
-      <section class="bg-[#f4f4f4]">
+      <section class="overflow-hidden bg-[#f4f4f4]">
         <div class="container-page flex flex-col gap-10 px-6 py-12 sm:px-10 lg:flex-row lg:gap-[60px] lg:px-0 lg:py-0">
           <!-- Левая колонка: контент -->
           <div class="flex flex-1 flex-col justify-center lg:order-1 lg:py-[60px] lg:pl-[60px]">
             <h2 class="font-sf text-[32px] font-medium leading-none text-black sm:text-[40px] lg:text-[48px]">
               Результаты проекта
             </h2>
-            <p class="mt-6 max-w-[618px] font-sf text-[16px] leading-snug text-[#888888] lg:mt-9 lg:text-[18px]">
+            <div class="mt-6 max-w-[618px] font-sf text-[16px] leading-snug text-[#888888] lg:mt-9 lg:text-[18px]">
               Решение было интегрировано в работу энергетического объекта и обеспечило стабильную подготовку воды для
               технологических процессов.
-            </p>
+            </div>
 
             <div class="mt-9 grid gap-x-[50px] gap-y-9 sm:grid-cols-2 lg:mt-[42px]">
               <div class="flex flex-col gap-4">
                 <h3 class="font-sf text-[20px] font-medium leading-none text-black lg:text-[24px]">
                   Производительность
                 </h3>
-                <p class="font-sf text-[15px] leading-[1.4] tracking-[0.2px] text-[#999999] lg:text-[16px]">
+                <div class="font-sf text-[15px] leading-[1.4] tracking-[0.2px] text-[#999999] lg:text-[16px]">
                   Стабильная подача подготовленной воды под рабочую нагрузку объекта.
-                </p>
+                </div>
               </div>
               <div class="flex flex-col gap-4">
                 <h3 class="font-sf text-[20px] font-medium leading-none text-black lg:text-[24px]">Качество воды</h3>
-                <p class="font-sf text-[15px] leading-[1.4] tracking-[0.2px] text-[#999999] lg:text-[16px]">
+                <div class="font-sf text-[15px] leading-[1.4] tracking-[0.2px] text-[#999999] lg:text-[16px]">
                   Снижение жесткости, солесодержания и примесей до требуемых параметров.
-                </p>
+                </div>
               </div>
               <div class="flex flex-col gap-4">
                 <h3 class="font-sf text-[20px] font-medium leading-none text-black lg:text-[24px]">
                   Экономический эффект
                 </h3>
-                <p class="font-sf text-[15px] leading-[1.4] tracking-[0.2px] text-[#999999] lg:text-[16px]">
+                <div class="font-sf text-[15px] leading-[1.4] tracking-[0.2px] text-[#999999] lg:text-[16px]">
                   Меньше затрат на обслуживание, реагенты и внеплановые остановки.
-                </p>
+                </div>
               </div>
               <div class="flex flex-col gap-4">
                 <h3 class="font-sf text-[20px] font-medium leading-none text-black lg:text-[24px]">
                   Надежность системы
                 </h3>
-                <p class="font-sf text-[15px] leading-[1.4] tracking-[0.2px] text-[#999999] lg:text-[16px]">
+                <div class="font-sf text-[15px] leading-[1.4] tracking-[0.2px] text-[#999999] lg:text-[16px]">
                   Автоматическая работа, контроль параметров и стабильность в ежедневной эксплуатации.
-                </p>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Правая колонка: изображение + плашка показателей -->
-          <div class="relative overflow-hidden rounded-[20px] lg:order-2 lg:w-[720px] lg:shrink-0 lg:rounded-none">
+          <!-- Правая колонка: изображение + плашка показателей (выходит за контейнер вправо) -->
+          <div
+            class="relative w-full overflow-hidden rounded-[20px] lg:order-2 lg:w-[50vw] lg:shrink-0 lg:rounded-none lg:mr-[calc(50%-50vw)]"
+          >
             <img
               src="/hero.png"
               alt="Ключевые показатели проекта"
@@ -221,10 +215,10 @@
               <h3 class="font-sf text-[24px] font-semibold leading-none text-white lg:text-[28px]">
                 Ключевые показатели
               </h3>
-              <p class="mt-5 font-sf text-[16px] leading-snug text-white/80 lg:mt-6 lg:text-[20px]">
+              <div class="mt-5 font-sf text-[16px] max-w-[640px] leading-snug text-white/80 lg:mt-6 lg:text-[20px]">
                 После внедрения системы объект получил стабильное качество воды, снизил риски накипи и коррозии, а также
                 сократил расходы на обслуживание инженерного оборудования.
-              </p>
+              </div>
             </div>
           </div>
         </div>
@@ -305,20 +299,20 @@
                 >
               </div>
 
-              <p class="mt-9 font-sf text-[22px] leading-tight text-white sm:text-[26px] lg:mt-[42px] lg:text-[30px]">
+              <div class="mt-9 font-sf text-[22px] leading-tight text-white sm:text-[26px] lg:mt-[42px] lg:text-[30px]">
                 ABIROY GROUP реализует проекты по всей территории Республики Казахстан.<br />
                 Головной офис — г. Астана. Филиалы — г. Алматы, г. Шымкент
-              </p>
+              </div>
 
               <div class="mt-8 font-sf text-[16px] leading-relaxed text-white lg:mt-[42px] lg:text-[18px]">
-                <p>Мы обеспечиваем:</p>
-                <p>- логистическое сопровождение</p>
-                <p>- техническую поддержку</p>
-                <p>- удалённую диагностику</p>
-                <p>- выезд специалистов на объект</p>
-                <p class="mt-6">
+                <div>Мы обеспечиваем:</div>
+                <div>- логистическое сопровождение</div>
+                <div>- техническую поддержку</div>
+                <div>- удалённую диагностику</div>
+                <div>- выезд специалистов на объект</div>
+                <div class="mt-6">
                   Наша цель — предоставлять профессиональные решения водоочистки в регионе Центральной Азии и СНГ.
-                </p>
+                </div>
               </div>
             </div>
           </div>
@@ -326,7 +320,7 @@
       </section>
 
       <!-- Технические параметры и эксплуатация -->
-      <section class="bg-white">
+      <section class="overflow-hidden bg-white">
         <div class="container-page px-6 py-12 sm:px-10 lg:px-[60px] lg:py-[60px]">
           <div class="flex flex-col gap-10 lg:flex-row lg:items-stretch lg:gap-[100px]">
             <!-- Левая колонка -->
@@ -348,17 +342,17 @@
             <div class="flex flex-1 flex-col gap-12 justify-between">
               <!-- Вводные параграфы -->
               <div class="grid gap-8 sm:grid-cols-2 lg:gap-[40px]">
-                <p class="font-sf text-[16px] leading-snug text-[#666666] lg:text-[18px]">
+                <div class="font-sf text-[16px] leading-snug text-[#666666] lg:text-[18px]">
                   Системы обратного осмоса применяются для очистки воды, прошедшей предварительную подготовку. Качество
                   входящей воды напрямую влияет на срок службы мембран, стабильность производительности и итоговое
                   качество очищенной воды.
-                </p>
-                <p class="font-sf text-[16px] leading-snug text-[#999999] lg:text-[18px]">
+                </div>
+                <div class="font-sf text-[16px] leading-snug text-[#999999] lg:text-[18px]">
                   Перед подбором оборудования учитываются солесодержание, жесткость, мутность, содержание железа,
                   марганца, органики, хлора и других примесей. При необходимости перед RO устанавливаются фильтры
                   механической очистки, угольные фильтры, умягчители, системы дозирования антискаланта и
                   обезжелезивания.
-                </p>
+                </div>
               </div>
 
               <!-- Три варианта комплектации -->
@@ -376,7 +370,7 @@
           </div>
 
           <!-- Слайдер характеристик решения -->
-          <div class="params-swiper swiper mt-12 lg:mt-[60px]">
+          <div class="params-swiper swiper mt-12 !overflow-visible lg:mt-[60px]">
             <div class="swiper-wrapper">
               <!-- Производительность (активная) -->
               <article class="swiper-slide !h-[161px] !w-[232px]">
@@ -391,9 +385,9 @@
                   </span>
                   <div class="flex flex-col gap-2.5">
                     <h3 class="font-sf text-[15px] font-medium leading-[1.1] text-black">Производительность</h3>
-                    <p class="font-sf text-[11px] leading-[1.25] text-[#999999]">
+                    <div class="font-sf text-[11px] leading-[1.25] text-[#999999]">
                       Подбирается под потребление объекта: котельной, ТЭЦ, теплового пункта или промышленной площадки.
-                    </p>
+                    </div>
                   </div>
                 </div>
               </article>
@@ -411,9 +405,9 @@
                   </span>
                   <div class="flex flex-col gap-2.5">
                     <h3 class="font-sf text-[15px] font-medium leading-[1.1] text-black">Качество очищенной воды</h3>
-                    <p class="font-sf text-[11px] leading-[1.25] text-[#999999]">
+                    <div class="font-sf text-[11px] leading-[1.25] text-[#999999]">
                       Система снижает жесткость, солесодержание, железо и другие примеси до требуемых параметров.
-                    </p>
+                    </div>
                   </div>
                 </div>
               </article>
@@ -431,9 +425,9 @@
                   </span>
                   <div class="flex flex-col gap-2.5">
                     <h3 class="font-sf text-[15px] font-medium leading-[1.1] text-black">Габариты оборудования</h3>
-                    <p class="font-sf text-[11px] leading-[1.25] text-[#999999]">
+                    <div class="font-sf text-[11px] leading-[1.25] text-[#999999]">
                       Станция может быть выполнена в компактном, стационарном или блочно-модульном формате.
-                    </p>
+                    </div>
                   </div>
                 </div>
               </article>
@@ -451,9 +445,9 @@
                   </span>
                   <div class="flex flex-col gap-2.5">
                     <h3 class="font-sf text-[15px] font-medium leading-[1.1] text-black">Энергопотребление</h3>
-                    <p class="font-sf text-[11px] leading-[1.25] text-[#999999]">
+                    <div class="font-sf text-[11px] leading-[1.25] text-[#999999]">
                       Технологическая схема рассчитывается с учетом рационального расхода электроэнергии и ресурсов.
-                    </p>
+                    </div>
                   </div>
                 </div>
               </article>
@@ -471,10 +465,10 @@
                   </span>
                   <div class="flex flex-col gap-2.5">
                     <h3 class="font-sf text-[15px] font-medium leading-[1.1] text-black">Автоматизация</h3>
-                    <p class="font-sf text-[11px] leading-[1.25] text-[#999999]">
+                    <div class="font-sf text-[11px] leading-[1.25] text-[#999999]">
                       Предусматриваются контроль параметров, автоматическая промывка и стабильная работа без постоянного
                       вмешательства.
-                    </p>
+                    </div>
                   </div>
                 </div>
               </article>
@@ -492,9 +486,9 @@
                   </span>
                   <div class="flex flex-col gap-2.5">
                     <h3 class="font-sf text-[15px] font-medium leading-[1.1] text-black">Эксплуатация</h3>
-                    <p class="font-sf text-[11px] leading-[1.25] text-[#999999]">
+                    <div class="font-sf text-[11px] leading-[1.25] text-[#999999]">
                       Решение адаптируется под постоянную нагрузку, сезонные изменения воды и режим работы объекта.
-                    </p>
+                    </div>
                   </div>
                 </div>
               </article>
@@ -514,10 +508,10 @@
                     <h3 class="font-sf text-[15px] font-medium leading-[1.1] text-black">
                       Высокие эксплуатационные расходы
                     </h3>
-                    <p class="font-sf text-[11px] leading-[1.25] text-[#999999]">
+                    <div class="font-sf text-[11px] leading-[1.25] text-[#999999]">
                       Неправильная схема водоподготовки увеличивает расход реагентов, энергии, воды и сервисных
                       ресурсов.
-                    </p>
+                    </div>
                   </div>
                 </div>
               </article>
@@ -538,7 +532,7 @@
                 type="button"
                 data-cases-prev
                 aria-label="Предыдущий"
-                class="flex size-12 items-center justify-center rounded-full border border-[#e0e0e0] text-black transition-colors hover:bg-[#f3f3f3] disabled:opacity-40"
+                class="flex size-12 items-center justify-center rounded-full bg-[#f4f4f4] text-[#333333] transition-colors hover:bg-[#0160b1] hover:text-white disabled:opacity-40"
               >
                 <svg
                   class="h-5 w-5"
@@ -557,7 +551,7 @@
                 type="button"
                 data-cases-next
                 aria-label="Следующий"
-                class="flex size-12 items-center justify-center rounded-full bg-[#0160B1] text-white transition-colors hover:bg-[#014e90] disabled:opacity-40"
+                class="flex size-12 items-center justify-center rounded-full bg-[#f4f4f4] text-[#333333] transition-colors hover:bg-[#0160b1] hover:text-white disabled:opacity-40"
               >
                 <svg
                   class="h-5 w-5"
@@ -595,15 +589,15 @@
                   class="absolute inset-x-5 bottom-5 rounded-[12px] bg-black/40 p-4 text-white backdrop-blur-md lg:px-[30px] lg:py-[37px]"
                 >
                   <h3 class="font-sf text-[18px] font-medium leading-none lg:text-[30px]">{{ this.title }}</h3>
-                  <p class="mt-2 font-sf text-[14px] leading-snug lg:mt-6 lg:text-[18px]">{{ ../caseDesc }}</p>
+                  <div class="mt-2 font-sf text-[14px] leading-snug lg:mt-6 lg:text-[18px]">{{ ../caseDesc }}</div>
                 </div>
               </a>
               {{/each}}
             </div>
 
-            <p data-cases-empty class="hidden py-20 text-center font-sf text-[18px] text-[#999999]">
+            <div data-cases-empty class="hidden py-20 text-center font-sf text-[18px] text-[#999999]">
               По выбранным фильтрам кейсов не найдено.
-            </p>
+            </div>
           </div>
         </div>
       </section>

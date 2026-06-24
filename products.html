@@ -4,16 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Abiroy — Продукция</title>
-    <!-- Шрифты: Manrope + SF Pro Display -->
+    <!-- Шрифт: SF Pro Display -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
     <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
   </head>
-  <body class="flex min-h-screen flex-col bg-white text-gray-900">
+  <body class="flex min-h-screen flex-col bg-[#f3f3f3] text-gray-900">
     {{> header }}
 
     <main class="flex-1">
@@ -77,38 +73,47 @@
           </div>
 
           <!-- Пагинация -->
-          <nav class="mt-12 flex items-center justify-center gap-3 lg:mt-[60px]" aria-label="Пагинация">
-            <button
-              type="button"
-              aria-label="Назад"
-              class="flex size-12 items-center justify-center rounded-full bg-white text-[#999999] shadow-sm transition-colors hover:bg-gray-50 disabled:opacity-40"
-              disabled
-            >
-              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M15 5l-7 7 7 7" />
-              </svg>
-            </button>
-
-            <div class="flex items-center gap-2">
-              <button type="button" aria-current="page" class="flex size-12 items-center justify-center rounded-full bg-[#0160b1] font-sf text-[20px] font-semibold text-white">1</button>
-              <button type="button" class="flex size-12 items-center justify-center rounded-full bg-white font-sf text-[20px] font-semibold text-[#333333] transition-colors hover:bg-gray-50">2</button>
-              <button type="button" class="flex size-12 items-center justify-center rounded-full bg-white font-sf text-[20px] font-semibold text-[#333333] transition-colors hover:bg-gray-50">3</button>
-              <button type="button" class="hidden size-12 items-center justify-center rounded-full bg-white font-sf text-[20px] font-semibold text-[#333333] transition-colors hover:bg-gray-50 sm:flex">4</button>
-              <button type="button" class="hidden size-12 items-center justify-center rounded-full bg-white font-sf text-[20px] font-semibold text-[#333333] transition-colors hover:bg-gray-50 sm:flex">5</button>
-              <button type="button" class="hidden size-12 items-center justify-center rounded-full bg-white font-sf text-[20px] font-semibold text-[#333333] transition-colors hover:bg-gray-50 lg:flex">6</button>
-              <button type="button" class="hidden size-12 items-center justify-center rounded-full bg-white font-sf text-[20px] font-semibold text-[#333333] transition-colors hover:bg-gray-50 lg:flex">7</button>
-              <span class="flex size-12 items-center justify-center font-sf text-[20px] font-semibold text-[#999999]">...</span>
-            </div>
-
-            <button
-              type="button"
-              aria-label="Вперёд"
-              class="flex size-12 items-center justify-center rounded-full bg-white text-[#333333] shadow-sm transition-colors hover:bg-gray-50"
-            >
-              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
+          <nav class="mt-12 lg:mt-[60px]" aria-label="Пагинация">
+            <ul class="flex items-center justify-center gap-2">
+              <li class="pointer-events-none flex size-12 items-center justify-center rounded-full bg-white text-[#999999] opacity-40 shadow-sm transition-colors hover:bg-gray-50">
+                <a href="#" aria-label="Назад" aria-disabled="true">
+                  <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M15 5l-7 7 7 7" />
+                  </svg>
+                </a>
+              </li>
+              <li class="flex size-12 items-center justify-center rounded-full bg-[#0160b1] font-sf text-[20px] font-semibold text-white">
+                <a href="#" aria-current="page">1</a>
+              </li>
+              <li class="flex size-12 items-center justify-center rounded-full bg-white font-sf text-[20px] font-semibold text-[#333333] transition-colors hover:bg-gray-50">
+                <a href="#">2</a>
+              </li>
+              <li class="flex size-12 items-center justify-center rounded-full bg-white font-sf text-[20px] font-semibold text-[#333333] transition-colors hover:bg-gray-50">
+                <a href="#">3</a>
+              </li>
+              <li class="hidden size-12 items-center justify-center rounded-full bg-white font-sf text-[20px] font-semibold text-[#333333] transition-colors hover:bg-gray-50 sm:flex">
+                <a href="#">4</a>
+              </li>
+              <li class="hidden size-12 items-center justify-center rounded-full bg-white font-sf text-[20px] font-semibold text-[#333333] transition-colors hover:bg-gray-50 sm:flex">
+                <a href="#">5</a>
+              </li>
+              <li class="hidden size-12 items-center justify-center rounded-full bg-white font-sf text-[20px] font-semibold text-[#333333] transition-colors hover:bg-gray-50 lg:flex">
+                <a href="#">6</a>
+              </li>
+              <li class="hidden size-12 items-center justify-center rounded-full bg-white font-sf text-[20px] font-semibold text-[#333333] transition-colors hover:bg-gray-50 lg:flex">
+                <a href="#">7</a>
+              </li>
+              <li class="flex size-12 items-center justify-center font-sf text-[20px] font-semibold text-[#999999]">
+                <span>...</span>
+              </li>
+              <li class="flex size-12 items-center justify-center rounded-full bg-white text-[#333333] shadow-sm transition-colors hover:bg-gray-50">
+                <a href="#" aria-label="Вперёд">
+                  <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </li>
+            </ul>
           </nav>
         </div>
       </section>

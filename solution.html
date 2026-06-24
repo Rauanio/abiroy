@@ -4,13 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Abiroy — Решения</title>
-    <!-- Шрифты: Manrope + SF Pro Display -->
+    <!-- Шрифт: SF Pro Display -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
     <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
   </head>
   <body class="flex min-h-screen flex-col bg-white text-gray-900">
@@ -33,30 +29,30 @@
           <span class="text-black">Решения</span>
         </nav>
         <h1
-          class="mt-10 font-sf text-[44px] font-bold leading-none text-[#0160b1] sm:text-[64px] lg:mt-12 lg:text-[100px]"
+          class="mt-10 font-sf text-[56px] font-bold leading-none text-[#0160b1] sm:text-[80px] lg:mt-12 lg:text-[100px]"
         >
           Решения
         </h1>
       </section>
 
-      <p class="container-page px-6 sm:px-10 mb-10 font-sf text-[16px] leading-snug text-[#666666] lg:text-[18px]">
+      <div class="container-page px-6 sm:px-[60px] mb-10 font-sf">
         ABIROY GROUP проектирует и внедряет инженерные решения водоподготовки под задачи конкретной отрасли — от
         энергетики и пищевых производств до муниципального водоснабжения. Подбираем технологию под состав исходной воды,
         требуемую производительность и режим эксплуатации объекта.
-      </p>
+      </div>
 
       <!-- Решения: статистика + фильтры + слайдер -->
-      <section class="bg-[#f4f4f4]" data-solutions>
+      <section class="overflow-hidden bg-[#f4f4f4]" data-solutions>
         <div class="container-page px-6 py-12 sm:px-10 lg:px-[60px] lg:py-[60px]">
           <!-- Шапка: статистика + заголовок -->
           <div class="flex flex-col gap-10 lg:flex-row lg:gap-[60px]">
             <!-- Левая колонка: статистика -->
             <div class="lg:w-[405px] lg:shrink-0 lg:border-r lg:border-[#d6d6d6] lg:pr-[60px]">
               <span class="font-sf text-[18px] leading-none text-[#0062b7]">О компании</span>
-              <p class="mt-5 font-sf text-[64px] font-semibold leading-none text-black sm:text-[80px]">100+</p>
-              <p class="mt-5 max-w-[405px] font-sf text-[16px] leading-snug text-[#999999] lg:text-[18px]">
+              <div class="mt-5 font-sf text-[64px] font-semibold leading-none text-black sm:text-[80px]">100+</div>
+              <div class="mt-5 max-w-[405px] font-sf text-[16px] leading-snug text-[#999999] lg:text-[18px]">
                 Реализованных инженерных решений и проектов водоподготовки для предприятий различных отраслей.
-              </p>
+              </div>
             </div>
 
             <!-- Правая колонка: заголовок + кнопка -->
@@ -92,127 +88,80 @@
             </button>
           </div>
 
-          <!-- Слайдер: по отраслям -->
-          <div class="solutions-swiper swiper mt-8 lg:mt-10" data-group="industry">
-            <div class="swiper-wrapper">
-              <!-- Энергетика -->
-              <a class="swiper-slide bg-white max-w-[420px]" href="/solution-details.html">
-                <div class="flex items-center justify-between gap-4 py-[30px] mx-[30px] border-[#DCDCDC] border-b">
-                  <h3 class="font-sf text-[20px] font-medium leading-snug text-[#64b6ff] lg:text-[22px]">Энергетика</h3>
-                  <span class="shrink-0 text-[#0160b1]">
-                    <svg
-                      class="h-4 w-4"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M4 12 12 4M6 4h6v6" />
-                    </svg>
-                  </span>
-                </div>
-                <img src="/solution-energy.png" alt="" />
-                <p class="text-[#999] pb-[30px] px-[30px]">
-                  Подготовка воды для котельных, ТЭЦ и энергетических объектов.
-                </p>
-              </a>
-              <a class="swiper-slide bg-white max-w-[420px]" href="/solution-details.html">
-                <div class="flex items-center justify-between gap-4 py-[30px] mx-[30px] border-[#DCDCDC] border-b">
-                  <h3 class="font-sf text-[20px] font-medium leading-snug text-[#64b6ff] lg:text-[22px]">Энергетика</h3>
-                  <span class="shrink-0 text-[#0160b1]">
-                    <svg
-                      class="h-4 w-4"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M4 12 12 4M6 4h6v6" />
-                    </svg>
-                  </span>
-                </div>
-                <img src="/solution-energy.png" alt="" />
-                <p class="text-[#999] pb-[30px] px-[30px]">
-                  Подготовка воды для котельных, ТЭЦ и энергетических объектов.
-                </p>
-              </a>
-              <a class="swiper-slide bg-white max-w-[420px]" href="/solution-details.html">
-                <div class="flex items-center justify-between gap-4 py-[30px] mx-[30px] border-[#DCDCDC] border-b">
-                  <h3 class="font-sf text-[20px] font-medium leading-snug text-[#64b6ff] lg:text-[22px]">Энергетика</h3>
-                  <span class="shrink-0 text-[#0160b1]">
-                    <svg
-                      class="h-4 w-4"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M4 12 12 4M6 4h6v6" />
-                    </svg>
-                  </span>
-                </div>
-                <img src="/solution-energy.png" alt="" />
-                <p class="text-[#999] pb-[30px] px-[30px]">
-                  Подготовка воды для котельных, ТЭЦ и энергетических объектов.
-                </p>
-              </a>
-              <a class="swiper-slide bg-white max-w-[420px]" href="/solution-details.html">
-                <div class="flex items-center justify-between gap-4 py-[30px] mx-[30px] border-[#DCDCDC] border-b">
-                  <h3 class="font-sf text-[20px] font-medium leading-snug text-[#64b6ff] lg:text-[22px]">Энергетика</h3>
-                  <span class="shrink-0 text-[#0160b1]">
-                    <svg
-                      class="h-4 w-4"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M4 12 12 4M6 4h6v6" />
-                    </svg>
-                  </span>
-                </div>
-                <img src="/solution-energy.png" alt="" />
-                <p class="text-[#999] pb-[30px] px-[30px]">
-                  Подготовка воды для котельных, ТЭЦ и энергетических объектов.
-                </p>
-              </a>
-              <a class="swiper-slide bg-white max-w-[420px]" href="/solution-details.html">
-                <div class="flex items-center justify-between gap-4 py-[30px] mx-[30px] border-[#DCDCDC] border-b">
-                  <h3 class="font-sf text-[20px] font-medium leading-snug text-[#64b6ff] lg:text-[22px]">Энергетика</h3>
-                  <span class="shrink-0 text-[#0160b1]">
-                    <svg
-                      class="h-4 w-4"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M4 12 12 4M6 4h6v6" />
-                    </svg>
-                  </span>
-                </div>
-                <img src="/solution-food.png" alt="" />
-                <p class="text-[#999] pb-[30px] px-[30px]">
-                  Подготовка воды для котельных, ТЭЦ и энергетических объектов.
-                </p>
-              </a>
-            </div>
+          <!-- Слайдер (один) — контент меняется при переключении вкладок -->
+          <div class="solutions-swiper swiper mt-8 !overflow-visible lg:mt-10">
+            <div class="swiper-wrapper" data-solutions-wrapper></div>
           </div>
+
+          <!-- Наборы слайдов для вкладок -->
+          <template data-solutions-group="industry">
+            {{#each solutionsIndustry}}
+            <a
+              class="swiper-slide group block overflow-hidden bg-white max-w-[420px] transition-all duration-500 ease-out hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_20px_40px_-12px_rgba(1,96,177,0.35)]"
+              href="/solution-details.html"
+            >
+              <div class="flex items-center justify-between gap-4 py-[30px] mx-[30px] border-[#DCDCDC] border-b">
+                <h3
+                  class="font-sf text-[20px] font-medium leading-snug text-[#64b6ff] transition-colors duration-300 ease-out group-hover:text-[#0160b1] lg:text-[22px]"
+                >
+                  {{ this.title }}
+                </h3>
+                <span
+                  class="shrink-0 text-[#0160b1] transition-transform duration-300 ease-out group-hover:translate-x-1 group-hover:-translate-y-1"
+                >
+                  <svg
+                    class="h-4 w-4"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M4 12 12 4M6 4h6v6" />
+                  </svg>
+                </span>
+              </div>
+              <img src="{{ this.img }}" alt="" />
+              <div class="text-[#999] pb-[30px] px-[30px]">{{ this.desc }}</div>
+            </a>
+            {{/each}}
+          </template>
+          <template data-solutions-group="task">
+            {{#each solutionsTask}}
+            <a
+              class="swiper-slide group block overflow-hidden bg-white max-w-[420px] transition-all duration-500 ease-out hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_20px_40px_-12px_rgba(1,96,177,0.35)]"
+              href="/solution-details.html"
+            >
+              <div class="flex items-center justify-between gap-4 py-[30px] mx-[30px] border-[#DCDCDC] border-b">
+                <h3
+                  class="font-sf text-[20px] font-medium leading-snug text-[#64b6ff] transition-colors duration-300 ease-out group-hover:text-[#0160b1] lg:text-[22px]"
+                >
+                  {{ this.title }}
+                </h3>
+                <span
+                  class="shrink-0 text-[#0160b1] transition-transform duration-300 ease-out group-hover:translate-x-1 group-hover:-translate-y-1"
+                >
+                  <svg
+                    class="h-4 w-4"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M4 12 12 4M6 4h6v6" />
+                  </svg>
+                </span>
+              </div>
+              <img src="{{ this.img }}" alt="" />
+              <div class="text-[#999] pb-[30px] px-[30px]">{{ this.desc }}</div>
+            </a>
+            {{/each}}
+          </template>
         </div>
       </section>
     </main>

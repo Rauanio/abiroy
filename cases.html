@@ -4,13 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Abiroy — Кейсы и клиенты</title>
-    <!-- Шрифты: Manrope + SF Pro Display -->
+    <!-- Шрифт: SF Pro Display -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
     <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
   </head>
   <body class="flex min-h-screen flex-col bg-white text-gray-900">
@@ -38,19 +34,22 @@
         </h1>
       </section>
 
-      <p class="container-page px-6 sm:px-10 mb-10 font-sf">
+      <div class="container-page px-6 sm:px-10 mb-10 font-sf">
         Решение было интегрировано в существующую инфраструктуру без остановки работы логистического комплекса. Система
         предусматривает удаленный мониторинг, автоматическую промывку фильтров и возможность масштабирования при
         увеличении нагрузки на объект.
-      </p>
+      </div>
 
       <!-- Кейсы: фильтры + слайдер -->
-      <section class="bg-[#f3f3f3]">
+      <section class="overflow-hidden bg-[#f3f3f3]">
         <div class="container-page px-6 py-12 sm:px-10 lg:px-[50px] lg:py-[70px]" data-cases>
           <!-- Панель управления -->
           <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             <!-- Фильтры (выпадающие списки) -->
-            <div class="flex flex-wrap gap-3 lg:gap-5">
+            <form method="get" action="/cases.html" data-cases-form class="flex flex-wrap gap-3 lg:gap-5">
+              <input type="hidden" name="industry" />
+              <input type="hidden" name="technology" />
+              <input type="hidden" name="solution" />
               <!-- По отраслям -->
               <div class="relative w-full sm:w-[263px]" data-filter-dropdown data-filter-key="industry">
                 <button
@@ -58,7 +57,7 @@
                   data-filter-toggle
                   aria-haspopup="true"
                   aria-expanded="false"
-                  class="flex w-full items-center justify-between gap-2 rounded-[20px] border-[3px] border-white bg-white p-[13px] pl-5 "
+                  class="flex w-full items-center justify-between gap-2 rounded-[20px] border-[3px] border-white bg-white p-[13px] pl-5 aria-[expanded=true]:rounded-b-none "
                 >
                   <span
                     data-filter-label
@@ -85,15 +84,16 @@
                 </button>
                 <ul
                   data-filter-menu
-                  class="absolute left-0 top-full z-30 mt-2 hidden w-full overflow-hidden rounded-[16px] border border-gray-100 bg-white py-1 shadow-xl"
+                  class="absolute left-0 top-full z-30 hidden w-full space-y-5 rounded-b-[20px] bg-white p-5 shadow-xl"
                   role="menu"
                 >
                   <li>
                     <button
                       type="button"
                       data-filter-option=""
-                      class="flex w-full items-center px-5 py-2.5 text-left font-sf text-[16px] text-black transition-colors hover:bg-gray-50"
-                      role="menuitem"
+                      class="filter-option flex w-full items-center justify-between gap-3 text-left font-sf text-[16px] font-semibold leading-none text-black transition-colors hover:text-[#0160b1]"
+                      role="menuitemradio"
+                      aria-checked="false"
                     >
                       Все отрасли
                     </button>
@@ -102,8 +102,9 @@
                     <button
                       type="button"
                       data-filter-option="Энергетика"
-                      class="flex w-full items-center px-5 py-2.5 text-left font-sf text-[16px] text-black transition-colors hover:bg-gray-50"
-                      role="menuitem"
+                      class="filter-option flex w-full items-center justify-between gap-3 text-left font-sf text-[16px] font-semibold leading-none text-black transition-colors hover:text-[#0160b1]"
+                      role="menuitemradio"
+                      aria-checked="false"
                     >
                       Энергетика
                     </button>
@@ -112,8 +113,9 @@
                     <button
                       type="button"
                       data-filter-option="Промышленность"
-                      class="flex w-full items-center px-5 py-2.5 text-left font-sf text-[16px] text-black transition-colors hover:bg-gray-50"
-                      role="menuitem"
+                      class="filter-option flex w-full items-center justify-between gap-3 text-left font-sf text-[16px] font-semibold leading-none text-black transition-colors hover:text-[#0160b1]"
+                      role="menuitemradio"
+                      aria-checked="false"
                     >
                       Промышленность
                     </button>
@@ -122,8 +124,9 @@
                     <button
                       type="button"
                       data-filter-option="Строительство"
-                      class="flex w-full items-center px-5 py-2.5 text-left font-sf text-[16px] text-black transition-colors hover:bg-gray-50"
-                      role="menuitem"
+                      class="filter-option flex w-full items-center justify-between gap-3 text-left font-sf text-[16px] font-semibold leading-none text-black transition-colors hover:text-[#0160b1]"
+                      role="menuitemradio"
+                      aria-checked="false"
                     >
                       Строительство
                     </button>
@@ -138,7 +141,7 @@
                   data-filter-toggle
                   aria-haspopup="true"
                   aria-expanded="false"
-                  class="flex w-full items-center justify-between gap-2 rounded-[20px] border-[3px] border-white bg-white p-[13px] pl-5"
+                  class="flex w-full items-center justify-between gap-2 rounded-[20px] border-[3px] border-white bg-white p-[13px] pl-5 aria-[expanded=true]:rounded-b-none"
                 >
                   <span
                     data-filter-label
@@ -165,15 +168,16 @@
                 </button>
                 <ul
                   data-filter-menu
-                  class="absolute left-0 top-full z-30 mt-2 hidden w-full overflow-hidden rounded-[16px] border border-gray-100 bg-white py-1 shadow-xl"
+                  class="absolute left-0 top-full z-30 hidden w-full space-y-5 rounded-b-[20px] bg-white p-5 shadow-xl"
                   role="menu"
                 >
                   <li>
                     <button
                       type="button"
                       data-filter-option=""
-                      class="flex w-full items-center px-5 py-2.5 text-left font-sf text-[16px] text-black transition-colors hover:bg-gray-50"
-                      role="menuitem"
+                      class="filter-option flex w-full items-center justify-between gap-3 text-left font-sf text-[16px] font-semibold leading-none text-black transition-colors hover:text-[#0160b1]"
+                      role="menuitemradio"
+                      aria-checked="false"
                     >
                       Все технологии
                     </button>
@@ -182,8 +186,9 @@
                     <button
                       type="button"
                       data-filter-option="Обратный осмос"
-                      class="flex w-full items-center px-5 py-2.5 text-left font-sf text-[16px] text-black transition-colors hover:bg-gray-50"
-                      role="menuitem"
+                      class="filter-option flex w-full items-center justify-between gap-3 text-left font-sf text-[16px] font-semibold leading-none text-black transition-colors hover:text-[#0160b1]"
+                      role="menuitemradio"
+                      aria-checked="false"
                     >
                       Обратный осмос
                     </button>
@@ -192,8 +197,9 @@
                     <button
                       type="button"
                       data-filter-option="Ультрафильтрация"
-                      class="flex w-full items-center px-5 py-2.5 text-left font-sf text-[16px] text-black transition-colors hover:bg-gray-50"
-                      role="menuitem"
+                      class="filter-option flex w-full items-center justify-between gap-3 text-left font-sf text-[16px] font-semibold leading-none text-black transition-colors hover:text-[#0160b1]"
+                      role="menuitemradio"
+                      aria-checked="false"
                     >
                       Ультрафильтрация
                     </button>
@@ -202,8 +208,9 @@
                     <button
                       type="button"
                       data-filter-option="EDI"
-                      class="flex w-full items-center px-5 py-2.5 text-left font-sf text-[16px] text-black transition-colors hover:bg-gray-50"
-                      role="menuitem"
+                      class="filter-option flex w-full items-center justify-between gap-3 text-left font-sf text-[16px] font-semibold leading-none text-black transition-colors hover:text-[#0160b1]"
+                      role="menuitemradio"
+                      aria-checked="false"
                     >
                       EDI
                     </button>
@@ -218,7 +225,7 @@
                   data-filter-toggle
                   aria-haspopup="true"
                   aria-expanded="false"
-                  class="flex w-full items-center justify-between gap-2 rounded-[20px] border-[3px] border-white bg-white p-[13px] pl-5"
+                  class="flex w-full items-center justify-between gap-2 rounded-[20px] border-[3px] border-white bg-white p-[13px] pl-5 aria-[expanded=true]:rounded-b-none"
                 >
                   <span
                     data-filter-label
@@ -245,15 +252,16 @@
                 </button>
                 <ul
                   data-filter-menu
-                  class="absolute left-0 top-full z-30 mt-2 hidden w-full overflow-hidden rounded-[16px] border border-gray-100 bg-white py-1 shadow-xl"
+                  class="absolute left-0 top-full z-30 hidden w-full space-y-5 rounded-b-[20px] bg-white p-5 shadow-xl"
                   role="menu"
                 >
                   <li>
                     <button
                       type="button"
                       data-filter-option=""
-                      class="flex w-full items-center px-5 py-2.5 text-left font-sf text-[16px] text-black transition-colors hover:bg-gray-50"
-                      role="menuitem"
+                      class="filter-option flex w-full items-center justify-between gap-3 text-left font-sf text-[16px] font-semibold leading-none text-black transition-colors hover:text-[#0160b1]"
+                      role="menuitemradio"
+                      aria-checked="false"
                     >
                       Все решения
                     </button>
@@ -262,8 +270,9 @@
                     <button
                       type="button"
                       data-filter-option="Промышленные системы"
-                      class="flex w-full items-center px-5 py-2.5 text-left font-sf text-[16px] text-black transition-colors hover:bg-gray-50"
-                      role="menuitem"
+                      class="filter-option flex w-full items-center justify-between gap-3 text-left font-sf text-[16px] font-semibold leading-none text-black transition-colors hover:text-[#0160b1]"
+                      role="menuitemradio"
+                      aria-checked="false"
                     >
                       Промышленные системы
                     </button>
@@ -272,8 +281,9 @@
                     <button
                       type="button"
                       data-filter-option="Контейнерные станции"
-                      class="flex w-full items-center px-5 py-2.5 text-left font-sf text-[16px] text-black transition-colors hover:bg-gray-50"
-                      role="menuitem"
+                      class="filter-option flex w-full items-center justify-between gap-3 text-left font-sf text-[16px] font-semibold leading-none text-black transition-colors hover:text-[#0160b1]"
+                      role="menuitemradio"
+                      aria-checked="false"
                     >
                       Контейнерные станции
                     </button>
@@ -282,15 +292,16 @@
                     <button
                       type="button"
                       data-filter-option="Модульные системы"
-                      class="flex w-full items-center px-5 py-2.5 text-left font-sf text-[16px] text-black transition-colors hover:bg-gray-50"
-                      role="menuitem"
+                      class="filter-option flex w-full items-center justify-between gap-3 text-left font-sf text-[16px] font-semibold leading-none text-black transition-colors hover:text-[#0160b1]"
+                      role="menuitemradio"
+                      aria-checked="false"
                     >
                       Модульные системы
                     </button>
                   </li>
                 </ul>
               </div>
-            </div>
+            </form>
 
             <!-- Навигация -->
             <div class="flex items-center gap-3">
@@ -298,7 +309,7 @@
                 type="button"
                 data-cases-prev
                 aria-label="Предыдущий"
-                class="flex size-12 items-center justify-center rounded-full border border-[#e0e0e0] text-black transition-colors hover:bg-[#f3f3f3] disabled:opacity-40"
+                class="flex size-12 items-center justify-center rounded-full bg-[#fff] text-[#333333] transition-colors hover:bg-[#0160b1] hover:text-white [&.swiper-button-disabled]:opacity-40 [&.swiper-button-disabled]:hover:bg-[#fff] [&.swiper-button-disabled]:hover:text-[#333333]"
               >
                 <svg
                   class="h-5 w-5"
@@ -317,7 +328,7 @@
                 type="button"
                 data-cases-next
                 aria-label="Следующий"
-                class="flex size-12 items-center justify-center rounded-full bg-[#0160B1] text-white transition-colors hover:bg-[#f3f3f3] disabled:opacity-40"
+                class="flex size-12 items-center justify-center rounded-full bg-[#fff] text-[#333333] transition-colors hover:bg-[#0160b1] hover:text-white [&.swiper-button-disabled]:opacity-40 [&.swiper-button-disabled]:hover:bg-[#fff] [&.swiper-button-disabled]:hover:text-[#333333]"
               >
                 <svg
                   class="h-5 w-5"
@@ -337,35 +348,37 @@
 
           <!-- Слайдер кейсов -->
           <div class="relative mt-8 lg:mt-10">
-            <div data-cases-track class="no-scrollbar flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth">
-              {{#each cases}}
-              <a
-                href="/case-details.html"
-                data-case
-                data-industry="{{ this.industry }}"
-                data-technology="{{ this.technology }}"
-                data-solution="{{ this.solution }}"
-                class="relative block aspect-[740/587] w-[88%] shrink-0 snap-start overflow-hidden rounded-[16px] sm:w-[70%] lg:w-[calc(50%-10px)]"
-              >
-                <img src="{{ this.img }}" alt="{{ this.title }}" class="absolute inset-0 h-full w-full object-cover" />
-                <span
-                  class="absolute left-2 top-2 lg:left-5 lg:top-5 inline-flex items-center rounded-[12px] bg-black/40 px-8 py-3 font-sf text-[15px] font-semibold text-white backdrop-blur-sm sm:px-12 sm:py-[21px]"
-                  >{{ this.company }}</span
+            <div data-cases-track class="cases-slider swiper !overflow-visible">
+              <div class="swiper-wrapper">
+                {{#each cases}}
+                <a
+                  href="/case-details.html"
+                  data-case
+                  data-industry="{{ this.industry }}"
+                  data-technology="{{ this.technology }}"
+                  data-solution="{{ this.solution }}"
+                  class="swiper-slide relative block aspect-[740/587] !w-[88%] shrink-0 overflow-hidden rounded-[16px] sm:!w-[60%] lg:!w-[740px]"
                 >
-                <div
-                  class="absolute inset-x-2 lg:inset-x-5 bottom-2 lg:bottom-5 rounded-[12px] bg-black/40 p-4 text-white backdrop-blur-md lg:px-[30px] lg:py-[37px]"
-                >
-                  <h3 class="font-sf text-[18px] font-medium leading-none lg:text-[30px]">{{ this.title }}</h3>
-                  <p class="mt-2 font-sf text-[14px] leading-snug lg:mt-6 lg:text-[18px]">{{ ../caseDesc }}</p>
-                </div>
-              </a>
-              {{/each}}
+                  <img src="{{ this.img }}" alt="{{ this.title }}" class="absolute inset-0 h-full w-full object-cover" />
+                  <span
+                    class="absolute left-2 top-2 lg:left-5 lg:top-5 inline-flex items-center rounded-[12px] bg-black/40 px-8 py-3 font-sf text-[15px] font-semibold text-white backdrop-blur-sm sm:px-12 sm:py-[21px]"
+                    >{{ this.company }}</span
+                  >
+                  <div
+                    class="absolute inset-x-2 lg:inset-x-5 bottom-2 lg:bottom-5 rounded-[12px] bg-black/40 p-4 text-white backdrop-blur-md lg:px-[30px] lg:py-[37px]"
+                  >
+                    <h3 class="font-sf text-[18px] font-medium leading-none lg:text-[30px]">{{ this.title }}</h3>
+                    <div class="mt-2 font-sf text-[14px] leading-snug lg:mt-6 lg:text-[18px]">{{ ../caseDesc }}</div>
+                  </div>
+                </a>
+                {{/each}}
+              </div>
             </div>
 
             <!-- Заглушка, если ничего не найдено -->
-            <p data-cases-empty class="hidden py-20 text-center font-sf text-[18px] text-[#999999]">
+            <div data-cases-empty class="hidden py-20 text-center font-sf text-[18px] text-[#999999]">
               По выбранным фильтрам кейсов не найдено.
-            </p>
+            </div>
           </div>
         </div>
       </section>

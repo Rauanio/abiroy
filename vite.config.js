@@ -1,7 +1,94 @@
 import { defineConfig } from 'vite'
-import { resolve } from 'path'
+import { resolve, join } from 'path'
+import { readdirSync, renameSync, readFileSync, writeFileSync, mkdirSync, unlinkSync } from 'fs'
+import { build as esbuildBuild } from 'esbuild'
 import handlebars from 'vite-plugin-handlebars'
 import tailwindcss from '@tailwindcss/vite'
+
+const IMAGE_EXT = /\.(png|svg|jpe?g|webp|gif|ico|avif)$/i
+
+// esbuild-плагин: импорты css в main.js игнорируем — стили уже подключены
+// отдельными <link> (css/*.css), в js-бандл их класть не нужно.
+const ignoreCssPlugin = {
+  name: 'ignore-css',
+  setup(build) {
+    build.onResolve({ filter: /\.css$/ }, (args) => ({ path: args.path, namespace: 'ignore-css' }))
+    build.onLoad({ filter: /.*/, namespace: 'ignore-css' }, () => ({ contents: '' }))
+  },
+}
+
+// После сборки раскладываем dist по папкам: css / js / images, при этом
+// html остаётся в корне dist. JS пересобираем в один classic-бандл js/app.js
+// (не ES-модуль), чтобы dist открывался двойным кликом по file:// без сервера.
+function organizeDist(outDir) {
+  return {
+    name: 'organize-dist',
+    async closeBundle() {
+      const dist = resolve(__dirname, outDir)
+      const imagesDir = join(dist, 'images')
+      const jsDir = join(dist, 'js')
+      mkdirSync(imagesDir, { recursive: true })
+      mkdirSync(jsDir, { recursive: true })
+
+      // 0. Собираем весь JS (main + swiper + fancybox) в один classic-бандл.
+      //    format: 'iife' => обычный <script> без type="module" => нет CORS на file://
+      await esbuildBuild({
+        entryPoints: [resolve(__dirname, 'src/main.js')],
+        bundle: true,
+        minify: true,
+        format: 'iife',
+        target: 'es2018',
+        outfile: join(jsDir, 'app.js'),
+        plugins: [ignoreCssPlugin],
+        logLevel: 'silent',
+      })
+
+      // Удаляем модульные js-чанки Vite (main/swiper/fancybox с хешами) —
+      // они больше не нужны, весь код теперь в app.js.
+      for (const f of readdirSync(jsDir)) {
+        if (f !== 'app.js') unlinkSync(join(jsDir, f))
+      }
+
+      const entries = readdirSync(dist, { withFileTypes: true })
+
+      // 1. Переносим изображения из корня dist (файлы из public/) в dist/images
+      for (const entry of entries) {
+        if (entry.isFile() && IMAGE_EXT.test(entry.name)) {
+          renameSync(join(dist, entry.name), join(imagesDir, entry.name))
+        }
+      }
+
+      // 2. HTML остаётся в корне dist, абсолютные пути -> относительные
+      for (const entry of entries) {
+        if (!entry.isFile() || !entry.name.endsWith('.html')) continue
+        const src = join(dist, entry.name)
+        let html = readFileSync(src, 'utf8')
+
+        // Атрибут crossorigin форсит CORS-запрос, который под file:// (origin null)
+        // блокируется браузером — убираем его, чтобы css грузился по двойному клику.
+        html = html.replace(/\s+crossorigin(=("[^"]*"|'[^']*'))?/g, '')
+        // modulepreload-подсказки не нужны для file:// и только шумят ошибками
+        html = html.replace(/\s*<link\b[^>]*rel="modulepreload"[^>]*>/g, '')
+        // Убираем модульные <script type="module" src="js/...">
+        html = html.replace(/\s*<script\b[^>]*type="module"[^>]*><\/script>/g, '')
+        // Подключаем единый classic-бандл перед </head> (defer = после парсинга DOM)
+        html = html.replace(/<\/head>/i, '    <script src="js/app.js" defer></script>\n  </head>')
+
+        // css / assets / images лежат в подпапках рядом с html
+        html = html.replace(/(src|href)="\/(js|css|assets|images)\//g, '$1="$2/')
+        // изображения из public (в корне dist) -> images/...
+        html = html.replace(
+          /(src|href)="\/([^"/]+\.(?:png|svg|jpe?g|webp|gif|ico|avif))"/gi,
+          '$1="images/$2"'
+        )
+        // ссылки между страницами лежат в той же папке
+        html = html.replace(/(src|href)="\/([a-z0-9-]+\.html)"/gi, '$1="$2"')
+
+        writeFileSync(src, html)
+      }
+    },
+  }
+}
 
 // Общие данные, доступные во всех шаблонах
 const siteData = {
@@ -100,6 +187,48 @@ const siteData = {
     },
   ],
   certificates: ['/cert-1.png', '/cert-2.png', '/cert-3.png', '/cert-4.png'],
+  solutionsIndustry: [
+    { title: 'Энергетика', img: '/solution-energy.png', desc: 'Подготовка воды для котельных, ТЭЦ и энергетических объектов.' },
+    { title: 'Промышленность', img: '/solution-energy.png', desc: 'Технологическая вода для производственных линий и оборудования.' },
+    { title: 'Пищевая промышленность', img: '/solution-energy.png', desc: 'Очистка и подготовка воды для пищевых производств и розлива.' },
+    { title: 'Строительство', img: '/solution-energy.png', desc: 'Системы водоподготовки для объектов и инженерных сетей.' },
+    { title: 'ЖКХ и инфраструктура', img: '/solution-energy.png', desc: 'Водоподготовка для коммунальных и инфраструктурных объектов.' },
+  ],
+  solutionsTask: [
+    { title: 'Умягчение воды', img: '/solution-energy.png', desc: 'Удаление солей жесткости и защита оборудования от накипи.' },
+    { title: 'Обессоливание', img: '/solution-energy.png', desc: 'Деминерализация воды методом обратного осмоса и EDI.' },
+    { title: 'Обезжелезивание', img: '/solution-energy.png', desc: 'Удаление железа, марганца и сероводорода из воды.' },
+    { title: 'Механическая фильтрация', img: '/solution-energy.png', desc: 'Удаление взвесей, песка и механических примесей.' },
+    { title: 'Дозирование реагентов', img: '/solution-energy.png', desc: 'Коррекция pH, ингибирование накипи и обеззараживание.' },
+  ],
+  waterSystems: [
+    {
+      title: 'Системы умягчения воды',
+      img: '/hero.png',
+      desc: 'Удаление солей жесткости методом ионного обмена. Защищают котлы, теплообменники и трубопроводы от накипи и продлевают срок службы оборудования.',
+    },
+    {
+      title: 'Установки обратного осмоса RO',
+      img: '/case-2.png',
+      desc: 'Полный технологический комплекс: механическая очистка, умягчение, RO, дозирование и автоматизация. Подходят для объектов с высокими требованиями к надежности и непрерывной работе.',
+      active: true,
+    },
+    {
+      title: 'Системы дозирования реагентов',
+      img: '/hero.png',
+      desc: 'Точное пропорциональное дозирование реагентов для коррекции pH, ингибирования накипи и обеззараживания. Полная автоматизация процесса под режим объекта.',
+    },
+    {
+      title: 'Блочно-модульные станции водоподготовки',
+      img: '/case-2.png',
+      desc: 'Готовое решение в транспортном контейнере: быстрый монтаж, мобильность и возможность масштабирования под требуемую производительность объекта.',
+    },
+    {
+      title: 'Комплексные системы водоподготовки',
+      img: '/hero.png',
+      desc: 'Комплексные инженерные решения под состав воды, нагрузку и режим объекта — от механической очистки до финишной деминерализации и автоматизации.',
+    },
+  ],
   techCatalog: [
     {
       metric: '0,01–0,1 мкм',
@@ -242,9 +371,29 @@ export default defineConfig({
       partialDirectory: resolve(__dirname, 'src/partials'),
       context: siteData,
     }),
+    organizeDist('dist'),
   ],
   build: {
     rollupOptions: {
+      output: {
+        entryFileNames: 'js/[name]-[hash].js',
+        chunkFileNames: 'js/[name]-[hash].js',
+        assetFileNames: (assetInfo) => {
+          const name = assetInfo.names?.[0] ?? assetInfo.name ?? ''
+          if (name.endsWith('.css')) return 'css/[name]-[hash][extname]'
+          if (IMAGE_EXT.test(name)) return 'images/[name]-[hash][extname]'
+          return 'assets/[name]-[hash][extname]'
+        },
+        // Разделяем бандлы: плагины (swiper / fancybox) и наши стили
+        // (tailwind / global / style) попадают в отдельные js- и css-файлы.
+        manualChunks(id) {
+          if (id.includes('node_modules/@fancyapps')) return 'fancybox'
+          if (id.includes('node_modules/swiper')) return 'swiper'
+          if (id.endsWith('/tailwind.css')) return 'tailwind'
+          if (id.endsWith('/global.css')) return 'global'
+          if (id.endsWith('/style.css')) return 'style'
+        },
+      },
       input: {
         index: resolve(__dirname, 'index.html'),
         about: resolve(__dirname, 'about.html'),
