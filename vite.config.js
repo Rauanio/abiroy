@@ -77,8 +77,9 @@ function organizeDist(outDir) {
         // css / assets / images лежат в подпапках рядом с html
         html = html.replace(/(src|href)="\/(js|css|assets|images)\//g, '$1="$2/')
         // изображения из public (в корне dist) -> images/...
+        // src/href + data-* атрибуты (напр. data-img, которые JS кладёт в .src)
         html = html.replace(
-          /(src|href)="\/([^"/]+\.(?:png|svg|jpe?g|webp|gif|ico|avif))"/gi,
+          /(src|href|data-[\w-]+)="\/([^"/]+\.(?:png|svg|jpe?g|webp|gif|ico|avif))"/gi,
           '$1="images/$2"'
         )
         // ссылки между страницами лежат в той же папке

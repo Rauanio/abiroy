@@ -255,8 +255,7 @@
             <h2
               class="max-w-[723px] font-sf text-[26px] font-normal leading-tight text-black sm:text-[32px] lg:text-[36px]"
             >
-              Системы водоподготовки для котельных, ТЭЦ и тепловых пунктов — под состав воды, нагрузку и режим
-              объекта.
+              Системы водоподготовки для котельных, ТЭЦ и тепловых пунктов — под состав воды, нагрузку и режим объекта.
             </h2>
             <a
               href="/contact.html"
@@ -278,7 +277,9 @@
                 data-desc="{{ this.desc }}"
                 class="system-item{{#if this.active}} is-active{{/if}}"
               >
-                <span class="font-sf text-[20px] font-medium leading-tight text-black lg:text-[24px]">{{ this.title }}</span>
+                <span class="font-sf text-[20px] font-medium leading-tight text-black lg:text-[24px]"
+                  >{{ this.title }}</span
+                >
                 <span class="system-item__icon">
                   <svg class="h-[7px] w-[11px]" viewBox="0 0 12 8" fill="none" aria-hidden="true">
                     <path
@@ -379,7 +380,11 @@
                   data-case
                   class="swiper-slide relative block aspect-[740/587] !w-[88%] shrink-0 overflow-hidden rounded-[16px] sm:!w-[60%] lg:!w-[660px]"
                 >
-                  <img src="{{ this.img }}" alt="{{ this.title }}" class="absolute inset-0 h-full w-full object-cover" />
+                  <img
+                    src="{{ this.img }}"
+                    alt="{{ this.title }}"
+                    class="absolute inset-0 h-full w-full object-cover"
+                  />
                   <span
                     class="absolute left-2 top-2 lg:left-5 lg:top-5 inline-flex items-center rounded-[12px] bg-black/40 px-8 py-3 font-sf text-[15px] font-semibold text-white backdrop-blur-sm sm:px-12 sm:py-[21px]"
                     >{{ this.company }}</span
@@ -405,7 +410,6 @@
             class="relative overflow-hidden rounded-[24px] bg-[#02101f] bg-cover bg-center bg-no-repeat p-8 sm:p-12 lg:rounded-[32px] lg:p-[60px]"
             style="background-image: url('/feedback-bg.png')"
           >
-
             <div class="relative flex flex-col gap-10 lg:flex-row lg:items-stretch lg:gap-[40px]">
               <!-- Левая колонка: текст + контакты -->
               <div class="flex flex-1 flex-col">
@@ -523,13 +527,13 @@
                 <div class="flex flex-col gap-3 lg:gap-[23px]] sm:flex-row">
                   <button
                     type="submit"
-                    class="flex flex-1 h-[50px] items-center justify-center rounded-[12px] bg-[#0160b1] px-[22px] font-sf text-[16px] font-semibold text-white transition-colors hover:bg-[#014e90] sm:h-[68px] sm:text-[18px]"
+                    class="flex flex-1 h-[50px] items-center justify-center rounded-[12px] bg-[#0160b1] p-3 font-sf text-[16px] font-semibold text-white transition-colors hover:bg-[#014e90] sm:h-[68px] sm:text-[18px]"
                   >
                     Получить консультацию
                   </button>
                   <button
                     type="button"
-                    class="flex flex-1 h-[50px] items-center justify-center rounded-[12px] border border-[#d6d6d6] px-[22px] font-sf text-[16px] font-semibold text-black transition-colors hover:bg-gray-50 sm:h-[68px] sm:text-[18px]"
+                    class="flex flex-1 h-[50px] items-center justify-center rounded-[12px] border border-[#d6d6d6] p-3 font-sf text-[16px] font-semibold text-black transition-colors hover:bg-gray-50 sm:h-[68px] sm:text-[18px]"
                   >
                     Подобрать технологию
                   </button>
