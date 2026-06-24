@@ -30,23 +30,32 @@ function organizeDist(outDir) {
       mkdirSync(imagesDir, { recursive: true })
       mkdirSync(jsDir, { recursive: true })
 
-      // 0. Собираем весь JS (main + swiper + fancybox) в один classic-бандл.
-      //    format: 'iife' => обычный <script> без type="module" => нет CORS на file://
-      await esbuildBuild({
-        entryPoints: [resolve(__dirname, 'src/main.js')],
-        bundle: true,
-        minify: true,
-        format: 'iife',
-        target: 'es2018',
-        outfile: join(jsDir, 'app.js'),
-        plugins: [ignoreCssPlugin],
-        logLevel: 'silent',
-      })
+      // 0. Собираем JS отдельными classic-бандлами: swiper.js, fancybox.js, app.js.
+      //    Каждый — самодостаточный IIFE (включает свои зависимости), без
+      //    type="module" => нет CORS на file://. Группы не пересекаются по
+      //    зависимостям, поэтому дублирования кода нет.
+      const JS_ENTRIES = [
+        { entry: 'src/entries/swiper.js', out: 'swiper.js' },
+        { entry: 'src/entries/fancybox.js', out: 'fancybox.js' },
+        { entry: 'src/entries/app.js', out: 'app.js' },
+      ]
+      for (const { entry, out } of JS_ENTRIES) {
+        await esbuildBuild({
+          entryPoints: [resolve(__dirname, entry)],
+          bundle: true,
+          minify: true,
+          format: 'iife',
+          target: 'es2018',
+          outfile: join(jsDir, out),
+          plugins: [ignoreCssPlugin],
+          logLevel: 'silent',
+        })
+      }
 
-      // Удаляем модульные js-чанки Vite (main/swiper/fancybox с хешами) —
-      // они больше не нужны, весь код теперь в app.js.
+      // Удаляем модульные js-чанки Vite (с хешами) — весь код теперь в наших бандлах.
+      const keep = new Set(JS_ENTRIES.map((e) => e.out))
       for (const f of readdirSync(jsDir)) {
-        if (f !== 'app.js') unlinkSync(join(jsDir, f))
+        if (!keep.has(f)) unlinkSync(join(jsDir, f))
       }
 
       const entries = readdirSync(dist, { withFileTypes: true })
@@ -71,8 +80,13 @@ function organizeDist(outDir) {
         html = html.replace(/\s*<link\b[^>]*rel="modulepreload"[^>]*>/g, '')
         // Убираем модульные <script type="module" src="js/...">
         html = html.replace(/\s*<script\b[^>]*type="module"[^>]*><\/script>/g, '')
-        // Подключаем единый classic-бандл перед </head> (defer = после парсинга DOM)
-        html = html.replace(/<\/head>/i, '    <script src="js/app.js" defer></script>\n  </head>')
+        // Подключаем classic-бандлы перед </head> (defer = после парсинга DOM)
+        html = html.replace(
+          /<\/head>/i,
+          '    <script src="js/swiper.js" defer></script>\n' +
+            '    <script src="js/fancybox.js" defer></script>\n' +
+            '    <script src="js/app.js" defer></script>\n  </head>'
+        )
 
         // css / assets / images лежат в подпапках рядом с html
         html = html.replace(/(src|href)="\/(js|css|assets|images)\//g, '$1="$2/')
